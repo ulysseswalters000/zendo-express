@@ -150,7 +150,7 @@
 	}
 
 &__brand {
-	padding-top: 12px;
+	padding-top: 8px;
 	float: left;
 	margin-left: 200px;
 	color: #000;
@@ -175,9 +175,13 @@
 
 
 
-
+	&-first {
+		font-family: SweetSans-Medium;
+		padding-right: .1rem;
+	}
+	
 	&-second {
-		font-weight: 300;
+		font-family: SweetSans-Light;
 	}
 }
 	

@@ -10,8 +10,9 @@ router.get('/', function(req, res, next) {
 });
 
 
+
 // POST route from contact form
-router.post('/', function(req, res){
+router.post('/contact', function(req, res){
     var mailOpts, smtpTrans;
     smtpTrans = nodemailer.createTransport({
         host:'smtp.gmail.com',
@@ -30,8 +31,8 @@ router.post('/', function(req, res){
     mailOpts = {
         from: req.body.name + ' &lt;' + req.body.email + '&gt;',
         to: 'ulysseswalters000@gmail.com, zendodigital@gmail.com',
-        subject: 'New Message from contact form',
-        text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+        subject: 'New Message from ' + req.body.email,
+        text: `${req.body.name} (${req.body.email}) phone#: ${req.body.number} \n message: ${req.body.message}`
     };
     smtpTrans.sendMail(mailOpts, function(err, res){
         if (err) {
@@ -41,6 +42,9 @@ router.post('/', function(req, res){
             res.redirect('/');
         }
     });
+    res.redirect('/');
 });
+
+
 
 module.exports = router;

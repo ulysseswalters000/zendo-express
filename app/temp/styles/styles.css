@@ -465,6 +465,14 @@ img {
 	        box-sizing: border-box;
 }
 
+h1, h2 {
+    font-family: SweetSans-Medium;
+}
+
+@font-face { font-family: SweetSans-Medium; src: url('fonts/SweetSans-Medium.otf'); }
+
+@font-face { font-family: SweetSans-Light; src: url('fonts/SweetSans-Light.otf'); }
+
 .large-hero {
 	border-bottom: 10px solid #B3764B;
 	position: relative;
@@ -1016,7 +1024,7 @@ img {
 	text-align: center;
 	position: absolute;
 	width: 100%;
-	margin-top: 60px;
+	border-top: 1px solid black;
 }
 
 .site-footer__text {
@@ -1306,7 +1314,7 @@ img {
 	}
 
 .site-header__brand {
-	padding-top: 12px;
+	padding-top: 8px;
 	float: left;
 	margin-left: 200px;
 	color: #000;
@@ -1339,8 +1347,13 @@ img {
 }
 	}
 
+.site-header__brand-first {
+		font-family: SweetSans-Medium;
+		padding-right: .1rem;
+	}
+
 .site-header__brand-second {
-		font-weight: 300;
+		font-family: SweetSans-Light;
 	}
 
 .primary-nav {
@@ -1633,6 +1646,11 @@ img {
     margin: 50px auto;
     -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    
+}
+
+.contact-form--background-color {
+    background-color: #57585B;
 }
 
 .contact-form input[type="text"],
