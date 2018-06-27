@@ -16,7 +16,7 @@ module.exports = {
 		Vendor: './app/assets/scripts/Vendor.js'
 	},
 	output: {
-		path: path.resolve(__dirname, './app/temp/scripts'),
+		path: path.resolve(__dirname, './temp/scripts'),
 		//allows filenames to be dynamic
 		filename: '[name].js'
 	},

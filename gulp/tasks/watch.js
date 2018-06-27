@@ -9,35 +9,35 @@ gulp.task("html", function(){
 
 //defines task watch, when invoked from CLI starts watching the files passed as first argument to watch
 gulp.task("watch", function(){
-   watch("./app/index.html", function(){
-       gulp.start('html');
-   });
+//   watch("./app/index.ejs", function(){
+//       gulp.start('html');
+//   });
 
    //anytime changes are made to css styles, triggers cssInject task
    watch("./app/assets/styles/**/*.css", function(){
        gulp.start('cssInject');
    });
 
-   watch('./app/assets/scripts/**/*.js', function(){
-      gulp.start('scriptsRefresh');
-   });
+  watch('./app/assets/scripts/**/*.js', function(){
+      gulp.start('scripts');
+  });
 
    //intializes browser sync and sets the base directory
-   browserSync.init({
-      server: {
-        baseDir: "app"
-      }
-   });
+//   browserSync.init({
+//       server: {
+//         baseDir: "app"
+//       }
+//   });
 });
 
 //cssInject has styles task as dependency in [] will take
 //new css and pipe it to stream after the 'styles' task is run
 gulp.task('cssInject', ['styles'], function(){
     return gulp.src('./app/temp/styles/styles.css')
-      .pipe(browserSync.stream());
+    //   .pipe(browserSync.stream());
 });
 
-gulp.task('scriptsRefresh', ['scripts'], function(){
-  browserSync.reload();
-});
+// gulp.task('scriptsRefresh', ['scripts'], function(){
+//   browserSync.reload();
+// });
 

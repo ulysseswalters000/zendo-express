@@ -2,31 +2,29 @@
   "name": "zendosite",
   "version": "1.0.0",
   "description": "Zendo Digital Website",
-  "main": "app.js",
+  "main": "./bin/www",
   "scripts": {
+    "start": "./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrew Walters",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
+    "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
-    "debug": "^2.6.9",
+    "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "http-errors": "^1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0"
-=======
-    "body-parser": "^1.18.2",
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "gulp": "^3.9.1",
     "jquery": "^3.3.1",
     "method-override": "^2.3.10",
-    "mongoose": "^5.0.0",
+    "mongoose": "^5.1.5",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.6.7",
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
+    "ajv": "^6.5.1",
     "autoprefixer": "^7.2.5",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
@@ -58,6 +56,5 @@
     "serve-static": "^1.13.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12"
->>>>>>> f32041256f79ff22c531a2dfc71542363cf819ea
   }
 }

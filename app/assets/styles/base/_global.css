@@ -1,3 +1,7 @@
+html {
+    font-size: 100%;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -11,4 +15,13 @@ img {
 * {
 	box-sizing: border-box;
 }
+
+h1, h2 {
+    font-family: SweetSans-Medium;
+}
+
+@font-face { font-family: SweetSans-Medium; src: url('fonts/SweetSans-Medium.otf'); }
+@font-face { font-family: SweetSans-Light; src: url('fonts/SweetSans-Light.otf'); }
+
+
 
