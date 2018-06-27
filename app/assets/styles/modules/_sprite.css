@@ -1,14 +1,19 @@
     .icon {
-      background-image: url('../../assets/images/sprites/sprite-76236e91.svg');
+      background-image: url('../../assets/images/sprites/sprite-a67ffb59.svg');
     }
 
     .no-svg .icon {
-      background-image: url('../../assets/images/sprites/sprite-76236e91.png');
+      background-image: url('../../assets/images/sprites/sprite-a67ffb59.png');
     }
   .icon--align-left {
     width:32px;
     height:32px;
-    background-position:74.86033519553072% 98.41269841269842%;
+    background-position:93.85474860335195% 98.41269841269842%;
+  }
+  .icon--check {
+    width:34px;
+    height:34px;
+    background-position:0 100%;
   }
   .icon--comments {
     width:71.92px;
@@ -28,12 +33,12 @@
   .icon--file-alt {
     width:32px;
     height:32px;
-    background-position:56.98324022346369% 98.41269841269842%;
+    background-position:75.97765363128492% 98.41269841269842%;
   }
   .icon--globe {
     width:34px;
     height:34px;
-    background-position:84.13559322033899% 50%;
+    background-position:19.2090395480226% 100%;
   }
   .icon--instagram {
     width:62.01px;
@@ -43,17 +48,17 @@
   .icon--reply-all {
     width:34px;
     height:34px;
-    background-position:19.2090395480226% 100%;
+    background-position:38.4180790960452% 100%;
   }
   .icon--search-plus {
     width:34px;
     height:34px;
-    background-position:38.4180790960452% 100%;
+    background-position:57.6271186440678% 100%;
   }
   .icon--sitemap {
     width:34px;
     height:34px;
-    background-position:0 100%;
+    background-position:84.13559322033899% 50%;
   }
   .icon--twitter-square {
     width:62px;

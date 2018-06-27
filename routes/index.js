@@ -9,6 +9,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/*GET pricing page. */
+router.get('/pricing', function(req,res) {
+    res.render('pricing', {title: 'Express'});
+});
+
 
 
 // POST route from contact form

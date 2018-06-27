@@ -22,4 +22,6 @@
 @import "modules/_hidden-on-mobile";
 @import "modules/_sprite";
 @import "modules/_contact.css";
+@import "modules/_pricing.css";
+@import "modules/_grid.css";
 
