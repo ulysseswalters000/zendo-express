@@ -1,19 +1,17 @@
 .large-hero {
 	border-bottom: 10px solid $mainRed;
-	position: relative;
+	background-image: url(/assets/images/ganges_boats.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 800px;
+	width: 100%;
+	padding-top: 60px;
 
-	&--picture-height {
-		height: 500px;
-		width: 100%;
-		display: block;
-	}
+	
 
 	&__text-content {
-		padding-top: 88px;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		left: 0;
+		padding-top: 188px;
 		width: 100%;
 		text-align: center;
 		color: #FFF;
