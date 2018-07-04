@@ -16,4 +16,9 @@
             font-size: 1.25rem;
         }
     }
+    
+    &:hover{
+        background-color: $coral;
+    }
+    
 }

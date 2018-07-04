@@ -1,4 +1,5 @@
 import MobileMenu from './modules/MobileMenu';
+import MobileNav from './modules/MobileNav';
 import RevealOnScroll from './modules/RevealOnScroll';
 import $ from 'jquery';
 import StickyHeader from './modules/StickyHeader';
@@ -8,4 +9,4 @@ var mobileMenu = new MobileMenu();
 new RevealOnScroll($('.feature-item'), '85%');
 new RevealOnScroll($('.team'), '60%');
 var stickyHeader = new StickyHeader;
-var modal = new Modal();
+var mobileNav = new MobileNav();

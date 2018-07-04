@@ -1,4 +1,5 @@
 .large-hero {
+	display: flex;
 	border-bottom: 10px solid $mainRed;
 	background-image: url(/assets/images/ganges_boats.jpg);
 	background-position: center;
@@ -7,14 +8,17 @@
 	height: 800px;
 	width: 100%;
 	padding-top: 60px;
+	align-items: center;
+	justify-content: center;
 
 	
 
 	&__text-content {
-		padding-top: 188px;
+		/*padding-top: 188px;*/
 		width: 100%;
 		text-align: center;
 		color: #FFF;
+		
 
 		@mixin atMedium {
 			padding-top: 60px;
@@ -25,7 +29,6 @@
 		font-weight: 300;
 		font-size: 2.4rem;
 		margin: 0;
-		text-shadow: 2px 2px 0 rgba(0,0,0, .1);
 
 		@mixin atSmall {
 			font-size: 4rem;

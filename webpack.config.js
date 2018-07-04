@@ -8,6 +8,8 @@ var path = require('path');
 //in this case takes the main app.js file
 //and outputs it to a temp directory
 module.exports = {
+	
+	
 	//entry takes the app to be packed
 	entry: {
 		//bundles code that needs to be written to work
@@ -16,7 +18,7 @@ module.exports = {
 		Vendor: './app/assets/scripts/Vendor.js'
 	},
 	output: {
-		path: path.resolve(__dirname, './temp/scripts'),
+		path: path.resolve(__dirname, './app/temp/scripts'),
 		//allows filenames to be dynamic
 		filename: '[name].js'
 	},
