@@ -5,7 +5,7 @@ class MobileMenu {
 	constructor(){
 		this.siteHeader = $('.mobile-menu');
 		this.menuIcon = $('.mobile-menu__menu-icon');
-		this.menuContent = $('.mobile-menu__menu-content');
+		this.menuContent = $('.mobile-menu__menu-content__list-container');
 		this.events();
 	}
 
@@ -14,7 +14,7 @@ class MobileMenu {
 	}
 
 	toggleTheMenu(){
-		this.menuContent.toggleClass('mobile-menu__menu-content--is-visible');
+		this.menuContent.toggleClass('mobile-menu__menu-content__list-container--is-visible');
 		this.siteHeader.toggleClass('mobile-menu--is-expanded');
 		this.menuIcon.toggleClass('mobile-menu__menu-icon--close-x');
 	}
