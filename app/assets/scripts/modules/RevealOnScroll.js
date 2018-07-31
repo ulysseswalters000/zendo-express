@@ -10,7 +10,7 @@ class RevealOnScroll {
 	}
 
 	hideInitially() {
-		this.itemsToReveal.addClass('reveal-item');
+			this.itemsToReveal.addClass('reveal-item');
 	}
 	//uses waypoints to iterate over elements, adding
 	//classes to the current element
