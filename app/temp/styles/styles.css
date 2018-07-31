@@ -726,7 +726,7 @@ h1, h2 {
 	}
 
 .image {
-		height: 400px;		
+		height: 600px;		
 		background-image: url(/assets/images/greater_heights.jpg);
 		background-position: center;
 		background-repeat: no-repeat;
@@ -2271,6 +2271,10 @@ h1, h2 {
 
 .social-nav ul li i {
                 color: #fff;
+            }
+
+.social-nav ul li i:hover {
+                color: #ff7f50;
             }
 
 .cta {

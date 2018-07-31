@@ -22,6 +22,10 @@
             i {
                 color: #fff;
             }
+
+            i:hover {
+                color: $coral;
+            }
        }
     }
 }
