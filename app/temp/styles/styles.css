@@ -726,13 +726,18 @@ h1, h2 {
 	}
 
 .image {
-		max-height: 300px;
-}
+		height: 400px;		
+		background-image: url(/assets/images/greater_heights.jpg);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-position: cover;
+		
 
-.image--picture-height {
+		/*&--picture-height {
 			max-height: 100%;
 			
-		}
+		}*/
+}
 
 /*pseudo selector takes 
 	content after row and clears it

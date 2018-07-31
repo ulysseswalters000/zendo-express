@@ -1,9 +1,13 @@
 .image {
-		max-height: 300px;
+		height: 400px;		
+		background-image: url(/assets/images/greater_heights.jpg);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-position: cover;
 		
 
-		&--picture-height {
+		/*&--picture-height {
 			max-height: 100%;
 			
-		}
+		}*/
 }
