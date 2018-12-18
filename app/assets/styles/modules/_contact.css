@@ -1,9 +1,14 @@
 .contact-form-main {
-    width: 500px;
-    padding: 30px;
-    background: #FFF;
-    margin: 50px auto;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	width: 100%;
+	
+    @mixin atMedium {
+	    width: 500px;
+	    padding: 30px;
+	    background: #FFF;
+	    margin: 50px auto;
+	    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+
+    }
 
 }
 
