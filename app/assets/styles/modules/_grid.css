@@ -8,7 +8,7 @@
     
     &--column-1 {
         grid-column-start: 1;
-        justify-self: center;
+        text-align: center;
         background-color: #D3D3D3;
         padding: 0 15px;
         font-size: 1.5rem;
@@ -24,7 +24,7 @@
     
     &--column-2 {
         grid-column-start: 1;
-        justify-self: center;
+        text-align: center;
         background-color: #FFF;
         padding: 0 15px;
         font-size: 1.5rem;
@@ -40,7 +40,7 @@
     
     &--column-3 {
         grid-column-start: 1;
-        justify-self: center;
+        text-align: center;
         background-color: #D3D3D3;
         padding: 0 15px;
         font-size: 1.5rem;
@@ -56,7 +56,7 @@
     
     &--column-4 {
         grid-column-start: 1;
-        justify-self: center;
+        text-align: center;
         background-color: #FFF;
         padding: 0 15px;
         font-size: 1.5rem;
