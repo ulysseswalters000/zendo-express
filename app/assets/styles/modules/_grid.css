@@ -19,7 +19,8 @@
             width: 100%;
             background-color: #D3D3D3;
             padding: 0 15px;
-            }
+            font-size: inherit;
+        }
     }
     
     &--column-2 {
@@ -35,6 +36,7 @@
             background-color: #FFF;
             width: 100%;
             padding: 0 15px;
+            font-size: inherit;
         }
     }
     
@@ -51,6 +53,7 @@
             width: 100%;
             background-color: #D3D3D3;
             padding: 0 15px;
+            font-size: inherit;
         }
     }
     
@@ -67,6 +70,7 @@
             background-color: #FFF;
             width: 100%;
             padding: 0 15px;
+            font-size: inherit;
         }
     }
     

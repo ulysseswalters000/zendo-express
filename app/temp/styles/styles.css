@@ -2249,7 +2249,8 @@ h1, h2 {
             justify-self: center;
             width: 100%;
             background-color: #D3D3D3;
-            padding: 0 15px
+            padding: 0 15px;
+            font-size: inherit
     }
 	}
 
@@ -2268,7 +2269,8 @@ h1, h2 {
             justify-self: center;
             background-color: #FFF;
             width: 100%;
-            padding: 0 15px
+            padding: 0 15px;
+            font-size: inherit
     }
 	}
 
@@ -2287,7 +2289,8 @@ h1, h2 {
             justify-self: center;
             width: 100%;
             background-color: #D3D3D3;
-            padding: 0 15px
+            padding: 0 15px;
+            font-size: inherit
     }
 	}
 
@@ -2306,7 +2309,8 @@ h1, h2 {
             justify-self: center;
             background-color: #FFF;
             width: 100%;
-            padding: 0 15px
+            padding: 0 15px;
+            font-size: inherit
     }
 	}
 
