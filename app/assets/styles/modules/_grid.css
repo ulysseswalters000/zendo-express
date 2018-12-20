@@ -8,8 +8,10 @@
     
     &--column-1 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #D3D3D3;
         padding: 0 15px;
+        font-size: 1.5rem;
 
         @mixin atMedium {
             grid-column-start: 1; 
@@ -22,8 +24,10 @@
     
     &--column-2 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #FFF;
         padding: 0 15px;
+        font-size: 1.5rem;
 
         @mixin atMedium {
             grid-column-start: 2; 
@@ -36,8 +40,10 @@
     
     &--column-3 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #D3D3D3;
         padding: 0 15px;
+        font-size: 1.5rem;
 
         @mixin atMedium {
             grid-column-start: 3; 
@@ -50,9 +56,11 @@
     
     &--column-4 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #FFF;
         padding: 0 15px;
-        
+        font-size: 1.5rem;
+
         @mixin atMedium {
             grid-column-start: 4; 
             justify-self: center;

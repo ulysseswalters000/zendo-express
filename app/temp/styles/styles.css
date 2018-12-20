@@ -2236,8 +2236,10 @@ h1, h2 {
 
 .grid--column-1 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #D3D3D3;
         padding: 0 15px;
+        font-size: 1.5rem;
     }
 
 @media (min-width: 800px) {
@@ -2253,8 +2255,10 @@ h1, h2 {
 
 .grid--column-2 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #FFF;
         padding: 0 15px;
+        font-size: 1.5rem;
     }
 
 @media (min-width: 800px) {
@@ -2270,8 +2274,10 @@ h1, h2 {
 
 .grid--column-3 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #D3D3D3;
         padding: 0 15px;
+        font-size: 1.5rem;
     }
 
 @media (min-width: 800px) {
@@ -2287,8 +2293,10 @@ h1, h2 {
 
 .grid--column-4 {
         grid-column-start: 1;
+        justify-self: center;
         background-color: #FFF;
         padding: 0 15px;
+        font-size: 1.5rem;
     }
 
 @media (min-width: 800px) {
