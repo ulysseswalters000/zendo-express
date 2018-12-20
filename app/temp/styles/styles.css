@@ -2176,15 +2176,23 @@ h1, h2 {
 }
 
 .pricing {
-    /*background-color: $mainOrange;*/
-    text-align: center;
-    background-image: url(/assets/images/ganges_bath_time.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #A55106;
     
     
 }
+
+@media (min-width: 800px) {
+
+.pricing {
+        text-align: center;
+        background-image: url(/assets/images/ganges_bath_time.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover
+    
+    
+}
+	}
 
 .pricing__price {
         font-family: SweetSans-Medium;

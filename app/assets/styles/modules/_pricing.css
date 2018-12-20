@@ -1,11 +1,13 @@
 .pricing {
-    /*background-color: $mainOrange;*/
-    text-align: center;
-    background-image: url(/assets/images/ganges_bath_time.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-color: $mainOrange;
+
+    @mixin atMedium {
+        text-align: center;
+        background-image: url(/assets/images/ganges_bath_time.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     
     &__price {
         font-family: SweetSans-Medium;
