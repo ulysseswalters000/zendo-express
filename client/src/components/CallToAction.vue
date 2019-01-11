@@ -44,7 +44,7 @@
         
         &--img {
             text-align: center;
-            margin-bottom: 60px;
+            align-self: stretch;
         }
         
         &--inner-grid {
@@ -85,7 +85,7 @@
         
     }
     
-    @mixin atMedium {
+    @include atMedium {
                 
     
         &__grid {

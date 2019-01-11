@@ -45,9 +45,10 @@ export default {
     color: #FFF;
     
 
-    @mixin atMedium {
+    @include atMedium {
       padding-top: 60px;
     }
+    
   }
 
   &__title {
@@ -55,35 +56,9 @@ export default {
     font-size: 2.4rem;
     margin: 0;
 
-    @mixin atSmall {
+    @include atSmall {
       font-size: 4rem;
     }
   }
-
-  &__subtitle {
-        font-weight: 300;
-        font-size: 1.6rem;
-        margin: 0;
-        text-shadow: 2px 2px 0 rgba(0,0,0, .1);
-
-        @mixin atSmall {
-            font-size: 2rem;
-            margin: 0 50px;
-        }
-    }
-
-    &__description {
-        color: #FFF;
-        font-size: 1.1rem;
-        font-weight: 100;
-        text-shadow: 2px 2px 0 rgba(0,0,0, .1);
-        max-width: 30rem;
-        margin: auto;
-
-        @mixin atSmall {
-            font-size: 1.875rem;
-        }
-    }
-
 }
 </style>
