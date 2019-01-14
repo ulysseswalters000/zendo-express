@@ -1,16 +1,19 @@
 <template lang="pug">
   div#app
+    Navigation
     LargeHero
     CallToAction
 </template>
 
 <script>
+import Navigation from './components/Navigation.vue'
 import LargeHero from './components/LargeHero.vue'
 import CallToAction from './components/CallToAction.vue'
 
 export default {
   name: 'app',
   components: {
+    Navigation,
     LargeHero,
     CallToAction
   }
