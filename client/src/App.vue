@@ -3,19 +3,22 @@
     Navigation
     LargeHero
     CallToAction
+    Features
 </template>
 
 <script>
 import Navigation from './components/Navigation.vue'
 import LargeHero from './components/LargeHero.vue'
 import CallToAction from './components/CallToAction.vue'
+import Features from './components/Features.vue'
 
 export default {
   name: 'app',
   components: {
     Navigation,
     LargeHero,
-    CallToAction
+    CallToAction,
+    Features
   }
 }
 </script>

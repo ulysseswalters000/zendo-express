@@ -10,6 +10,9 @@ module.exports = {
           @import "@/scss/modules/_btn.scss";
           @import "@/scss/modules/_wrapper.scss";
           @import "@/scss/modules/_headline.scss";
+          @import "@/scss/modules/_page-section.scss";
+          @import "@/scss/modules/_row.scss";
+          @import "@/scss/modules/_generic-content-container.scss";
         `
       }
     }
