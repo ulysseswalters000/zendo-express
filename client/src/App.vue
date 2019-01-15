@@ -4,6 +4,7 @@
     LargeHero
     CallToAction
     Features
+    Teams
 </template>
 
 <script>
@@ -11,6 +12,7 @@ import Navigation from './components/Navigation.vue'
 import LargeHero from './components/LargeHero.vue'
 import CallToAction from './components/CallToAction.vue'
 import Features from './components/Features.vue'
+import Teams from './components/Teams.vue'
 
 export default {
   name: 'app',
@@ -18,7 +20,8 @@ export default {
     Navigation,
     LargeHero,
     CallToAction,
-    Features
+    Features,
+    Teams
   }
 }
 </script>
