@@ -5,6 +5,10 @@
     CallToAction
     Features
     Teams
+    ContactForm
+    AboutUs
+    GreaterHeights
+    TheFooter
 </template>
 
 <script>
@@ -13,6 +17,10 @@ import LargeHero from './components/LargeHero.vue'
 import CallToAction from './components/CallToAction.vue'
 import Features from './components/Features.vue'
 import Teams from './components/Teams.vue'
+import ContactForm from './components/ContactForm.vue'
+import AboutUs from './components/AboutUs.vue'
+import GreaterHeights from './components/GreaterHeights.vue'
+import TheFooter from './components/TheFooter.vue'
 
 export default {
   name: 'app',
@@ -21,7 +29,11 @@ export default {
     LargeHero,
     CallToAction,
     Features,
-    Teams
+    Teams,
+    ContactForm,
+    AboutUs,
+    GreaterHeights,
+    TheFooter
   }
 }
 </script>

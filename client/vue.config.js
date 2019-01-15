@@ -13,6 +13,7 @@ module.exports = {
           @import "@/scss/modules/_page-section.scss";
           @import "@/scss/modules/_row.scss";
           @import "@/scss/modules/_generic-content-container.scss";
+          @import "@/scss/modules/_section-title.scss";
         `
       }
     }
