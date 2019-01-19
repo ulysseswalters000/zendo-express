@@ -4,7 +4,7 @@
       h2(class="section-title" data-aos="zoom-out" data-aos-duration="1500")
         span(class="section-title__icon")
           i(class="fas fa-dolly-flatbed")
-        | Our 
+        | Our
         strong Features
       div(class="row row--gutters-large generic-content-container")
         div.row__medium-6
@@ -17,11 +17,11 @@
 
           div(class="feature-item" data-aos="zoom-out" data-aos-duration="1500")
             h3.feature-item__title
-              span(class="section-title__icon") 
+              span(class="section-title__icon")
                 i(class="fas fa-search-plus")
                 |  SEO
             p Search Engine Optimization is the art of having your site reach the widest group of clients possible. Use our services, and we&rsquo;ll make sure you cast the widest net possible.
-            
+
           div(class="feature-item" data-aos="zoom-out" data-aos-duration="1500")
             h3.feature-item__title
               span(class="section-title__icon")
@@ -52,6 +52,12 @@
             p Well-branded creative content defines your digital presence, shaping your business identity. Our completely customized content will be tailored to your client base.
 </template>
 
+<script>
+  export default {
+    name: 'Features'
+  }
+</script>
+
 <style lang="scss">
   .feature-item {
     position: relative;
@@ -74,7 +80,7 @@
     &__title {
       font-size: 1.6rem;
       font-weight: 300;
-      margin-bottom: .8rem; 
+      margin-bottom: .8rem;
       margin-top: .7em;
       text-align: center;
 
@@ -85,6 +91,6 @@
       }
     }
   }
-  
-  
+
+
 </style>

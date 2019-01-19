@@ -6,6 +6,11 @@
     div.image
       img(class="image--picture-height" src="../assets/images/greater_heights.jpg" alt="Trail through a redwood forest")
 </template>
+<script>
+  export default {
+    name: 'GreaterHeights'
+  }
+</script>
 
 <style lang="scss">
 .image {

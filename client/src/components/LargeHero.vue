@@ -5,16 +5,15 @@
         h1.large-hero__title Marketing Solutions for Peace of Mind
           p
             a(class="btn btn--large" href="#contact-form") Contact Us
-      
-    
-  
+
+
+
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'LargeHero',
   props: {
-    msg: String
   }
 }
 </script>
@@ -36,14 +35,14 @@ export default {
   align-items: center;
   justify-content: center;
 
-  
+
 
   &__text-content {
     /*padding-top: 188px;*/
     width: 100%;
     text-align: center;
     color: #FFF;
-    
+
 
     @mixin atMedium {
       padding-top: 60px;

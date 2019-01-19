@@ -2,9 +2,9 @@
   div(id="teams" class="page-section page-section--teams page-section--no-b-padding-until-large" data-matching-link="#teams-link")
     div(class="wrapper wrapper--no-padding-until-large")
       h2(class="section-title section-title--color")
-        span(class="section-title__icon icon icon--comments") 
+        span(class="section-title__icon icon icon--comments")
           i(class="fas fa-comments")
-          |  Our 
+          |  Our
           strong Teams
 
       div(class="row row--gutters row--equal-height-at-large row--t-padding row--gutters-small generic-content-container")
@@ -40,14 +40,20 @@
             h3.team__title Authorship
             h4.team__subtitle The Literary Team
             p.team--text-align
-              strong A Haiku: 
+              strong A Haiku:
               br
-              |  Words spring vital life 
+              |  Words spring vital life
               br
-              |  Clients you will gain and keep 
+              |  Clients you will gain and keep
               br
               |  Vittles and drink, yay
 </template>
+
+<script>
+  export default {
+    name: 'Teams'
+  }
+</script>
 
 <style lang="scss">
   .team {
