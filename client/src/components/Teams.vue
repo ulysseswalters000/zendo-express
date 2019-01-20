@@ -4,8 +4,7 @@
       h2(class="section-title section-title--color")
         span(class="section-title__icon icon icon--comments")
           i(class="fas fa-comments")
-          |  Our
-          strong Teams
+          |  Digital Presence Made Easy
 
       div(class="row row--gutters row--equal-height-at-large row--t-padding row--gutters-small generic-content-container")
         div.row__large-6
@@ -57,52 +56,52 @@
 
 <style lang="scss">
   .team {
-  	background-color: rgba(255, 255, 255, .8);
-  	padding: 18px;
-  	margin-bottom: 98px;
+    background-color: rgba($mainWhite, .8);
+    padding: 18px;
+    margin-bottom: 98px;
 
-  	@include atLarge {
-  		padding: 0 1.8125rem 1px 1.8125rem;
-  		margin-bottom: 25px;
-  	}
+    @include atLarge {
+      padding: 0 1.8125rem 1px 1.8125rem;
+      margin-bottom: 25px;
+    }
 
-  	&__photo {
-  		border-radius: 50%;
-  		overflow: hidden;
-  		width: 160px;
-  		height: 160px;
-  		margin: 0 auto -80px auto;
-  		position: relative;
-  		top: -80px;
-  		border: 6px solid rgba(255, 255, 255, .8);
+    &__photo {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto -80px auto;
+      position: relative;
+      top: -80px;
+      border: 6px solid rgba($mainWhite, .8);
 
-  		&--translate {
-  			height: 100%;
-  		}
-  	}
+      &--translate {
+        height: 100%;
+      }
+    }
 
-  	&__title {
-  		color: $mainBlueGrey;
-  		text-align: center;
-  		font-size: 1.5rem;
-  		font-weight: 500;
-  		margin: 0;
-  	}
+    &__title {
+      color: $mainDarkerGrey;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 0;
+    }
 
-  	&__subtitle {
-  		color: $mainOrange;
-  		text-align: center;
-  		font-weight: 400;
-  		font-size: .93rem;
-  		margin: .25rem 0 1rem 0;
-  	}
+    &__subtitle {
+      color: $mainDarkColor;
+      text-align: center;
+      font-weight: 400;
+      font-size: .93rem;
+      margin: .25rem 0 1rem 0;
+    }
 
-  	&--last {
-  		margin-bottom: 0;
-  	}
+    &--last {
+      margin-bottom: 0;
+    }
 
-  	&--text-align {
-  		text-align: center;
-  	}
+    &--text-align {
+      text-align: center;
+    }
   }
 </style>

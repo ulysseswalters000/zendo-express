@@ -14,8 +14,15 @@
               a(href='https://twitter.com/zendodigital')
                 i(class="fab fa-twitter-square fa-lg")
 
-    div.mobile-menu
-      div.mobile-menu__menu-icon
+    div(
+        class="mobile-menu"
+        v-bind:class="{'mobile-menu--is-expanded': revealMobileNav.toggleSiteHeader}"
+        )
+      div(
+        class="mobile-menu__menu-icon"
+        v-on:click="revealMobileNav.toggleMenuContent = !revealMobileNav.toggleMenuContent; revealMobileNav.toggleSiteHeader = !revealMobileNav.toggleSiteHeader; toggleMenuIcon = !toggleMenuIcon"
+        v-bind:class="{'mobile-menu__menu-icon--close-x': toggleMenuIcon}"
+        )
         div.mobile-menu__menu-icon__middle
 
     div.main-nav
@@ -31,39 +38,68 @@
                 a(href="/" id="home") Home
                 ul.drop-menu
                   li.dropdown-li
-                    a(href="#features" id="features-link") Feature
+                    a(href="/#features" id="features-link") Feature
                   li.dropdown-li
-                    a(href="#teams" id="teams-link") Teams
+                    a(href="/#teams" id="teams-link") Teams
                   li.dropdown-li
-                    a(href="#about-us" id="about-us-link") About
+                    a(href="/#about-us" id="about-us-link") About
               li
                 router-link(to='/contact') Contact
               li
                 a(href="pricing" id="pricing") Pricing
 
-      div.mobile-menu__menu-content
-        ul.mobile-menu__menu-content__list-container
-          li.mobile-menu__menu-content--show-dropdown
-            span
-              i(class="fas fa-caret-right")
-            span
-              i(class="caret-down fas fa-caret-down")
-            ul.mobile-menu__menu-content--drop-menu
-              li.mobile-menu__menu-content--dropdown-li
-                a(href="#features" id="features-link") Features
-              li.mobile-menu__menu-content--dropdown-li
-                a(href="#teams" id="teams-link") Teams
-              li(class="mobile-menu__menu-content--dropdown-li")
-                a(href="#about-us" id="about-us-link") About
-          li
-            a(href="#contact-form" id="contact-link") Contact
-          li
-            a(href="pricing" id="pricing") Pricing
+    div.mobile-menu__menu-content
+      ul(
+        class="mobile-menu__menu-content__list-container"
+        v-bind:class="{'mobile-menu__menu-content__list-container--is-visible': revealMobileNav.toggleMenuContent}"
+        )
+        li(
+          class="mobile-menu__menu-content--show-dropdown"
+          v-on:click="innerMobileNav.showInnerDropdown = !innerMobileNav.showInnerDropdown; innerMobileNav.caretDownIsVisible = !innerMobileNav.caretDownIsVisible; innerMobileNav.caretRightIsHidden = !innerMobileNav.caretRightIsHidden;"
+          ) Home
+          span
+             i(
+               class="fas fa-caret-right"
+               v-bind:class="{'caret-right--is-hidden': innerMobileNav.caretRightIsHidden}"
+               )
+          span
+            i(
+              class="caret-down fas fa-caret-down"
+              v-bind:class="{'caret-down--is-visible': innerMobileNav.caretDownIsVisible}"
+              )
+        ul(
+          class="mobile-menu__menu-content--drop-menu"
+          v-bind:class="{'show-mobile-dropdown': innerMobileNav.showInnerDropdown}"
+          )
+          li.mobile-menu__menu-content--dropdown-li
+            a(href="/#features" id="features-link") Features
+          li.mobile-menu__menu-content--dropdown-li
+            a(href="/#teams" id="teams-link") Teams
+          li(class="mobile-menu__menu-content--dropdown-li")
+            a(href="/#about-us" id="about-us-link") About
+        li
+          router-link(to='/contact') Contact
+        li
+          a(href="pricing" id="pricing") Pricing
 </template>
 
 <script>
   export default {
-    name: 'Navigation'
+    name: 'Navigation',
+    data: function () {
+      return {
+        revealMobileNav: {
+          toggleMenuIcon: false,
+          toggleSiteHeader: false,
+          toggleMenuContent: false
+        },
+        innerMobileNav: {
+          showInnerDropdown: false,
+          caretRightIsHidden: false,
+          caretDownIsVisible: false
+        }
+      }
+    }
   }
 </script>
 
@@ -94,11 +130,11 @@
               }
 
               i {
-                  color: #fff;
+                  color: $mainWhite;
               }
 
               i:hover {
-                  color: $coral;
+                  color: $mainDarkColor;
               }
           }
         }
@@ -111,7 +147,7 @@
       justify-content: flex-end;
       width: 100%;
       height:60px;
-      background-color: #ff7f50;
+      background-color: $mainDarkColor;
       position: fixed;
 
       @include atMedium {
@@ -138,18 +174,18 @@
 
                   li {
                       display: block;
-                      background-color:#ff7f50;
+                      background-color:$mainDarkColor;
                   }
               }
 
               &:hover {
-                  background-color: #ffb296;
+                  background-color: $mainLighterDarkColor;
               }
 
 
               a {
                   text-decoration: none;
-                  color: #fff;
+                  color: $mainWhite;
                   text-transform: uppercase;
                   width: 100%;
                   height:100%;
@@ -163,7 +199,7 @@
                   position: absolute;
                   transition: all 0.5s ease;
                   margin-top:1rem;
-                  top:73%;
+                  top: 73%;
                   left: 0;
                   display: none;
                   z-index: 1;
@@ -218,6 +254,9 @@
     &__menu-content {
         display: flex;
         background-color: black;
+
+
+
         @include atMedium {
                 display: none;
                 visibility: hidden;
@@ -229,24 +268,22 @@
             padding: 0;
             margin: 0;
             width: 100%;
-            /*position: relative;*/
 
             &--is-visible {
                 display: block;
                 z-index: 2;
-                /*width: 100%;*/
                 top: 50px;
                 left:50px;
 
                 > li {
                     list-style: none;
-                    color: #fff;
+                    color: $mainWhite;
                     display: block;
                     position: relative;
                     padding: 10px 0;
                     background-color: #000;
                     width: 100%;
-                    border-top: 1px white solid;
+                    border-top: 1px $mainWhite solid;
                     padding-left: 10px;
                     font-size: 1.5em;
 
@@ -255,13 +292,13 @@
                           height: 100%;
                           text-decoration: none;
                           display: block;
-                          color: #fff;
+                          color: $mainWhite;
                       }
                 }
 
                 > li:last-child {
                     padding-bottom: 10px;
-                    border-bottom: 1px white solid;
+                    border-bottom: 1px $mainWhite solid;
                 }
             }
         }
@@ -269,32 +306,33 @@
         &--drop-menu {
                 visibility: hidden;
                   opacity: 0;
-                  /*position: relative;*/
                   transition: all 0.5s ease;
                   top:0;
                   left: 0;
                   display: none;
-                  /*z-index: 20;*/
                   list-style: none;
 
                   > li {
                     display: flex;
                     width: 100%;
-                    height: 35px;
+                    height: 51px;
                     justify-content: center;
                     flex-direction: column;
 
                       a {
-                          display: block;
-                          color: #fff;
+                          display: flex;
+                          color: $mainWhite;
                           width: 100%;
                           height: 100%;
                           font-size: 1rem;
-                          padding: 10px 0 0 10px;
                           text-decoration: none;
+                          font-size: 1.5rem;
+                          border-top: 1px solid $mainWhite;
+                          align-items: center;
+                          justify-content: center;
                       }
                       a:hover {
-                          background-color: $coral;
+                          background-color: $mainDarkColor;
                       }
                   }
 
@@ -313,7 +351,7 @@
     }
 
     &--is-expanded {
-      background-color: rgba($mainBlueGrey, .55);
+      background-color: rgba($mainDarkGrey, .55);
     }
 
     &__menu-icon:hover {
@@ -324,7 +362,7 @@
       width: 20px;
       height: 20px;
       position: absolute;
-      top: -30px;
+      top: -37px;
       left: 10px;
       z-index: 10;
 
@@ -335,7 +373,7 @@
         left: 0;
         width: 20px;
         height: 3px;
-        background-color: #FFF;
+        background-color: $mainWhite;
         transform-origin: 0% 0%;
         transition: transform .3s ease-out;
       }
@@ -346,7 +384,7 @@
         left: 0;
         width: 20px;
         height: 3px;
-        background-color: #FFF;
+        background-color: $mainWhite;
         transition: all .3s ease-out;
         transform-origin: 0 50%;
       }
@@ -358,7 +396,7 @@
         left: 0;
         width: 20px;
         height: 3px;
-        background-color: #FFF;
+        background-color: $mainWhite;
         transform-origin: 0% 100%;
         transition: transform .3s ease-out;
       }

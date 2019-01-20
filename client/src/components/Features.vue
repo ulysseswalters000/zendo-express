@@ -4,8 +4,8 @@
       h2(class="section-title" data-aos="zoom-out" data-aos-duration="1500")
         span(class="section-title__icon")
           i(class="fas fa-dolly-flatbed")
-        | Our
-        strong Features
+        | Our 
+        strong Services
       div(class="row row--gutters-large generic-content-container")
         div.row__medium-6
           div(class="feature-item" data-aos="zoom-out" data-aos-duration="1500")

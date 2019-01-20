@@ -11,7 +11,6 @@
                 span.pricing__price--sub-script /month
               h2.pricing__title Grasshopper
               hr.pricing__hr
-              a(class="btn btn--orange" href="/#contact-form") Contact Us
               div.pricing__content
                 h3 Features
                 p Account Monitoring & Management
@@ -48,7 +47,6 @@
                 span.pricing__price--sub-script /month
               h2.pricing__title Black Belt
               hr.pricing__hr
-              a(class= "btn btn--orange" href="/#contact-form") Contact Us
               div.pricing__content
                 h3 Grasshopper Features
                 i(class="fas fa-plus i--color")
@@ -79,7 +77,6 @@
                 span.pricing__price--sub-script /month
               h2.pricing__title Ninja
               hr.pricing__hr
-              a(class="btn btn--orange" href="/#contact-form") Contact Us
               div.pricing__content
                 h3 Black Belt Features
                 i(class="fas fa-plus i--color")
@@ -110,7 +107,6 @@
                 span.pricing__price--sub-script /month
               h2.pricing__title Zen Master
               hr.pricing__hr
-              a(class="btn btn--orange" href="/#contact-form") Contact Us
               div.pricing__content
                 h3 Ninja Features
                 i(class="fas fa-plus i--color")
@@ -153,7 +149,7 @@ import TheFooter from '@/components/TheFooter.vue'
 
 <style lang="scss">
   .pricing {
-      background-color: $mainOrange;
+      background-color: $mainDarkColor;
 
       @include atMedium {
           text-align: center;
@@ -165,7 +161,7 @@ import TheFooter from '@/components/TheFooter.vue'
 
       &__price {
           font-family: SweetSans-Medium;
-          color: $mainOrange;
+          color: $mainDarkColor;
           font-size: 3rem;
 
           &--sub-script {
@@ -187,7 +183,7 @@ import TheFooter from '@/components/TheFooter.vue'
       }
 
       & .i--color {
-          color: green;
+          color: $mainLighterDarkColor;
           font-size: 5rem;
           margin: 3rem 0;
       }

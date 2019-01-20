@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    h3(class="headline headline--centered headline--orange headline--small headline--narrow headline--light headline--b-margin-large")
+    h3(class="headline headline--centered headline--lightest-color headline--small headline--narrow headline--light headline--b-margin-large")
       | Let us help your business reach
       strong greater heights.
     div.image

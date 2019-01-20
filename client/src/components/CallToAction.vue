@@ -1,9 +1,10 @@
 <template lang="pug">
-  div#cta.page-section(data-matching-link="#about-us-link")
+  div(id="cta" class="page-section" data-matching-link="#about-us-link")
     div.wrapper
       h2(class="headline headline--centered headline--light headline--b-margin-small headline--slightly-larger")
-        | Digital Presence
-        strong made easy.
+        | Digital
+        strong  Presence
+        |  made easy.
 
 
 
@@ -17,7 +18,7 @@
         //- column 2
         div.cta__grid-column-2
           div.cta__grid--right-column
-            h2 Zendo Digital
+            h1 Zendo Digital
             p We specialize in custom digital marketing solutions for the busy owner, Your business deserves your attention, so let our team of experts do the heavy lifting.
             div.services
               h3 Services:
@@ -45,12 +46,15 @@
 .cta {
     display: block;
 
+
     &__grid {
         text-align: center;
+        font-size: 1.3rem;
 
         &--img {
-            text-align: center;
-            margin-bottom: 60px;
+          text-align: center;
+          align-items: center;
+          height: 90%;
         }
 
         &--inner-grid {
@@ -67,6 +71,7 @@
         ul {
           padding: 0;
           margin: 0;
+          color: $mainWhite;
 
           li {
               width: 100%;
@@ -74,33 +79,32 @@
               list-style: none;
 
               a {
-                  background-color: grey;
-                  display: block;
+                  background-color: $mainDarkColor;
+                  display: flex;
                   width: 100%;
                   height: 100%;
                   text-decoration: none;
                   padding: 15px 0;
-                  color: black;
+                  color: $mainWhite;
+                  justify-content: center;
+                  align-items: center;
+
 
                   &:hover {
-                      background-color: $lightCoral;
+                      background-color: $mainLighterDarkColor;
                   }
               }
           }
-      }
-
+        }
     }
 
-    @mixin atMedium {
-
+    @include atMedium {
 
         &__grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
             margin-top: 120px;
-
-
 
             &-column-1 {
                 grid-column-start: 1;
@@ -117,32 +121,36 @@
 
             &--img {
                 grid-column-start: 1;
-
-
             }
 
-
             &--right-column{
-                color: $mainBlueGrey;
+                color: #000;
+                font-size: 1.2rem;
+
                 .services {
                     text-align: center;
+
                     ul {
                         padding: 0;
                         margin: 0;
+
                         li {
                             width: 100%;
                             height: 100%;
                             list-style: none;
+
                             a {
-                                display: block;
+                                display: flex;
                                 width: 100%;
                                 height: 100%;
                                 text-decoration: none;
                                 padding: 15px 0;
-                                color: $mainBlueGrey;
+                                color: $mainWhite;
+                                align-items: center;
+                                justify-content: center;
 
                                 &:hover {
-                                    background-color: $lightCoral;
+                                    background-color: $mainLighterDarkColor;
                                 }
                             }
                         }
