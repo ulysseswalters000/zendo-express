@@ -1,6 +1,7 @@
 <template lang="pug">
   div#app
     Navigation
+    AnimatedHeader
     LargeHero
     CallToAction
     Features
@@ -20,6 +21,7 @@ import Teams from '@/components/Teams.vue'
 import AboutUs from '@/components/AboutUs.vue'
 import GreaterHeights from '@/components/GreaterHeights.vue'
 import TheFooter from '@/components/TheFooter.vue'
+import AnimatedHeader from '@/components/AnimatedHeader.vue'
 
 export default {
   name: 'app',
@@ -32,6 +34,7 @@ export default {
     AboutUs,
     GreaterHeights,
     TheFooter,
+    AnimatedHeader
   }
 }
 </script>

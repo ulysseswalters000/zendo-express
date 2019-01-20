@@ -1,13 +1,10 @@
 <template lang="pug">
-  div.large-hero
-    div.wrapper
-      div.large-hero__text-content
-        h1.large-hero__title Marketing Solutions for Peace of Mind
-          p
-            a(class="btn btn--large" href="#contact-form") Contact Us
-
-
-
+    div.large-hero
+        div.wrapper
+          div.large-hero__text-content
+            h1.large-hero__title Marketing Solutions for Peace of Mind
+              p
+                a(class="btn btn--large" href="#contact-form") Contact Us
 </template>
 
 <script>
@@ -24,35 +21,31 @@ export default {
 
 .large-hero {
   display: flex;
-  background-image: url(../assets/images/ganges_boats.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 800px;
+  height: 600px;
   width: 100%;
   padding-top: 60px;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-
-
-
-  &__text-content {
-    color: $mainWhite;
-
-
-    @include atMedium {
-      padding-top: 60px;
-    }
-  }
-
-  &__title {
-    font-weight: 300;
-    font-size: 2.4rem;
-    margin: 0;
-
-    @include atSmall {
-      font-size: 4rem;
-    }
-  }
+//
+//
+//
+//   &__text-content {
+//     color: $mainWhite;
+//
+//
+//     @include atMedium {
+//       padding-top: 60px;
+//     }
+//   }
+//
+//   &__title {
+//     font-weight: 300;
+//     font-size: 2.4rem;
+//     margin: 0;
+//
+//     @include atSmall {
+//       font-size: 4rem;
+//     }
+//   }
 }
 </style>
