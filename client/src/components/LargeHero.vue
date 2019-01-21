@@ -1,20 +1,21 @@
 <template lang="pug">
-  div.large-hero
-    div.wrapper
-      div.large-hero__text-content
-        h1.large-hero__title Marketing Solutions for Peace of Mind
-          p
-            a(class="btn btn--large" href="#contact-form") Contact Us
-      
-    
-  
+    div.large-hero
+        div.wrapper
+          div.large-hero__text-content
+            h1.large-hero__title Zendo
+              span.large-hero__title--lighter-font Digital
+            p.large-hero__subtitle
+              |  Your business deserves your attention,
+              |  so let our team of experts do the heavy lifting.
+              |  We specialize in custom digital marketing solutions for the busy owner.
+            p.large-hero__cta-btn
+              a(class="btn btn--large" href="/contact") Contact Us
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'LargeHero',
   props: {
-    msg: String
   }
 }
 </script>
@@ -25,25 +26,16 @@ export default {
 
 .large-hero {
   display: flex;
-  border-bottom: 10px solid $mainRed;
-  background-image: url(../assets/images/ganges_boats.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 800px;
+  height: 950px;
   width: 100%;
-  padding-top: 60px;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 
-  
+
 
   &__text-content {
-    /*padding-top: 188px;*/
-    width: 100%;
-    text-align: center;
-    color: #FFF;
-    
+    color: #000;
+
 
     @include atMedium {
       padding-top: 60px;
@@ -53,8 +45,14 @@ export default {
 
   &__title {
     font-weight: 300;
-    font-size: 2.4rem;
-    margin: 0;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    color: $mainDarkerGrey;
+
+    &--lighter-font {
+      font-family: SweetSans-Light;
+    }
 
     @include atSmall {
       font-size: 4rem;

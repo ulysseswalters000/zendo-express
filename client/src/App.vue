@@ -1,19 +1,11 @@
 <template lang="pug">
-  div#app
-    LargeHero
-    CallToAction
+    router-view
 </template>
 
 <script>
-import LargeHero from './components/LargeHero.vue'
-import CallToAction from './components/CallToAction.vue'
 
 export default {
-  name: 'app',
-  components: {
-    LargeHero,
-    CallToAction
-  }
+  name: 'app'
 }
 </script>
 
@@ -25,6 +17,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

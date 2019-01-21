@@ -1,7 +1,0 @@
-.hidden-on-mobile {
-	display: none;
-
-	@mixin atMedium {
-		display: block;
-	}
-}

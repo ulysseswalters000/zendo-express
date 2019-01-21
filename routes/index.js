@@ -28,11 +28,11 @@ router.post('/contact', function(req, res){
             user: 'ulysseswalters000@gmail.com',
             pass: 'Percuss1on!'
         },
-        
+
     });
-    
-    
-        
+
+
+
     mailOpts = {
         from: req.body.name + ' &lt;' + req.body.email + '&gt;',
         to: 'ulysseswalters000@gmail.com, zendodigital@gmail.com',
@@ -52,4 +52,4 @@ router.post('/contact', function(req, res){
 
 
 
-module.exports = router;
+// module.exports = router;

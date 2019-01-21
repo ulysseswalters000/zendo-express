@@ -1,24 +1,16 @@
 <template lang="pug">
-  div#cta.page-section(data-matching-link="#about-us-link")
+  div(id="cta" class="page-section" data-matching-link="#about-us-link")
     div.wrapper
-      h2(class="headline headline--centered headline--light headline--b-margin-small headline--slightly-larger") 
-        | Digital Presence 
-        strong made easy.
-    
-
-
       div(class="cta cta__grid")
-        
+
         //- column 1
         div.cta__grid-column-1
           div.cta__grid--img
             img(src="../assets/images/zendo_logo_small.png")
-        
+
         //- column 2
         div.cta__grid-column-2
           div.cta__grid--right-column
-            h2 Zendo Digital
-            p We specialize in custom digital marketing solutions for the busy owner, Your business deserves your attention, so let our team of experts do the heavy lifting.
             div.services
               h3 Services:
               ul.cta__grid--inner-grid
@@ -32,139 +24,166 @@
                   a(href="#") Photography and Videography services
                 li(class="item-e span-col-row-3")
                   a(href="#") Content Generation and Copywriting
-            p A strong digital presence is essential for keeping your brand prominent and relevant. Let Zendo Digital help propel your business to the top with our expertise and knowledge.</p>
+      p.cta__end-p
+        | A strong digital presence is essential for keeping your brand prominent and relevant.
+        | Let Zendo Digital help propel your business to the top with our expertise and knowledge.
 </template>
+
+<script>
+  export default {
+    name: 'CallToAction'
+  }
+</script>
 
 <style lang="scss">
 .cta {
     display: block;
-    
+
+    &__end-p {
+      color: $mainDarkerGrey;
+      font-size: 1.6rem;
+      margin: 80px 0 0 0;
+    }
+
     &__grid {
         text-align: center;
-        
+        font-size: 1.3rem;
+
         &--img {
-            text-align: center;
-            align-self: stretch;
+          text-align: center;
+          align-items: center;
+          height: 90%;
         }
-        
+
         &--inner-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
             grid-gap: 1rem;
-            
+
             .span-col-row-3 {
                 grid-column: 1 / span 2;
             }
         }
-        
+
         ul {
           padding: 0;
           margin: 0;
-          
+          color: $mainWhite;
+
           li {
               width: 100%;
               height: 100%;
               list-style: none;
-              
+
               a {
-                  background-color: grey;
-                  display: block;
+                  background-color: $mainDarkColor;
+                  display: flex;
                   width: 100%;
                   height: 100%;
                   text-decoration: none;
                   padding: 15px 0;
-                  color: black;
-                  
+                  color: $mainWhite;
+                  justify-content: center;
+                  align-items: center;
+
+
                   &:hover {
-                      background-color: $lightCoral;
+                      background-color: $mainLighterDarkColor;
+                      color: $mainDarkerGrey;
                   }
               }
           }
-      }
-        
+        }
     }
-    
+
     @include atMedium {
-                
-    
+
         &__grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
-            margin-top: 120px;
-            
-            
-            
+            margin-top: 30px;
+            grid-auto-rows: 1fr;
+
             &-column-1 {
-                grid-column-start: 1; 
+                grid-column-start: 1;
                 padding: 0 32px;
             }
-            
+
             &-column-2 {
                 grid-column-start: 2;
-                
+
                 h2 {
                     text-align: center;
                 }
             }
-            
+
             &--img {
                 grid-column-start: 1;
-                
-                
             }
-            
-            
+
             &--right-column{
-                color: $mainBlueGrey;
+                color: #000;
+                font-size: 1.2rem;
+
                 .services {
                     text-align: center;
+                    
+                    h3 {
+                        color: $mainDarkerGrey;
+                    }
+                    
                     ul {
                         padding: 0;
                         margin: 0;
+
                         li {
                             width: 100%;
                             height: 100%;
                             list-style: none;
+
                             a {
-                                display: block;
+                                display: flex;
                                 width: 100%;
                                 height: 100%;
                                 text-decoration: none;
                                 padding: 15px 0;
-                                color: $mainBlueGrey;
-                                
+                                color: $mainWhite;
+                                align-items: center;
+                                justify-content: center;
+
                                 &:hover {
-                                    background-color: $lightCoral;
+                                    background-color: $mainLighterDarkColor;
+                                    color: $mainWhite;
                                 }
                             }
                         }
                     }
                 }
             }
-            
+
             &--inner-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: auto;
-                
+
                 .col-1 {
                     grid-column: 1;
                 }
-                
+
                 .row-1 {
                     grid-row: 1;
                 }
-                
+
                 .col-2 {
                     grid-column: 2;
                 }
-                
+
                 .row-2 {
                     grid-row: 2;
                 }
-                
+
                 .span-col-row-3 {
                     grid-column: 1 / span 2;
                 }
