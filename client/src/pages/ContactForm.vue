@@ -56,7 +56,7 @@ import TheFooter from '@/components/TheFooter.vue'
   }
 
   .contact-form--background-color {
-      background-color: $mainDarkColor;
+      background-color: $mainLighterDarkColor;
        padding-bottom: 72px;
   }
 
