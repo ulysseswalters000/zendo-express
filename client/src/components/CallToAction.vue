@@ -1,13 +1,6 @@
 <template lang="pug">
   div(id="cta" class="page-section" data-matching-link="#about-us-link")
     div.wrapper
-      h2(class="headline headline--centered headline--light headline--b-margin-small headline--slightly-larger")
-        | Digital
-        strong  Presence
-        |  made easy.
-
-
-
       div(class="cta cta__grid")
 
         //- column 1
@@ -18,8 +11,6 @@
         //- column 2
         div.cta__grid-column-2
           div.cta__grid--right-column
-            h1 Zendo Digital
-            p We specialize in custom digital marketing solutions for the busy owner, Your business deserves your attention, so let our team of experts do the heavy lifting.
             div.services
               h3 Services:
               ul.cta__grid--inner-grid
@@ -33,7 +24,9 @@
                   a(href="#") Photography and Videography services
                 li(class="item-e span-col-row-3")
                   a(href="#") Content Generation and Copywriting
-            p A strong digital presence is essential for keeping your brand prominent and relevant. Let Zendo Digital help propel your business to the top with our expertise and knowledge.</p>
+      p 
+      | A strong digital presence is essential for keeping your brand prominent and relevant.
+      | Let Zendo Digital help propel your business to the top with our expertise and knowledge.
 </template>
 
 <script>
@@ -92,6 +85,7 @@
 
                   &:hover {
                       background-color: $mainLighterDarkColor;
+                      color: $mainDarkerGrey;
                   }
               }
           }
@@ -104,8 +98,9 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
-            margin-top: 120px;
-
+            margin-top: 30px;
+            grid-auto-rows: 1fr;
+            
             &-column-1 {
                 grid-column-start: 1;
                 padding: 0 32px;
@@ -151,6 +146,7 @@
 
                                 &:hover {
                                     background-color: $mainLighterDarkColor;
+                                    color: $mainWhite;
                                 }
                             }
                         }

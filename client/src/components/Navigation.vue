@@ -30,8 +30,7 @@
         img(class='zendo_logo_small--img' src="../assets/images/zendo_logo_small.png")
         p.zendo_logo_small--brand-first
           | endo
-          span.zendo_logo_small--lighter-font
-          | Digital
+          span.zendo_logo_small--lighter-font Digital
       nav(role='navigation')
             ul.main-nav__first-ul
               li.home-li
@@ -227,16 +226,16 @@
               transform: translateY(-9px);
               font-size:1.5rem;
               color: #000;
+            }
 
 
-
-              &--lighter-font {
-                  font-family: SweetSans-Light;
-              }
+          &--lighter-font {
+              font-family: SweetSans-Light;
           }
+        }
       }
 
-  }
+  
 
   .home-li:hover > ul{
         visibility: visible;
