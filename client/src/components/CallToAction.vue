@@ -24,9 +24,9 @@
                   a(href="#") Photography and Videography services
                 li(class="item-e span-col-row-3")
                   a(href="#") Content Generation and Copywriting
-      p 
-      | A strong digital presence is essential for keeping your brand prominent and relevant.
-      | Let Zendo Digital help propel your business to the top with our expertise and knowledge.
+      p.cta__end-p
+        | A strong digital presence is essential for keeping your brand prominent and relevant.
+        | Let Zendo Digital help propel your business to the top with our expertise and knowledge.
 </template>
 
 <script>
@@ -39,6 +39,11 @@
 .cta {
     display: block;
 
+    &__end-p {
+      color: $mainDarkerGrey;
+      font-size: 1.6rem;
+      margin: 80px 0 0 0;
+    }
 
     &__grid {
         text-align: center;
@@ -100,7 +105,7 @@
             grid-template-rows: auto;
             margin-top: 30px;
             grid-auto-rows: 1fr;
-            
+
             &-column-1 {
                 grid-column-start: 1;
                 padding: 0 32px;
@@ -124,7 +129,11 @@
 
                 .services {
                     text-align: center;
-
+                    
+                    h3 {
+                        color: $mainDarkerGrey;
+                    }
+                    
                     ul {
                         padding: 0;
                         margin: 0;

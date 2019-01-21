@@ -1,22 +1,23 @@
 <template lang="pug">
   div
     Navigation
-    div(class="contact-form--background-color contact-form page-section page-section--no-b-padding-until-large")
-      div.contact-text
-        h1  Simplify your business today!
-        p Call us at (999) 999-9999 for a free consultation
-      div(id="contact-form" class="contact-form-main" data-matching-link="#contact-link")
-        div(class="wrapper wrapper--no-padding-until-large")
-          h2(class="section-title section-title--contact")
-            span.section_title
-              strong Contact Us
-          form(action="/contact" method="POST")
-            div(class="contact_inputs")
-                input(type="text" name="name" placeholder="Name" required="required")
-                input(type="email" name="email" placeholder="Email" required="required")
-                input(type="tel" name="number" placeholder="Phone Number" required="required")
-                textarea(class="text-area" name="message" placeholder="Message" required="required")
-                input(type="submit" name="button" value="Submit")
+    div.full-size
+      div(class="contact-form--background-color contact-form page-section page-section--no-b-padding-until-large")
+        div.contact-text
+          h1  Simplify your business today!
+          p Call us at (999) 999-9999 for a free consultation
+        div(id="contact-form" class="contact-form-main" data-matching-link="#contact-link")
+          div(class="wrapper wrapper--no-padding-until-large")
+            h2(class="section-title section-title--contact")
+              span.section_title
+                strong Contact Us
+            form(action="/contact" method="POST")
+              div(class="contact_inputs")
+                  input(type="text" name="name" placeholder="Name" required="required")
+                  input(type="email" name="email" placeholder="Email" required="required")
+                  input(type="tel" name="number" placeholder="Phone Number" required="required")
+                  textarea(class="text-area" name="message" placeholder="Message" required="required")
+                  input(type="submit" name="button" value="Submit")
     TheFooter
     router-view
 </template>
@@ -35,24 +36,27 @@ import TheFooter from '@/components/TheFooter.vue'
 </script>
 
 <style lang="scss">
+  .full-size {
+    height: 100%;
+  }
   .contact-form-main {
-    width: 100%;
+    width: 50%;
+    margin: 75.5px auto;
     padding: 10px;
     background: #FFF;
-      
+
       @include atMedium {
         width: 500px;
         padding: 30px;
         background: #FFF;
         margin: 50px auto;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 
       }
 
   }
 
   .contact-form--background-color {
-      background-color: $mainBlueGrey;
+      background-color: $mainDarkColor;
        padding-bottom: 72px;
   }
 
@@ -87,11 +91,10 @@ import TheFooter from '@/components/TheFooter.vue'
       overflow: hidden;
   }
 
-  .contact-form input[type="button"], 
+  .contact-form input[type="button"],
   .contact-form input[type="submit"]{
-      box-shadow: inset 0px 1px 0px 0px #4D4D4D;
-      background-color: #4D4D4D;
-      border: 1px solid #4D4D4D;
+      background-color: #3D3D3D;
+      border: 1px solid #3D3D3D;
       display: inline-block;
       cursor: pointer;
       color: #FFFFFF;
@@ -102,15 +105,19 @@ import TheFooter from '@/components/TheFooter.vue'
       text-transform: uppercase;
   }
 
-  .contact-form input[type="button"]:hover, 
+  .contact-form input[type="button"]:hover,
   .contact-form input[type="submit"]:hover {
-      background:linear-gradient(to bottom, #121212 5%, #232323 100%);
-      background-color:#34CACA;
+      background-color:$mainDarkerGrey;
       outline: none;
-      border: none;
+      border: 1px solid $mainDarkerGrey;
   }
   .contact-text {
     margin-top: 100px;
-    color: #fff;
+    color: $mainWhite;
+    text-align: center;
+
+    p {
+      font-size: 1.3rem;
+    }
   }
 </style>

@@ -1,10 +1,10 @@
 <template lang="pug">
   div
-    h3(class="headline headline--centered headline--lightest-color headline--small headline--narrow headline--light headline--b-margin-large")
-      | Let us help your business reach
+    h2(class="headline headline--centered headline--lightest-color  headline--narrow headline--light headline--b-margin-large")
+      | Let us help your business reach 
       strong greater heights.
     div.image
-      img(class="image--picture-height" src="../assets/images/greater_heights.jpg" alt="Trail through a redwood forest")
+      img(class="image--picture-height" src="../assets/images/Greater-Heights.png" alt="Person stands on top of a rock formation")
 </template>
 <script>
   export default {
@@ -16,4 +16,5 @@
 .image {
   width:100%
 }
+
 </style>
