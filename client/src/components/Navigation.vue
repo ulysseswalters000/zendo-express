@@ -37,7 +37,7 @@
                 a(href="/" id="home") Home
                 ul.drop-menu
                   li.dropdown-li
-                    a(href="/#features" id="features-link") Feature
+                    a(href="/#features" id="features-link") Features
                   li.dropdown-li
                     a(href="/#teams" id="teams-link") Teams
                   li.dropdown-li
@@ -235,7 +235,7 @@
         }
       }
 
-  
+
 
   .home-li:hover > ul{
         visibility: visible;
