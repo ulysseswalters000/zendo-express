@@ -23,19 +23,16 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/app')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.json());
 app.use(cors());
 
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
-const landing = require('./routes/api/landing');
 const contact = require('./routes/api/contact');
-const pricing = require('./routes/api/pricing');
 // - 'routes in single quotes refer to actual routes'
-app.use('/', landing);
 app.use('/contact', contact);
-app.use('/pricing', pricing);
 
 // Handle productionTip
 if(process.env.NODE_ENV === 'production') {

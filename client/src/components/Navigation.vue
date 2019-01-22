@@ -45,7 +45,7 @@
               li
                 router-link(to='/contact') Contact
               li
-                a(href="pricing" id="pricing") Pricing
+                router-link(to="/pricing" id="pricing") Pricing
 
     div.mobile-menu__menu-content
       ul(
