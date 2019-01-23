@@ -6,9 +6,6 @@ import 'aos/dist/aos.css'
 import router from './router'
 
 
-import Contact from './pages/ContactForm.vue'
-
-Vue.component('contact', Contact);
 
 Vue.config.productionTip = false
 

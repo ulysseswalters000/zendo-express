@@ -22,17 +22,37 @@ class ContactService {
 
   // Create POST
   static insertContact(name, email, number, message) {
+    let self = this;
     return axios.post(url, {
       name,
       email,
       number,
       message
     })
+    .then(function(response){
+      const status = JSON.parse(response.data.response.status);
+      if(status == '204') {
+        self.$router.push('/gibbi');
+      } else {
+        self.$router.push('/gibbins');
+      }
+    })
   }
 
   // Delete Contact
-  static.deleteContact(id) {
+  static deleteContact(id) {
     return axios.delete(`${url}${id}`)
+  }
+
+  static contactInitialState() {
+    return {
+      contacts: {
+        name: '',
+        email: '',
+        number: '',
+        message: ''
+      }
+    }
   }
 
 }

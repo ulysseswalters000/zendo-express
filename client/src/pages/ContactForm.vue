@@ -2,7 +2,7 @@
   div
     Navigation
     div.full-size
-      div(class="contact-form--background-color contact-form page-section page-section--no-b-padding-until-large")
+      div(class="contact-form--background-color contact-form page-section")
         div.contact-text
           h1  Simplify your business today!
           p Call us at (999) 999-9999 for a free consultation
@@ -13,16 +13,46 @@
                 strong Contact Us
             form(action="/contact" method="POST")
               div(class="contact_inputs")
-                  input(type="text" name="name" placeholder="Name" required="required")
-                  input(type="email" name="email" placeholder="Email" required="required")
-                  input(type="tel" name="number" placeholder="Phone Number" required="required")
-                  textarea(class="text-area" name="message" placeholder="Message" required="required")
-                  input(type="submit" name="button" value="Submit")
+                  input(
+                        type="text" 
+                        name="name" 
+                        v-model="contacts.name" 
+                        placeholder="Name" 
+                        required="required"
+                        )
+                  input(
+                        type="email" 
+                        name="email" 
+                        v-model="contacts.email" 
+                        placeholder="Email"
+                        required="required"
+                        )
+                  input(
+                        type="tel" 
+                        name="number"
+                        v-model="contacts.number" 
+                        placeholder="Phone Number"
+                        required="required"
+                        )
+                  textarea(
+                          class="text-area"
+                          name="message"
+                          v-model="contacts.message"
+                          placeholder="Message"
+                          required="required"
+                          )
+                  input(
+                        v-on:click="createContact()"
+                        type="submit"
+                        name="button" 
+                        value="Submit"
+                        )
     TheFooter
     router-view
 </template>
 
 <script>
+import ContactService from '../../ContactService.js'
 import Navigation from '@/components/Navigation.vue'
 import TheFooter from '@/components/TheFooter.vue'
 
@@ -31,6 +61,14 @@ import TheFooter from '@/components/TheFooter.vue'
     components: {
       Navigation,
       TheFooter
+    },
+    data() {
+      return ContactService.contactInitialState();
+    },
+    methods: {
+      async createContact() {
+        await ContactService.insertContact(this.name, this.email, this.number, this.message);
+      }
     }
   }
 </script>
@@ -41,15 +79,15 @@ import TheFooter from '@/components/TheFooter.vue'
   }
   .contact-form-main {
     width: 50%;
-    margin: 75.5px auto;
-    padding: 10px;
+    margin: 0 auto;
+    padding: 30px;
     background: #FFF;
 
       @include atMedium {
         width: 500px;
         padding: 30px;
         background: #FFF;
-        margin: 50px auto;
+        margin: 0 auto;
 
       }
 

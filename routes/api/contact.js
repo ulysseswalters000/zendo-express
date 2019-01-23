@@ -1,6 +1,5 @@
 const express = require('express');
 const mongodb = require('mongodb');
-
 const router = express.Router();
 
 // Get Contact form submissions
@@ -15,19 +14,24 @@ router.get('/', async (req, res) => {
   // finds and sends all posts in the contact-posts collection
   // and converts it to an array
   res.send(await contacts.find({}).toArray);
+
 });
 
 // Add contact entry
 router.post('/', async (req, res) => {
-  const contacts = await loadZendoContacts();
-  await contacts.insertOne({
-    name: req.body.name,
-    email: req.body.email,
-    number: req.body.number,
-    message: req.body.message
-  });
-  res.status(201).send();
-})
+  try {
+    const contacts = await loadZendoContacts();
+    await contacts.insertOne({
+      name: req.body.name,
+      email: req.body.email,
+      number: req.body.number,
+      message: req.body.message
+    });
+      res.redirect('/');
+    } catch(err) {
+      console.log(err);
+    }
+});
 
 // Delete contact Entry
 router.delete('/:id', async (req, res) => {
