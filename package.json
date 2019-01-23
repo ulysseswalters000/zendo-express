@@ -16,6 +16,7 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
+    "error": "^7.0.2",
     "express": "^4.16.3",
     "http-errors": "^1.7.1",
     "lodash": "^4.17.10",
