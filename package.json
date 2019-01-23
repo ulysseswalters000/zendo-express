@@ -5,7 +5,7 @@
   "main": "./bin/www",
   "engines": {
     "node": "11.6.0"
-  }
+  },
   "scripts": {
     "start": "./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
