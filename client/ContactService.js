@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:8081/contact/';
+const url = '/contact';
 
 class ContactService {
   // Get Contact List

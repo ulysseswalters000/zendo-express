@@ -33,12 +33,13 @@ const contact = require('./routes/api/contact');
 // - 'routes in single quotes refer to actual routes'
 app.use('/contact', contact);
 
-// Handle productionTip
+// Handle production
 if(process.env.NODE_ENV === 'production') {
   // static folder
   app.use(express.static(__dirname + '/public'));
 
   //Handle routes
+  // matches any route that does not exist to index.html
   app.get(/.*/, (req, res) => res.sendFile(__dirname+ '/public/index.html'));
 }
 

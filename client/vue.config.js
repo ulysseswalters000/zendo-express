@@ -24,12 +24,12 @@ module.exports = {
       }
     }
   },
-  // devServer: {
-  //   proxy: {
-  //     '/contact': {
-  //       target: 'http://localhost:8081'
-  //     }
-  //   }
-  // },
+  devServer: {
+    proxy: {
+      '/contact': {
+        target: 'http://localhost:8081'
+      }
+    }
+  },
   outputDir: path.resolve(__dirname, '../public')
 }
