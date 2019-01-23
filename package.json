@@ -4,7 +4,7 @@
   "description": "Zendo Digital Website",
   "main": "./bin/www",
   "engines": {
-    "node": "11.6.0"
+    "node": "8.15.0"
   },
   "scripts": {
     "start": "./bin/www",
