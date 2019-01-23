@@ -29,14 +29,6 @@ class ContactService {
       number,
       message
     })
-    .then(function(response){
-      const status = JSON.parse(response.data.response.status);
-      if(status == '204') {
-        self.$router.push('/gibbi');
-      } else {
-        self.$router.push('/gibbins');
-      }
-    })
   }
 
   // Delete Contact

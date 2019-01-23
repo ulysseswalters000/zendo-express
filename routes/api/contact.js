@@ -1,5 +1,6 @@
 const express = require('express');
 const mongodb = require('mongodb');
+const path = require('path');
 const router = express.Router();
 
 // Get Contact form submissions
@@ -7,15 +8,9 @@ const router = express.Router();
 // Therefore route '/' will be '/contact'
 
 // Get Contact entries
-router.get('/', async (req, res) => {
-  // initializes a contacts var and assigns the value
-  // of the collection to it
-  const contacts = await loadZendoContacts();
-  // finds and sends all posts in the contact-posts collection
-  // and converts it to an array
-  res.send(await contacts.find({}).toArray);
-
-});
+// router.get('/', async (req, res) => {
+//   res.sendFile(path.resolve(__dirname + '../public/index.html'));
+// });
 
 // Add contact entry
 router.post('/', async (req, res) => {
