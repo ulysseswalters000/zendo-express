@@ -17,18 +17,11 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
     "dotenv": "^6.0.0",
-    "ejs": "^2.6.1",
     "error": "^7.0.2",
     "express": "^4.16.3",
-    "gulp": "^3.9.1",
-    "jquery": "^3.3.1",
     "lodash": "^4.17.10",
-    "method-override": "^2.3.10",
     "mongodb": "^3.1.12",
-    "mongoose": "^5.1.5",
-    "morgan": "^1.9.1",
-    "nodemailer": "^4.6.7",
-    "waypoints": "^4.0.1"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "ajv": "^6.5.1",
