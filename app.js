@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyparser = require('body-parser');
 var cors = require('cors');
+var history = require('connect-history-api-fallback');
 
 
 
@@ -35,6 +36,7 @@ app.use(cors());
 const contact = require('./routes/api/contact');
 // - 'routes in single quotes refer to actual routes'
 app.use('/contact', contact);
+app.use(history());
 
 
 // Handle production

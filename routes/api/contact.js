@@ -2,7 +2,7 @@ const express = require('express');
 const mongodb = require('mongodb');
 const path = require('path');
 const router = express.Router();
-const history = require('connect-history-api-fallback');
+
 require('dotenv').config();
 
 // Get Contact form submissions
@@ -37,7 +37,7 @@ router.delete('/:id', async (req, res) => {
   res.status(200);
 });
 
-router.use(history());
+
 
 // Connects to zendo-contacts
 // using asynchronous function
