@@ -26,7 +26,7 @@ export default {
 
 .large-hero {
   display: flex;
-  height: 950px;
+  height: 750px;
   width: 100%;
   align-items: flex-end;
   justify-content: center;
@@ -35,17 +35,20 @@ export default {
 
   &__text-content {
     color: #000;
+    font-size: 1.2rem;
 
 
     @include atMedium {
       padding-top: 60px;
+      height: 950px;
+
     }
-    
+
   }
 
   &__title {
     font-weight: 300;
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     color: $mainDarkerGrey;

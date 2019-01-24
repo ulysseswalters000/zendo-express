@@ -90,7 +90,6 @@
 
                   &:hover {
                       background-color: $mainLighterDarkColor;
-                      color: $mainDarkerGrey;
                   }
               }
           }
@@ -129,11 +128,11 @@
 
                 .services {
                     text-align: center;
-                    
+
                     h3 {
                         color: $mainDarkerGrey;
                     }
-                    
+
                     ul {
                         padding: 0;
                         margin: 0;

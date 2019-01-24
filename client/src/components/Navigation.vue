@@ -125,7 +125,7 @@
               overflow: hidden;
 
               &:last-child {
-                  padding-right: 20px;
+                  padding-right: 30px;
               }
 
               i {
