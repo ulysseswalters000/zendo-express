@@ -22,7 +22,6 @@ class ContactService {
 
   // Create POST
   static insertContact(name, email, number, message) {
-    let self = this;
     return axios.post(url, {
       name,
       email,
