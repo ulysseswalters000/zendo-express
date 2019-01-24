@@ -43,6 +43,10 @@ async function loadZendoContacts() {
   ('mongodb://andrew:Percuss1on!@ds157654.mlab.com:57654/zendo-contacts', {
     //this passed object will stop annoying warning
     useNewUrlParser: true
+  }, (err) => {
+    if (err) {
+      throw err;
+    }
   });
 
   //initializes
