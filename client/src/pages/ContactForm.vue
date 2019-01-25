@@ -1,52 +1,51 @@
 <template lang="pug">
   div
     Navigation
-    div.full-size
-      div(class="contact-form--background-color contact-form page-section")
-        div.contact-text
-          h1  Simplify your business today!
-          p Call us at (999) 999-9999 for a free consultation
-        div(id="contact-form" class="contact-form-main" data-matching-link="#contact-link")
-          div(class="wrapper wrapper--no-padding-until-large")
-            h2(class="section-title section-title--contact")
-              span.section_title
-                strong Contact Us
-            form(action="/contact" method="POST")
-              div(class="contact_inputs")
-                  input(
-                        type="text" 
-                        name="name" 
-                        v-model="contacts.name" 
-                        placeholder="Name" 
+    div(class="contact-form--background-color contact-form  contact-form--bottom-padding page-section")
+      div.contact-form__text
+        h1  Simplify your business today!
+        p Call us at (999) 999-9999 for a free consultation
+      div(id="contact-form" class="contact-form-main" data-matching-link="#contact-link")
+        div(class="wrapper wrapper--no-padding-until-large")
+          h2(class="section-title section-title--contact")
+            span.section_title
+              strong Contact Us
+          form(action="/contact" method="POST")
+            div(class="contact_inputs")
+                input(
+                      type="text"
+                      name="name"
+                      v-model="contacts.name"
+                      placeholder="Name"
+                      required="required"
+                      )
+                input(
+                      type="email"
+                      name="email"
+                      v-model="contacts.email"
+                      placeholder="Email"
+                      required="required"
+                      )
+                input(
+                      type="tel"
+                      name="number"
+                      v-model="contacts.number"
+                      placeholder="Phone Number"
+                      required="required"
+                      )
+                textarea(
+                        class="contact-form--text-area"
+                        name="message"
+                        v-model="contacts.message"
+                        placeholder="Message"
                         required="required"
                         )
-                  input(
-                        type="email" 
-                        name="email" 
-                        v-model="contacts.email" 
-                        placeholder="Email"
-                        required="required"
-                        )
-                  input(
-                        type="tel" 
-                        name="number"
-                        v-model="contacts.number" 
-                        placeholder="Phone Number"
-                        required="required"
-                        )
-                  textarea(
-                          class="text-area"
-                          name="message"
-                          v-model="contacts.message"
-                          placeholder="Message"
-                          required="required"
-                          )
-                  input(
-                        v-on:click="createContact()"
-                        type="submit"
-                        name="button" 
-                        value="Submit"
-                        )
+                input(
+                      v-on:click="createContact()"
+                      type="submit"
+                      name="button"
+                      value="Submit"
+                      )
     TheFooter
     router-view
 </template>
@@ -74,42 +73,35 @@ import TheFooter from '@/components/TheFooter.vue'
 </script>
 
 <style lang="scss">
-  .full-size {
-    height: 100%;
-  }
   .contact-form-main {
-    width: 50%;
-    margin: 0 auto;
-    padding: 30px;
+    width: 25rem;
+    margin: 5rem auto 0 auto;
+    padding: 30px 15px 30px 15px;
     background: #FFF;
 
       @include atMedium {
-        width: 500px;
-        padding: 30px;
+        width: 25rem;
+        padding: 30px 20px 30px 20px;
         background: #FFF;
-        margin: 0 auto;
+        margin: 2.7rem auto 0 auto;
 
       }
 
   }
 
-  .contact-form--background-color {
-      background-color: $mainLighterDarkColor;
-       padding-bottom: 72px;
-  }
+  .contact-form {
+    &__text {
+      margin-top: 100px;
+      color: $mainWhite;
+      text-align: center;
 
-  .contact-form input[type="text"],
-  .contact-form input[type="date"],
-  .contact-form input[type="datetime"],
-  .contact-form input[type="email"],
-  .contact-form input[type="number"],
-  .contact-form input[type="search"],
-  .contact-form input[type="time"],
-  .contact-form input[type="url"],
-  .contact-form input[type="password"],
-  .contact-form input[type="tel"],
-  .contact-form textarea,
-  .contact-form select {
+      p {
+        font-size: 1.3rem;
+      }
+    }
+
+   input,
+   textarea {
       box-sizing: border-box;
       outline: none;
       display: block;
@@ -124,13 +116,8 @@ import TheFooter from '@/components/TheFooter.vue'
       color: #1f1f1f;
   }
 
-  .text-area {
-      resize: none;
-      overflow: hidden;
-  }
-
-  .contact-form input[type="button"],
-  .contact-form input[type="submit"]{
+  input[type="button"],
+  input[type="submit"] {
       background-color: #3D3D3D;
       border: 1px solid #3D3D3D;
       display: inline-block;
@@ -141,21 +128,42 @@ import TheFooter from '@/components/TheFooter.vue'
       padding: 8px 18px;
       text-decoration: none;
       text-transform: uppercase;
+
+      &:hover,
+      &:hover {
+          background-color:$mainDarkerGrey;
+          outline: none;
+          border: 1px solid $mainDarkerGrey;
+      }
   }
 
-  .contact-form input[type="button"]:hover,
-  .contact-form input[type="submit"]:hover {
-      background-color:$mainDarkerGrey;
-      outline: none;
-      border: 1px solid $mainDarkerGrey;
+  &--background-color {
+      background-color: $mainLighterDarkColor;
+      padding-bottom: 72px;
   }
-  .contact-text {
-    margin-top: 100px;
-    color: $mainWhite;
-    text-align: center;
 
-    p {
-      font-size: 1.3rem;
+  &--bottom-padding {
+    @include atMedium {
+      padding-bottom: 189px;
     }
   }
+
+  &--text-area {
+      resize: none;
+      overflow: hidden;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>

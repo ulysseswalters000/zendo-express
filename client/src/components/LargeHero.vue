@@ -31,19 +31,15 @@ export default {
   align-items: flex-end;
   justify-content: center;
 
+  @include atMedium {
+    padding-top: 60px;
+    height: 950px;
 
+  }
 
   &__text-content {
     color: #000;
     font-size: 1.2rem;
-
-
-    @include atMedium {
-      padding-top: 60px;
-      height: 950px;
-
-    }
-
   }
 
   &__title {
