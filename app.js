@@ -5,12 +5,15 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyparser = require('body-parser');
 var cors = require('cors');
+var history = require('connect-history-api-fallback');
+
+
 
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
 
-var app = module.exports = express();
+var app = express();
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -27,11 +30,14 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(cors());
 
+
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 const contact = require('./routes/api/contact');
 // - 'routes in single quotes refer to actual routes'
 app.use('/contact', contact);
+app.use(history());
+
 
 // Handle production
 if(process.env.NODE_ENV === 'production') {
@@ -60,7 +66,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.redirect('/');
+  res.render(err);
 });
 
 module.exports = app;

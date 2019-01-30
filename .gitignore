@@ -4,3 +4,9 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 node_modules/
+
+
+# local env files
+.env
+.env.local
+.env.*.local
