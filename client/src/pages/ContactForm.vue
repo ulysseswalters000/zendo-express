@@ -87,10 +87,7 @@ import TheFooter from '@/components/TheFooter.vue'
         width: 500px;
         padding: 30px;
         background: #FFF;
-        margin: 50px auto 30px auto;
-
       }
-
   }
 
   .contact-form--background-color {
