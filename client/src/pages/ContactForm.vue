@@ -14,23 +14,23 @@
             form(action="/contact" method="POST")
               div(class="contact_inputs")
                   input(
-                        type="text" 
-                        name="name" 
-                        v-model="contacts.name" 
-                        placeholder="Name" 
+                        type="text"
+                        name="name"
+                        v-model="contacts.name"
+                        placeholder="Name"
                         required="required"
                         )
                   input(
-                        type="email" 
-                        name="email" 
-                        v-model="contacts.email" 
+                        type="email"
+                        name="email"
+                        v-model="contacts.email"
                         placeholder="Email"
                         required="required"
                         )
                   input(
-                        type="tel" 
+                        type="tel"
                         name="number"
-                        v-model="contacts.number" 
+                        v-model="contacts.number"
                         placeholder="Phone Number"
                         required="required"
                         )
@@ -44,7 +44,7 @@
                   input(
                         v-on:click="createContact()"
                         type="submit"
-                        name="button" 
+                        name="button"
                         value="Submit"
                         )
     TheFooter
@@ -78,7 +78,7 @@ import TheFooter from '@/components/TheFooter.vue'
     height: 100%;
   }
   .contact-form-main {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     padding: 30px;
     background: #FFF;
