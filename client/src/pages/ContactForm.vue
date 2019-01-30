@@ -5,7 +5,7 @@
       div(class="contact-form--background-color contact-form page-section")
         div.contact-text
           h1  Simplify your business today!
-          p Call us at (999) 999-9999 for a free consultation
+          p Call us at (804) 601-4644 for a free consultation
         div(id="contact-form" class="contact-form-main" data-matching-link="#contact-link")
           div(class="wrapper wrapper--no-padding-until-large")
             h2(class="section-title section-title--contact")
