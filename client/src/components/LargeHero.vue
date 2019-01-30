@@ -26,7 +26,7 @@ export default {
 
 .large-hero {
   display: flex;
-  height: 950px;
+  height: 350px;
   width: 100%;
   align-items: flex-end;
   justify-content: center;

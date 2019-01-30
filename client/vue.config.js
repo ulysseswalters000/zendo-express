@@ -19,7 +19,6 @@ module.exports = {
           @import "@/scss/modules/_generic-content-container.scss";
           @import "@/scss/modules/_section-title.scss";
           @import "@/scss/modules/_grid.scss";
-          @import "@/scss/modules/_snow.scss";
         `
       }
     }
