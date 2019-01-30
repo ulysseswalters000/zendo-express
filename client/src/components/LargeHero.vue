@@ -33,7 +33,7 @@ export default {
 
   @include atMedium {
     padding-top: 60px;
-    height: 950px;
+    height: 350px;
 
   }
 
