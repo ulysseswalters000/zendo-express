@@ -1,10 +1,9 @@
 <template lang="pug">
   div
-    h2(class="headline headline--centered headline--lightest-color  headline--narrow headline--light headline--b-margin-large")
-      | Let us help your business reach 
-      strong greater heights.
     div.image
-      img(class="image--picture-height" src="../assets/images/Greater-Heights.png" alt="Person stands on top of a rock formation")
+      h2(class="headline--centered headline--lightest-color")
+        | Let us help your business reach
+        strong greater heights.
 </template>
 <script>
   export default {
@@ -12,9 +11,33 @@
   }
 </script>
 
-<style lang="scss">
-.image {
-  width:100%
+<style scoped lang="scss">
+div {
+  text-align: center;
 }
+.image {
+  width:100%;
+  height: 60rem;
+  background-image: url("../assets/images/Greater-Heights.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+
+  & h2 {
+    font-family: SweetSans-Light;
+    font-weight: 300;
+    font-size: 3rem;
+    margin: 0 auto;
+    padding-top: 4rem;
+    color: $mainDarkColor;
+
+    & strong {
+      padding-left: 1rem;
+    }
+  }
+}
+
+
+
 
 </style>
