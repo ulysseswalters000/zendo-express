@@ -48,7 +48,7 @@
               h2.pricing__title Intermediate
               hr.pricing__hr
               div.pricing__content
-                h3 Grasshopper Features
+                h3 Beginner Features
                 i(class="fas fa-plus i--color")
                 p.pricing__p
                   | SEO
@@ -78,7 +78,7 @@
               h2.pricing__title Advanced
               hr.pricing__hr
               div.pricing__content
-                h3 Black Belt Features
+                h3 Intermediate Features
                 i(class="fas fa-plus i--color")
                 p.pricing__p
                   | SEO
@@ -108,7 +108,7 @@
               h2.pricing__title Expert
               hr.pricing__hr
               div.pricing__content
-                h3 Ninja Features
+                h3 Advanced Features
                 i(class="fas fa-plus i--color")
                 p.pricing__p
                   | SEO
