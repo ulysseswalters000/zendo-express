@@ -9,7 +9,7 @@
               h1.pricing__price
                 | $250
                 span.pricing__price--sub-script /month
-              h2.pricing__title Grasshopper
+              h2.pricing__title Beginner
               hr.pricing__hr
               div.pricing__content
                 h3 Features
@@ -45,7 +45,7 @@
               h1.pricing__price
                 | $500
                 span.pricing__price--sub-script /month
-              h2.pricing__title Black Belt
+              h2.pricing__title Intermediate
               hr.pricing__hr
               div.pricing__content
                 h3 Grasshopper Features
@@ -75,7 +75,7 @@
               h1.pricing__price
                 | $750
                 span.pricing__price--sub-script /month
-              h2.pricing__title Ninja
+              h2.pricing__title Advanced
               hr.pricing__hr
               div.pricing__content
                 h3 Black Belt Features
@@ -105,7 +105,7 @@
             div(class="pricing_column grid--column-4")
               h1.pricing__price $1000
                 span.pricing__price--sub-script /month
-              h2.pricing__title Zen Master
+              h2.pricing__title Expert
               hr.pricing__hr
               div.pricing__content
                 h3 Ninja Features
