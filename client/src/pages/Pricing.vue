@@ -13,6 +13,22 @@
               hr.pricing__hr
               div.pricing__content
                 h3 Features
+                p.pricing__p
+                | Social Media Management
+                br
+                span 1 Channel
+                p.pricing__p
+                | Custom Graphic Creation
+                br
+                span 1/Month
+                p.pricing__p
+                | Strategy Development Meetings
+                br
+                span 1/Month
+                p.pricing__p
+                | Search Engine Optimization
+                br
+                | (SEO)
                 p Account Monitoring & Management
                 p Social Account Setup
                 p Optimized Posting Schedule
@@ -24,22 +40,6 @@
                 p Performance & Metrics Reports
                 p Website Monitoring & Management
                 p Spam Monitoring
-                p.pricing__p
-                  | Search Engine Optimization
-                  br
-                  | (SEO)
-                p.pricing__p
-                  | Custom Graphic Creation
-                  br
-                  span 1/Month
-                p.pricing__p
-                  | Social Media Management
-                  br
-                  span 1 Channel
-                p.pricing__p
-                  | Strategy Development Meetings
-                  br
-                  span 1/Month
 
             div(class="pricing_column grid--column-2")
               h1.pricing__price
@@ -51,25 +51,25 @@
                 h3 Beginner Features
                 i(class="fas fa-plus i--color")
                 p.pricing__p
+                | Social Media Management
+                br
+                span 2 Channels
+                p.pricing__p
+                | Custom Graphic Creation
+                br
+                span 2/Month
+                p.pricing__p
+                | Email Campaign Management
+                br
+                span 1/Month
+                p.pricing__p
+                | Strategy Development Meetings
+                br
+                span 2/Month
+                p.pricing__p
                   | SEO
                   br
                   i(class="fas fa-asterisk")
-                p.pricing__p
-                  | Custom Graphic Creation
-                  br
-                  span 3/Month
-                p.pricing__p
-                  | Email Campaign Management
-                  br
-                  span 1/Month
-                p.pricing__p
-                  | Social Media Management
-                  br
-                  span 2 Channels
-                p.pricing__p
-                  | Strategy Development Meetings
-                  br
-                  span 2/Month
 
             div(class="pricing_column grid--column-3")
               h1.pricing__price
@@ -81,26 +81,26 @@
                 h3 Intermediate Features
                 i(class="fas fa-plus i--color")
                 p.pricing__p
-                  | SEO
-                  br
-                  i(class="fas fa-asterisk")
-                  i(class="fas fa-asterisk")
+                | Social Media Management
+                br
+                span 3 Channels
                 p.pricing__p
                   | Custom Graphic Creation
                   br
-                  span 4/Month
+                  span 3/Month
                 p.pricing__p
                   | Email Campaign Management
                   br
                   span 2/Month
                 p.pricing__p
-                  | Social Media Management
-                  br
-                  span 3 Channels
-                p.pricing__p
                   | Strategy Development Meetings
                   br
                   span 3/Month
+                p.pricing__p
+                | SEO
+                br
+                i(class="fas fa-asterisk")
+                i(class="fas fa-asterisk")
 
             div(class="pricing_column grid--column-4")
               h1.pricing__price $1000
@@ -111,27 +111,27 @@
                 h3 Advanced Features
                 i(class="fas fa-plus i--color")
                 p.pricing__p
-                  | SEO
-                  br
-                  i(class="fas fa-asterisk")
-                  i(class="fas fa-asterisk")
-                  i(class="fas fa-asterisk")
+                | Social Media Management
+                br
+                span 5 Channels
                 p.pricing__p
                   | Custom Graphic Creation
                   br
-                  span 6/Month
+                  span 4/Month
                 p.pricing__p
                   | Email Campaign Management
                   br
                   span 4/Month
                 p.pricing__p
-                  | Social Media Management
-                  br
-                  span 5 Channels
-                p.pricing__p
                   | Strategy Development Meetings
                   br
                   span 4/Month
+                p.pricing__p
+                | SEO
+                br
+                i(class="fas fa-asterisk")
+                i(class="fas fa-asterisk")
+                i(class="fas fa-asterisk")
     TheFooter
 </template>
 
