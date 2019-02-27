@@ -1,8 +1,9 @@
 <template lang="pug">
   div
     div.image
-      h2(class="headline--centered headline--lightest-color")
+      h1(class="headline--centered headline--lightest-color")
         | Let us help your business reach
+      p(class="headline--centered headline--lightest-color")
         strong greater heights.
 </template>
 <script>
@@ -12,9 +13,6 @@
 </script>
 
 <style scoped lang="scss">
-div {
-  text-align: center;
-}
 .image {
   width:100%;
   height: 60rem;
@@ -23,17 +21,19 @@ div {
   background-position: center;
   background-repeat: none;
 
-  & h2 {
+  & h1 {
+      padding-top: 12rem;
+
+    @include atMedium {
+      padding-top: 18rem;
+    }
+  }
+  & h1, p {
     font-family: SweetSans-Light;
     font-weight: 300;
     font-size: 3rem;
     margin: 0 auto;
-    padding-top: 4rem;
     color: $mainDarkColor;
-
-    & strong {
-      padding-left: 1rem;
-    }
   }
 }
 
