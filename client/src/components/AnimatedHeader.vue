@@ -30,11 +30,15 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.75rem;
+      font-size: 1.25rem;
       font-family: SweetSans-Medium;
-      color: $mainDarkerGrey;
+      color: #000;
       background-color: rbga($mainDarkerGrey, $mainDarkerGrey, $mainDarkerGrey, .25% );
       text-shadow: -1px 0 white, 0 1px white, 1px 0  white, 0 -1px white;
+
+      @include atSmall {
+        color: $mainDarkerGrey;
+      }
 
       @include atMedium {
         font-size: 2.75rem;
