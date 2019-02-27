@@ -3,8 +3,8 @@
     div.image
       h1(class="headline--centered headline--lightest-color")
         | Let us help your business reach
-      p(class="headline--centered headline--lightest-color")
-        strong greater heights.
+        br
+        | Greater Heights
 </template>
 <script>
   export default {

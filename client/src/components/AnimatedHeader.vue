@@ -1,9 +1,11 @@
 <template lang="pug">
   div.video
     video(muted autoplay loop src="../assets/videos/snowy_day.mp4")
-    h1 Custom Digital Marketing Solutions for
-    p
-      strong Peace of Mind
+    h1
+      | Custom Digital Marketing Solutions for
+      br
+      | Peace of Mind
+
 </template>
 
 <script>
@@ -23,7 +25,7 @@
       margin-top: 50px;
     }
 
-    & h1, p {
+    & h1 {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -35,8 +37,12 @@
       text-shadow: -1px 0  3px white, 0 1px 3px white, 1px 0  3px white, 0 -1px 3px white;
 
       @include atMedium {
-        font-size: 4.75rem;
+        font-size: 2.75rem;
         text-shadow: -3px 0 3px white, 0 3px 3px white, 3px 0 3px white, 0 -3px 3px white;
+      }
+
+      @include atLarge {
+        font-size: 3.75rem;
       }
     }
     & p {
