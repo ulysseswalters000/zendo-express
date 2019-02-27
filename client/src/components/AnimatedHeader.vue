@@ -34,7 +34,7 @@
       font-family: SweetSans-Medium;
       color: $mainDarkerGrey;
       background-color: rbga($mainDarkerGrey, $mainDarkerGrey, $mainDarkerGrey, .25% );
-      text-shadow: -1px 0  3px white, 0 1px 3px white, 1px 0  3px white, 0 -1px 3px white;
+      text-shadow: -1px 0 white, 0 1px white, 1px 0  white, 0 -1px white;
 
       @include atMedium {
         font-size: 2.75rem;
@@ -43,13 +43,6 @@
 
       @include atLarge {
         font-size: 3.75rem;
-      }
-    }
-    & p {
-      top: 70%;
-
-      @include atMedium {
-        top: 60%;
       }
     }
   }
