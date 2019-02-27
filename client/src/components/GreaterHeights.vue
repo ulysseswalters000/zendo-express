@@ -4,7 +4,7 @@
       h1(class="headline--centered headline--lightest-color")
         | Let us help your business reach
         br
-        | Greater Heights
+        strong Greater Heights
 </template>
 <script>
   export default {
@@ -21,19 +21,18 @@
   background-position: center;
   background-repeat: none;
 
-  & h1 {
-      padding-top: 12rem;
 
-    @include atMedium {
-      padding-top: 18rem;
-    }
-  }
-  & h1, p {
+  & h1 {
+    padding-top: 12rem;
     font-family: SweetSans-Light;
     font-weight: 300;
     font-size: 3rem;
     margin: 0 auto;
     color: $mainDarkColor;
+
+    @include atMedium {
+      padding-top: 18rem;
+    }
   }
 }
 
