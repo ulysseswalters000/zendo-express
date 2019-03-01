@@ -4,7 +4,7 @@
       h1(class="headline--centered headline--lightest-color")
         | Let us help your business reach
         br
-        strong Greater Heights
+        strong greater heights.
 </template>
 <script>
   export default {
@@ -23,7 +23,7 @@
 
 
   & h1 {
-    padding-top: 12rem;
+    padding-top: 10rem;
     font-family: SweetSans-Light;
     font-weight: 300;
     font-size: 3rem;
@@ -31,7 +31,7 @@
     color: $mainDarkColor;
 
     @include atMedium {
-      padding-top: 18rem;
+      padding-top: 15rem;
     }
   }
 }
