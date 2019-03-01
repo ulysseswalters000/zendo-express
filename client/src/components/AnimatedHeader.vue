@@ -31,9 +31,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 1.25rem;
-      font-family: SweetSans-Medium;
+      font-family: SweetSans-Light;
       color: #000;
-      background-color: rbga($mainDarkerGrey, $mainDarkerGrey, $mainDarkerGrey, .25% );
       text-shadow: -1px 0 white, 0 1px white, 1px 0  white, 0 -1px white;
 
       @include atSmall {
