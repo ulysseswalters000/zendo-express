@@ -29,9 +29,28 @@ export default new Router({
       component: () => import(/* webpackChunkName: "pricing" */ '@/pages/Pricing.vue')
     },
     {
+<<<<<<< HEAD
       path: '/featurepages',
       name: 'featurepages',
       component: () => import(/* webpackChunkName: "featurepages" */ '@/pages/FeaturePages.vue')
+=======
+      path: '/webdesign',
+      name: 'webdesign',
+      props: {title: 'Web Design',
+              imgUrl: require( '../assets/images/webdesignheader.jpg'),
+              content: {price: 'webdesign'}
+            },
+      component: () => import(/* webpackChunkName: "webdesign" */ '@/pages/FeatureTemplate.vue')
+    },
+    {
+      path: '/socialmedia',
+      name: 'socialmedia',
+      props: {title: 'Social Media Management',
+              imgUrl: require( '../assets/images/neverstress.jpg'),
+              content: {price: 'from router'}
+            },
+      component: () => import(/* webpackChunkName: "webdesign" */ '@/pages/FeatureTemplate.vue')
+>>>>>>> 958e8cb6c48fefc10a1f2bf3c51412b6d79ae2fd
     }
   ]
 })
