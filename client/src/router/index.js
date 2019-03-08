@@ -31,7 +31,20 @@ export default new Router({
     {
       path: '/webdesign',
       name: 'webdesign',
-      component: () => import(/* webpackChunkName: "webdesign" */ '@/pages/WebDesign.vue')
+      props: {title: 'Web Design',
+              imgUrl: require( '../assets/images/webdesignheader.jpg'),
+              content: {price: 'webdesign'}
+            },
+      component: () => import(/* webpackChunkName: "webdesign" */ '@/pages/FeatureTemplate.vue')
+    },
+    {
+      path: '/socialmedia',
+      name: 'socialmedia',
+      props: {title: 'Social Media Management',
+              imgUrl: require( '../assets/images/neverstress.jpg'),
+              content: {price: 'from router'}
+            },
+      component: () => import(/* webpackChunkName: "webdesign" */ '@/pages/FeatureTemplate.vue')
     }
   ]
 })

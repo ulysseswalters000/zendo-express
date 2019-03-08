@@ -15,9 +15,9 @@
               h3 Services:
               ul.cta__grid--inner-grid
                 li(class="item-a col-1 row-1")
-                  router-link(to="/webdesign") Web Design
+                  router-link(:to="{name: 'webdesign'}") Web Design
                 li(class="item-b col-2 row-1")
-                  a(href="#") Social Media and Reputation Management
+                  router-link(:to="{name: 'socialmedia'}") Social Media and Reputation Management
                 li(class="item-c col-1 row-2")
                   a(href="#") SEO (search engine optimization)
                 li(class="item-d col-2 row-2")
