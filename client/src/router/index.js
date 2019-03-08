@@ -29,9 +29,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "pricing" */ '@/pages/Pricing.vue')
     },
     {
-      path: '/webdesign',
-      name: 'webdesign',
-      component: () => import(/* webpackChunkName: "webdesign" */ '@/pages/WebDesign.vue')
+      path: '/featurepages',
+      name: 'featurepages',
+      component: () => import(/* webpackChunkName: "featurepages" */ '@/pages/FeaturePages.vue')
     }
   ]
 })

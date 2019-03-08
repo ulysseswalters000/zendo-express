@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#WebDesign
+  div#FeaturesPages
     Navigation
     div.container
       h1.title Web Design
@@ -14,7 +14,7 @@ import Navigation from '@/components/Navigation.vue'
 import TheFooter from '@/components/TheFooter.vue'
 
 export default {
-  name: 'WebDesign',
+  name: 'FeaturePages',
   components: {
     Navigation,
     TheFooter
