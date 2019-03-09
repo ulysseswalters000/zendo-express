@@ -34,7 +34,12 @@ export default {
           h2.articleTitle {{article.title}}
           div.line &nbsp;
         div.copy
-          p(v-for="para in article.paragraphs") {{ para }}
+          div(v-for="(value, key, index) in article.paragraphs")
+            h2(v-if="key == 'subHeading'") {{ value }}
+            ul.listed-items(v-else-if="key == 'bullets'")
+              li.list-item(v-for="bullet in value") {{ bullet }}
+            p(v-else) {{ value }}
+
       div.right-content
         aside
           div.aside-links
@@ -78,6 +83,15 @@ export default {
     color: $mainWhite;
     font-family: SweetSans-Light;
     text-transform: uppercase;
+    font-size: 3rem;
+
+    @include atMedium {
+      font-size: 6rem;
+    }
+
+    @include atLarge {
+      font-size: 8rem;
+    }
   }
 }
 
@@ -91,7 +105,7 @@ export default {
 
   .left-content {
     justify-content: flex-start;
-    width: 96%;
+    width: 75%;
     margin: 0 auto;
 
     @include atLarge {
@@ -120,12 +134,24 @@ export default {
     .copy {
 
       p {
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-indent: 2rem;
+
+        @include atMedium {
+          font-size: 1.5rem
+        }
       }
 
       p::first-letter {
         font-weight: bold;
+      }
+
+      .listed-items {
+        font-size: 1rem;
+
+        @include atMedium {
+          font-size: 1.5rem;
+        }
       }
     }
   }
@@ -181,8 +207,10 @@ export default {
 
             .router-link-exact-active {
               font-size: 1.5rem;
-              border-left: 13px solid $mainDarkerGrey;
-              border-bottom: 13px solid $mainDarkerGrey;
+              border-left: 1px solid $mainDarkerGrey;
+              border-bottom: 1px solid $mainDarkerGrey;
+              border-radius: 0 0 0 25px;
+              margin-bottom: 20px;
             }
           }
         }

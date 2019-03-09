@@ -6,11 +6,11 @@
         div.wrapper
           div.grid
             div(class="pricing_column grid--column-1")
-              h1.pricing__price
-                | $250
-                span.pricing__price--sub-script /month
-              h2.pricing__title Beginner
-              hr.pricing__hr
+              div.pricing__header-styles
+                h1.pricing__price
+                  | $250
+                  span.pricing__price--sub-script /month
+                h2.pricing__title Beginner
               div.pricing__content
                 h3 Features
                 p.pricing__p
@@ -25,10 +25,6 @@
                 | Strategy Development Meetings
                 br
                 span 1/Month
-                p.pricing__p
-                | Search Engine Optimization
-                br
-                | (SEO)
                 p Account Monitoring & Management
                 p Social Account Setup
                 p Optimized Posting Schedule
@@ -42,11 +38,11 @@
                 p Spam Monitoring
 
             div(class="pricing_column grid--column-2")
-              h1.pricing__price
-                | $500
-                span.pricing__price--sub-script /month
-              h2.pricing__title Intermediate
-              hr.pricing__hr
+              div.pricing__header-styles
+                h1.pricing__price
+                  | $500
+                  span.pricing__price--sub-script /month
+                h2.pricing__title Intermediate
               div.pricing__content
                 h3 Beginner Features
                 i(class="fas fa-plus i--color")
@@ -67,16 +63,16 @@
                 br
                 span 2/Month
                 p.pricing__p
-                  | SEO
-                  br
-                  i(class="fas fa-asterisk")
+                | Search Engine Optimization
+                br
+                | (SEO)
 
             div(class="pricing_column grid--column-3")
-              h1.pricing__price
-                | $750
-                span.pricing__price--sub-script /month
-              h2.pricing__title Advanced
-              hr.pricing__hr
+              div.pricing__header-styles
+                h1.pricing__price
+                  | $750
+                  span.pricing__price--sub-script /month
+                h2.pricing__title Advanced
               div.pricing__content
                 h3 Intermediate Features
                 i(class="fas fa-plus i--color")
@@ -103,10 +99,10 @@
                 i(class="fas fa-asterisk")
 
             div(class="pricing_column grid--column-4")
-              h1.pricing__price $1000
-                span.pricing__price--sub-script /month
-              h2.pricing__title Expert
-              hr.pricing__hr
+              div.pricing__header-styles
+                h1.pricing__price $1000
+                  span.pricing__price--sub-script /month
+                h2.pricing__title Expert
               div.pricing__content
                 h3 Advanced Features
                 i(class="fas fa-plus i--color")
@@ -159,6 +155,16 @@ import TheFooter from '@/components/TheFooter.vue'
           background-size: cover;
       }
 
+      &__header-styles {
+        background-color: #a69eb0;
+        padding: 1rem 0;
+        border-right: 1px solid $mainWhite;
+        width: 100%;
+
+      }
+
+
+
       &__price {
           font-family: SweetSans-Medium;
           color: $mainDarkColor;
@@ -175,12 +181,9 @@ import TheFooter from '@/components/TheFooter.vue'
 
       &__p {
          font-family: Roboto;
-         margi-bottom: 20px;
+         margin-bottom: 20px;
       }
 
-      &__hr {
-          margin-bottom: 20px;
-      }
 
       & .i--color {
           color: $mainLighterDarkColor;
