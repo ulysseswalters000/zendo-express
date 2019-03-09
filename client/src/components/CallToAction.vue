@@ -17,13 +17,15 @@
                 li(class="item-a col-1 row-1")
                   router-link(:to="{name: 'webdesign'}") Web Design
                 li(class="item-b col-2 row-1")
-                  router-link(:to="{name: 'socialmedia'}") Social Media and Reputation Management
+                  router-link(:to="{name: 'socialmedia'}") Social Media
                 li(class="item-c col-1 row-2")
-                  a(href="#") SEO (search engine optimization)
+                  router-link(:to="{name: 'seo'}") SEO (Search Engine Optimization)
                 li(class="item-d col-2 row-2")
-                  a(href="#") Photography and Videography services
-                li(class="item-e span-col-row-3")
-                  a(href="#") Content Generation and Copywriting
+                  router-link(:to="{name: 'photoAndVideo'}") Photography &amp; Videography
+                li(class="item-e col-1 row-3")
+                  router-link(:to="{name: 'reputationManagement'}") Reputation Management
+                li(class="item-f col-2 row-3")
+                  router-link(:to="{name: 'contentAndGraphic'}") Content &amp; Graphic Creation
       p.cta__end-p
         | A strong digital presence is essential for keeping your brand prominent and relevant.
         | Let Zendo Digital help propel your business to the top with our expertise and knowledge.

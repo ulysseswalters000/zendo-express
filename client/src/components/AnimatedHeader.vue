@@ -30,8 +30,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.25rem;
-      font-family: SweetSans-Light;
+      font-size: 1.75rem;
+      font-family: SweetSans-Thin;
       color: #000;
       text-shadow: -1px 0 white, 0 1px white, 1px 0  white, 0 -1px white;
 
@@ -41,7 +41,6 @@
 
       @include atMedium {
         font-size: 2.75rem;
-        text-shadow: -3px 0 3px white, 0 3px 3px white, 3px 0 3px white, 0 -3px 3px white;
       }
 
       @include atLarge {

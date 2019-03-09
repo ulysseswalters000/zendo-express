@@ -9,7 +9,7 @@
               |  so let our team of experts do the heavy lifting.
               |  We specialize in custom digital marketing solutions for the busy owner.
             p.large-hero__cta-btn
-              a(class="btn btn--large" href="/contact") Contact Us
+              router-link(class="btn btn--large" :to="{name: 'contact'}") Contact Us
 </template>
 
 <script>
@@ -25,15 +25,11 @@ export default {
 
 
 .large-hero {
-  display: flex;
   height: 350px;
   width: 100%;
-  align-items: flex-end;
-  justify-content: center;
 
   @include atMedium {
     padding-top: 60px;
-    height: 350px;
 
   }
 
@@ -44,18 +40,23 @@ export default {
 
   &__title {
     font-weight: 300;
-    font-size: 3rem;
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     color: $mainDarkerGrey;
 
     &--lighter-font {
-      font-family: SweetSans-Light;
+      font-family: SweetSans-Thin;
     }
 
     @include atSmall {
       font-size: 4rem;
     }
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+
   }
 }
 </style>

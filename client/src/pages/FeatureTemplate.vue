@@ -8,25 +8,14 @@ export default {
     Navigation,
     TheFooter
   },
-  props: {
-    title: {
-      type: String,
-      required: false,
-      default: 'put title here'
-    },
-    imgUrl: {
-      type: String,
-      required: false
-    },
-    content: {
-      price: {
-        type: String
-      }
+  props: ['article'],
+  data () {
+    return {
     }
   },
   computed: {
-    style () {
-      return `background-image: url(${this.imgUrl})`
+    backgroundImg () {
+      return `background-image: url(${this.article.imgUrl})`
     }
   }
 }
@@ -35,47 +24,41 @@ export default {
 <template lang="pug">
   div.feature-template
     Navigation
-    div(class="container" :style="style")
-      h1.title {{title}}
-    div
-      h2 Pricing
-      p(v-bind:content="content") {{content.price}}
-    div.copy
-      h2.articleTitle {{title}}
-      div.line
-    p
-      | Stunning website services to expand your brand and sales in the continually
-      | competitive online ecosystem.
-      | Zendo Digital specializes in designing beautiful websites that will
-      | attract new clients to your growing business.
-    p
-      | If you decide to hire the team of expert designers, Zendo Digital will design
-      | and build a custom website for your business at a great price.
-    p
-      | Zendo's team of web developers focus on using best-practices in the web development
-      | process to ensure that your site is delivered: on time, to specification, and within
-      | a budget that you specify.
+    div(class="container" :style="backgroundImg")
+      img(:src="imgUrl")
+      h1.title {{article.title}}
+    div.flex-container
+      div.left-content
+        div.article-heading
+          div.line &nbsp;
+          h2.articleTitle {{article.title}}
+          div.line &nbsp;
+        div.copy
+          p(v-for="para in article.paragraphs") {{ para }}
+      div.right-content
+        aside
+          div.aside-links
+            ul
+              li
+                div.aside-heading
+                  h2 Other Features
+              li
+                router-link(:to="{name: 'webdesign'}") Web Design
+              li
+                router-link(:to="{name: 'socialmedia'}") Social Media
+              li
+                router-link(:to="{name: 'seo'}") SEO
+              li
+                router-link(:to="{name: 'photoAndVideo'}") Photography &amp; Videography
+              li
+                router-link(:to="{name: 'reputationManagement'}") Reputation Management
+              li
+                router-link(:to="{name: 'contentAndGraphic'}") Content &amp; Graphic Creation
     TheFooter
     router-view
 </template>
 
-<style lang="scss" scoped>
-.copy {
-  display: flex;
-  justify-content: space-between;
-
-  & .articleTitle {
-    margin: auto;
-  }
-
-  & .line {
-    width: 73%;
-    height: 6px;
-    background-color: $mainDarkerGrey;
-    align-self: center;
-  }
-}
-
+<style lang="scss">
 .container {
   padding-top: 70px;
   text-align: center;
@@ -90,9 +73,124 @@ export default {
   @include atMedium {
     padding-top: 100px;
   }
+
   .title {
     color: $mainWhite;
     font-family: SweetSans-Light;
+    text-transform: uppercase;
   }
 }
+
+.flex-container {
+  display: block;
+  margin-top: 60px;
+
+  @include atLarge {
+    display: flex;
+  }
+
+  .left-content {
+    justify-content: flex-start;
+    width: 96%;
+    margin: 0 auto;
+
+    @include atLarge {
+      width: 64%;
+    }
+
+    .article-heading {
+      text-align: center;
+
+      .articleTitle {
+        display: inline-block;
+        text-decoration: underline;
+        width: 100%;
+      }
+
+      .line {
+        display: inline-block;
+        width: 50%;
+        min-height: 1px;
+        max-height: 6px;
+        background-color: rgba($mainDarkerGrey, .5px);
+        align-self: center;
+      }
+    }
+
+    .copy {
+
+      p {
+        font-size: 1.5rem;
+        text-indent: 2rem;
+      }
+
+      p::first-letter {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .right-content {
+    width: 96%;
+    margin: 2% auto;
+
+    @include atLarge {
+      width: 33%;
+    }
+    aside {
+
+
+      .aside-links {
+        text-align: center;
+
+        ul {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+
+          li {
+            list-style-type: none;
+            width: 100%;
+
+            .aside-heading {
+
+              h2 {
+                text-align: center;
+                height: 100%;
+                background-color: #e7e0da;
+                padding: 2rem;
+                margin: 0;
+              }
+            }
+
+            a {
+              display: block;
+              font-size: 1.3rem;
+              text-decoration: none;
+              height: 100%;
+              width: 100%;
+              padding: 2rem;
+              font-weight: bold;
+              color: black;
+              background-color: #dadcd6;
+            }
+
+            a:hover {
+              background-color: #b6b9ad;
+            }
+
+            .router-link-exact-active {
+              font-size: 1.5rem;
+              border-left: 13px solid $mainDarkerGrey;
+              border-bottom: 13px solid $mainDarkerGrey;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 </style>

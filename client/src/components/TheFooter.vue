@@ -3,7 +3,7 @@
     div.wrapper
       p
         span.site-footer__text Copyright &copy; 2018 Zendo Digital. All rights reserved.
-        a(class="btn btn--mainDarkColor" href="/contact") Get in Touch
+        a(class="btn btn--lightgreen" href="/contact") Get in Touch
 </template>
 
 <script>
