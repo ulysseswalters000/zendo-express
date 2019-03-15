@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     showFeatureItems () {
-      this.expandMobile = true;
+      this.expandMobile = !this.expandMobile;
     }
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
         div.feature-links
           div.mobile-feature-nav
             h3(@click="showFeatureItems") Other Features
-          ul
+          ul(v-if="expandMobile")
             li.feature-item
               router-link(:to="{name: 'webdesign'}") Web Design
             li.feature-item
@@ -119,6 +119,24 @@ export default {
     display: flex;
   }
 
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+  .mobile-feature-nav {
+
+    @include atLarge {
+      display: none;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: 1rem;
+      color: $mainWhite;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   ul {
     margin: 0px auto;
     list-style: none;
@@ -132,22 +150,9 @@ export default {
       }
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    .mobile-feature-nav {
 
-      h3 {
-        text-align: center;
-        margin: 0 auto;
-        padding: 20px;
-        font-size: 1rem;
-        color: $mainWhite;
-        width: 100%;
-        height: 100%;
-      }
-    }
 
     .feature-item {
-      display: none;
 
       @include atLarge {
         display: inline-block;
