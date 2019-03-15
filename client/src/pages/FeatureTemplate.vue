@@ -11,6 +11,12 @@ export default {
   props: ['article'],
   data () {
     return {
+      expandMobile: false,
+    }
+  },
+  methods: {
+    showFeatureItems () {
+      this.expandMobile = true;
     }
   },
   computed: {
@@ -27,43 +33,143 @@ export default {
     div(class="container" :style="backgroundImg")
       img(:src="imgUrl")
       h1.title {{article.title}}
-    div.flex-container
-      div.left-content
-        div.article-heading
-          div.line &nbsp;
-          h2.articleTitle {{article.title}}
-          div.line &nbsp;
-        div.copy
-          div(v-for="(value, key, index) in article.paragraphs")
-            h2(v-if="key == 'subHeading'") {{ value }}
-            ul.listed-items(v-else-if="key == 'bullets'")
-              li.list-item(v-for="bullet in value") {{ bullet }}
-            p(v-else) {{ value }}
-
-      div.right-content
-        aside
-          div.aside-links
-            ul
-              li
-                div.aside-heading
-                  h2 Other Features
-              li
-                router-link(:to="{name: 'webdesign'}") Web Design
-              li
+    div
+      nav.feature-nav
+        div.feature-links
+          div.mobile-feature-nav
+            h3(@click="showFeatureItems") Other Features
+          ul
+            li.feature-item
+              router-link(:to="{name: 'webdesign'}") Web Design
+            li.feature-item
                 router-link(:to="{name: 'socialmedia'}") Social Media
-              li
-                router-link(:to="{name: 'seo'}") SEO
-              li
-                router-link(:to="{name: 'photoAndVideo'}") Photography &amp; Videography
-              li
-                router-link(:to="{name: 'reputationManagement'}") Reputation Management
-              li
-                router-link(:to="{name: 'contentAndGraphic'}") Content &amp; Graphic Creation
+            li.feature-item
+              router-link(:to="{name: 'seo'}") SEO
+            li.feature-item
+              router-link(:to="{name: 'photoAndVideo'}") Photography &amp; Videography
+            li.feature-item
+              router-link(:to="{name: 'reputationManagement'}") Reputation Management
+            li.feature-item
+              router-link(:to="{name: 'contentAndGraphic'}") Content &amp; Graphic Creation
+      div.article-heading
+        div.line &nbsp;
+        h2.articleTitle {{article.title}}
+        div.line &nbsp;
+      div.copy
+        div(v-for="(value, key, index) in article.paragraphs")
+          h2(v-if="key == 'subHeading'") {{ value }}
+          ul.listed-items(v-else-if="key == 'bullets'")
+            li.list-item(v-for="bullet in value") {{ bullet }}
+          p(v-else) {{ value }}
+
     TheFooter
     router-view
 </template>
 
 <style lang="scss">
+.copy {
+  max-width: 376px;
+  margin: 0 auto;
+
+  @include atSmall {
+    max-width: 500px;
+  }
+
+  @include atMedium {
+    max-width: 700px;
+    font-size: 1.25rem;
+  }
+
+  @include atLarge {
+    max-width: 900px;
+  }
+
+  p {
+    text-indent: 4rem;
+  }
+}
+.article-heading {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+
+  @include atMedium {
+    max-width: 700px;
+    font-size: 1.25rem;
+  }
+
+  @include atLarge {
+    max-width: 900px;
+  }
+  :first-child {
+    margin-top: 60px;
+  }
+
+  .line {
+    background-color: rgba($mainDarkerGrey, 0.5px);
+    height: 8px;
+  }
+}
+
+.feature-links {
+  display: block;
+  background-color: #000;
+
+  @include atLarge {
+    display: flex;
+  }
+
+  ul {
+    margin: 0px auto;
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0;
+
+      @include atLarge {
+        display: inline-block;
+      }
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    .mobile-feature-nav {
+
+      h3 {
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px;
+        font-size: 1rem;
+        color: $mainWhite;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .feature-item {
+      display: none;
+
+      @include atLarge {
+        display: inline-block;
+      }
+
+      a {
+        flex: 1 1 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: $mainWhite;
+        padding: 20px;
+      }
+
+      a:hover {
+        background-color: #eee;
+        color: $mainDarkGrey;
+      }
+    }
+  }
+}
 .container {
   padding-top: 70px;
   text-align: center;
@@ -95,129 +201,7 @@ export default {
   }
 }
 
-.flex-container {
-  display: block;
-  margin-top: 60px;
 
-  @include atLarge {
-    display: flex;
-  }
-
-  .left-content {
-    justify-content: flex-start;
-    width: 75%;
-    margin: 0 auto;
-
-    @include atLarge {
-      width: 64%;
-    }
-
-    .article-heading {
-      text-align: center;
-
-      .articleTitle {
-        display: inline-block;
-        text-decoration: underline;
-        width: 100%;
-      }
-
-      .line {
-        display: inline-block;
-        width: 50%;
-        min-height: 1px;
-        max-height: 6px;
-        background-color: rgba($mainDarkerGrey, .5px);
-        align-self: center;
-      }
-    }
-
-    .copy {
-
-      p {
-        font-size: 1rem;
-        text-indent: 2rem;
-
-        @include atMedium {
-          font-size: 1.5rem
-        }
-      }
-
-      p::first-letter {
-        font-weight: bold;
-      }
-
-      .listed-items {
-        font-size: 1rem;
-
-        @include atMedium {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  .right-content {
-    width: 96%;
-    margin: 2% auto;
-
-    @include atLarge {
-      width: 33%;
-    }
-    aside {
-
-
-      .aside-links {
-        text-align: center;
-
-        ul {
-          width: 100%;
-          height: 100%;
-          padding: 0;
-
-          li {
-            list-style-type: none;
-            width: 100%;
-
-            .aside-heading {
-
-              h2 {
-                text-align: center;
-                height: 100%;
-                background-color: #e7e0da;
-                padding: 2rem;
-                margin: 0;
-              }
-            }
-
-            a {
-              display: block;
-              font-size: 1.3rem;
-              text-decoration: none;
-              height: 100%;
-              width: 100%;
-              padding: 2rem;
-              font-weight: bold;
-              color: black;
-              background-color: #dadcd6;
-            }
-
-            a:hover {
-              background-color: #b6b9ad;
-            }
-
-            .router-link-exact-active {
-              font-size: 1.5rem;
-              border-left: 1px solid $mainDarkerGrey;
-              border-bottom: 1px solid $mainDarkerGrey;
-              border-radius: 0 0 0 25px;
-              margin-bottom: 20px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 
 

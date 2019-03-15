@@ -43,7 +43,7 @@ if(process.env.NODE_ENV === 'production') {
 
   //Handle routes
   // matches any route that does not exist to index.html
-  app.get(/.*/, (req, res) => res.sendFile(__dirname+ '/public/index.html'));
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
 }
 
 
