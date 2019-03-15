@@ -11,17 +11,29 @@ export default {
   props: ['article'],
   data () {
     return {
-      expandMobile: false,
+      showMobile: false,
+      isLargeScreen: true,
     }
   },
   methods: {
     showFeatureItems () {
-      this.expandMobile = !this.expandMobile;
+      this.showMobile = !this.showMobile;
+      return (this.showMobile)
+              ? document.getElementById('mobile-dropdown').style.display = 'block'
+              : document.getElementById('mobile-dropdown').style.display = 'none'
+
     }
   },
   computed: {
     backgroundImg () {
       return `background-image: url(${this.article.imgUrl})`
+    }
+  },
+  watch: {
+    clientWidth: (n) => {
+      (n > 978)
+      document.getElementById('mobile-dropdown').style.display = 'block'
+      console.log(document.documentElement.clientWidth);
     }
   }
 }
@@ -38,7 +50,7 @@ export default {
         div.feature-links
           div.mobile-feature-nav
             h3(@click="showFeatureItems") Other Features
-          ul(v-if="expandMobile")
+          ul(id="mobile-dropdown" :class="{'show-on-large': isLargeScreen}")
             li.feature-item
               router-link(:to="{name: 'webdesign'}") Web Design
             li.feature-item
@@ -141,13 +153,19 @@ export default {
     margin: 0px auto;
     list-style: none;
     padding: 0;
+    display: none;
+
+    .show-on-large {
+      display: block;
+    }
+
+    @include atLarge {
+      display: block;
+    }
 
     li {
       padding: 0;
 
-      @include atLarge {
-        display: inline-block;
-      }
     }
 
 
