@@ -36,6 +36,7 @@ export default new Router({
         article: {
           title: 'Web Design',
           imgUrl: require( '../assets/images/webdesignheader.jpg'),
+          svgUrl: require('../assets/images/featureGraphics/coding.svg'),
           paragraphs: Data.webData
         }
       },
@@ -48,6 +49,7 @@ export default new Router({
         article: {
           title: 'Social Media Management',
           imgUrl: require( '../assets/images/neverstress.jpg'),
+          svgUrl: require('../assets/images/featureGraphics/digital_marketing.svg'),
           paragraphs: Data.socialData
         }
       },
@@ -60,6 +62,7 @@ export default new Router({
         article: {
           title: 'Search Engine Optimization',
           imgUrl: require( '../assets/images/seo.jpg'),
+          svgUrl: require('../assets/images/featureGraphics/seo.svg'),
           paragraphs: Data.seoData
         }
       },
@@ -72,6 +75,7 @@ export default new Router({
         article: {
           title: 'Photography and Videography',
           imgUrl: require( '../assets/images/photoandvideo.jpg'),
+          svgUrl: require('../assets/images/featureGraphics/video.svg'),
           paragraphs: Data.photoAndVideoData
         }
       },
@@ -84,6 +88,7 @@ export default new Router({
         article: {
           title: 'Reputation Management',
           imgUrl: require( '../assets/images/reputationmanagement.jpg'),
+          svgUrl: require('../assets/images/featureGraphics/branding.svg'),
           paragraphs: Data.reputationData
         }
       },
@@ -96,6 +101,7 @@ export default new Router({
         article: {
           title: 'Content & Graphic Creation',
           imgUrl: require( '../assets/images/reputationmanagement.jpg'),
+          svgUrl: require('../assets/images/featureGraphics/blogging.svg'),
           paragraphs: Data.contentAndGraphicData
         }
       },

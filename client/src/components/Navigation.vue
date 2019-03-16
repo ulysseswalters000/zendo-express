@@ -37,7 +37,7 @@
                 a(href="/" id="home") Home
                 ul.drop-menu
                   li.dropdown-li
-                    a(href="/#features" id="features-link") Features
+                    router-link(:to="{name: 'webdesign'}" id="features-link") Features
                   li.dropdown-li
                     a(href="/#teams" id="teams-link") Teams
                   li.dropdown-li

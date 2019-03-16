@@ -13,6 +13,7 @@ export default {
     return {
       showMobile: false,
       isLargeScreen: true,
+      windowWidth: 0
     }
   },
   methods: {
@@ -27,20 +28,32 @@ export default {
   computed: {
     backgroundImg () {
       return `background-image: url(${this.article.imgUrl})`
+    },
+    svgUrl () {
+      return `${this.article.svgUrl}`
     }
   },
   watch: {
-    clientWidth: (n) => {
-      (n > 978)
-      document.getElementById('mobile-dropdown').style.display = 'block'
-      console.log(document.documentElement.clientWidth);
+    windowWidth(newWidth, oldWidth) {
+      console.log(newWidth);
+      (newWidth >= 1010)
+      ? document.getElementById('mobile-dropdown').style.display = 'block'
+      : document.getElementById('mobile-dropdown').style.display = 'none'
+
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', () => {
+        this.windowWidth = window.innerWidth
+      })
+    })
   }
 }
 </script>
 
 <template lang="pug">
-  div.feature-template
+  div(class="feature-template" data-matching-link="#feature")
     Navigation
     div(class="container" :style="backgroundImg")
       img(:src="imgUrl")
@@ -68,11 +81,13 @@ export default {
         h2.articleTitle {{article.title}}
         div.line &nbsp;
       div.copy
-        div(v-for="(value, key, index) in article.paragraphs")
-          h2(v-if="key == 'subHeading'") {{ value }}
-          ul.listed-items(v-else-if="key == 'bullets'")
-            li.list-item(v-for="bullet in value") {{ bullet }}
-          p(v-else) {{ value }}
+        div
+          img(:src="svgUrl" class="floated")
+          div(v-for="(value, key, index) in article.paragraphs")
+            h2(v-if="key == 'subHeading'") {{ value }}
+            ul.listed-items(v-else-if="key == 'bullets'")
+              li.list-item(v-for="bullet in value") {{ bullet }}
+            p(v-else) {{ value }}
 
     TheFooter
     router-view
@@ -82,6 +97,11 @@ export default {
 .copy {
   max-width: 376px;
   margin: 0 auto;
+
+  .floated {
+    float: left;
+  }
+
 
   @include atSmall {
     max-width: 500px;
@@ -131,7 +151,6 @@ export default {
     display: flex;
   }
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
   .mobile-feature-nav {
 
     @include atLarge {
@@ -176,6 +195,10 @@ export default {
         display: inline-block;
       }
 
+      .router-link-exact-active {
+        border-bottom: 5px solid $mainDarkColor;
+      }
+
       a {
         flex: 1 1 0;
         display: block;
@@ -184,6 +207,8 @@ export default {
         text-decoration: none;
         color: $mainWhite;
         padding: 20px;
+
+
       }
 
       a:hover {
@@ -213,6 +238,7 @@ export default {
     font-family: SweetSans-Light;
     text-transform: uppercase;
     font-size: 3rem;
+    text-shadow: 2px 2px $mainDarkGrey;
 
     @include atMedium {
       font-size: 6rem;
@@ -223,6 +249,7 @@ export default {
     }
   }
 }
+
 
 
 
