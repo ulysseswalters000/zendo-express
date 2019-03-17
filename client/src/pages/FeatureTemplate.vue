@@ -196,7 +196,7 @@ export default {
       }
 
       .router-link-exact-active {
-        border-bottom: 5px solid $mainDarkColor;
+        border-left: 5px solid $mainDarkColor;
       }
 
       a {
