@@ -12,15 +12,23 @@ export default {
       },
       {
         name: `Custom Graphic Creation`,
-        desc: `1/Month`,
+        desc: `1/Month`
+      },
+      {
+        name: `Email Campaign Management`,
+        desc: false
       },
       {
         name: `Strategy Development Meetings`,
-        desc: `1/Month`,
+        desc: `1/Month`
+      },
+      {
+        name: `Search Engine Optimization`,
+        desc: false
       },
       {
         name: `Account Monitoring & Management`,
-        desc: true,
+        desc: true
       },
       {
         name: `Social Account Setup`,
@@ -40,7 +48,7 @@ export default {
       },
       {
         name: `Content Generation`,
-        desc: true
+        desc: false
       },
       {
         name: `Industry Research & Development`,
@@ -48,7 +56,7 @@ export default {
       },
       {
         name: `Keyword Optimization Strategy`,
-        desc: true
+        desc: false
       },
       {
         name: `Performance & Metrics Reports`,

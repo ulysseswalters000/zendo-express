@@ -26,7 +26,8 @@ export default new Router({
       path: '/pricing',
       name: 'pricing',
       props: {
-        Data: PricingData
+        Data: PricingData,
+        imgUrl: require('../assets/images/pricing.jpg')
       },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

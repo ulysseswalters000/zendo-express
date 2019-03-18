@@ -1,14 +1,12 @@
 <template lang="pug">
   div#pricing
     Navigation
-    div(class="heading")
+    div(class="heading" :style="backgroundImg")
       h1 Digital Marketing Made Easy
-      img
+      button(@click="contactNav") Contact Us
     div#mobile
       nav.nav-element
         ul
-          li
-            a(href="#" @click="showBeginner") Beginner
           li
             a(href="#" @click="showIntermediate") Intermediate
           li
@@ -27,12 +25,15 @@
           div.line
           div(class="flex" v-for="feature in plan.features")
             p.half-width {{ feature.name }}
-            p(v-if="feature.desc == true" class="half-width")
+            p(v-if="feature.desc == true" class="half-width padding-left")
               i.fas.fa-check
-            p(v-else="feature.desc") {{ feature.desc }}
+            p(v-else-if="feature.desc == false" class="half-width padding-left")
+              i.fas.fa-times
+            p(v-else="feature.desc" class="half-width padding-left") {{ feature.desc }}
+          div.line.marg-bot
     div#larger-screen
-      h2 Zendo
-        span &nbsp; Digital
+      h2.brand-first-word Zendo
+        span.brand-second-word Digital
       div.full-width-line
       div.l-flex
         div.col-smaller
@@ -95,12 +96,40 @@
       div.full-width-line
       div.l-flex
         div.col-smaller
-          p(v-for="feature in Data.expertPlan.features") {{ feature.name }}
+          p(v-for="feature in Data.beginnerPlan.features") {{ feature.name }}
         div.col
           div.content-marg
-            div(v-for="desc in Data.beginnerPlan.features")
-              p {{ desc.desc }}
-              p(v-if="desc == desc.hasOwnProperty(desc)") hi
+            div(v-for="feature in this.Data.beginnerPlan.features")
+              p(v-if="feature.desc === false")
+                i.fas.fa-times
+              p(v-else-if="feature.desc === true")
+                i.fas.fa-check
+              p(v-else) {{feature.desc}}
+        div.col
+          div.content-marg
+            div(v-for="feature in this.Data.intermediatePlan.features")
+              p(v-if="feature.desc === false")
+                i.fas.fa-times
+              p(v-else-if="feature.desc === true")
+                i.fas.fa-check
+              p(v-else) {{feature.desc}}
+        div.col
+          div.content-marg
+            div(v-for="feature in this.Data.advancedPlan.features")
+              p(v-if="feature.desc === false")
+                i.fas.fa-times
+              p(v-else-if="feature.desc === true")
+                i.fas.fa-check
+              p(v-else) {{feature.desc}}
+        div.col
+          div.content-marg
+            div(v-for="feature in this.Data.expertPlan.features")
+              p(v-if="feature.desc === false")
+                i.fas.fa-times
+              p(v-else-if="feature.desc === true")
+                i.fas.fa-check
+              p(v-else) {{feature.desc}}
+      div.full-width-line.marg-bot
     TheFooter
 </template>
 
@@ -113,7 +142,7 @@ import TheFooter from '@/components/TheFooter.vue'
       Navigation,
       TheFooter
     },
-    props: ['Data'],
+    props: ['Data', 'imgUrl'],
     data () {
       return {
         plan: this.Data.beginnerPlan,
@@ -121,9 +150,6 @@ import TheFooter from '@/components/TheFooter.vue'
       }
     },
     methods: {
-      showBeginner() {
-          this.plan = this.Data.beginnerPlan
-      },
       showIntermediate() {
           this.plan = this.Data.intermediatePlan
       },
@@ -133,6 +159,14 @@ import TheFooter from '@/components/TheFooter.vue'
       showExpert() {
           this.plan = this.Data.expertPlan
       },
+      contactNav() {
+        this.$router.push({name: `contact`});
+      }
+    },
+    computed: {
+      backgroundImg() {
+        return `background-image: url(${this.imgUrl})`
+      }
     }
   }
 </script>
@@ -141,11 +175,23 @@ import TheFooter from '@/components/TheFooter.vue'
 #larger-screen {
   display: none;
 
+
   @include atMedium {
     display: block;
     margin-left: 1rem;
   }
-
+  .brand-first-word {
+    margin-top: 120px;
+    font-family: Sweetsans-Medium;
+    text-transform: uppercase;
+  }
+  .brand-second-word {
+    font-family: SweetSans-Thin;
+    text-transform: uppercase;
+  }
+  .marg-bot {
+    margin-bottom: 3rem;
+  }
   .full-width-line {
     border: 1px black solid;
     margin-right: 1rem;
@@ -156,7 +202,7 @@ import TheFooter from '@/components/TheFooter.vue'
   }
 
   .col:nth-child(odd) {
-    background-color: grey;
+    background-color: #ccd;
   }
 
   .l-flex {
@@ -166,6 +212,10 @@ import TheFooter from '@/components/TheFooter.vue'
 
     .col-smaller {
       width: 14%;
+
+      p {
+        min-height: 55px;
+      }
     }
 
     .padding-top {
@@ -188,6 +238,14 @@ import TheFooter from '@/components/TheFooter.vue'
 
       .content-marg {
         margin: 0 1rem;
+
+        div {
+          min-height: 56px;
+
+          @include atLarge {
+            min-height: 55px;
+          }
+        }
       }
 
 
@@ -198,15 +256,44 @@ import TheFooter from '@/components/TheFooter.vue'
   }
 }
 #mobile {
-  background-color: #eee;
 
   @include atMedium {
     display: none;
   }
 }
+
   .heading {
     padding-top: 120px;
-    background-color: yellow;
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    h1 {
+      flex-basis: 100%;
+      text-align: center;
+      color: #eee;
+      font-size: 4rem;
+      font-family: SweetSans-Thin;
+
+      @include atMedium {
+        font-size: 6rem;
+      }
+    }
+
+    button {
+      margin: 0 auto 30px auto;
+      padding: 20px;
+      border: none;
+      background-color: darkseagreen;
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
   }
 
   .nav-element {
@@ -214,8 +301,9 @@ import TheFooter from '@/components/TheFooter.vue'
     ul {
       list-style: none;
       padding: 0;
-      width: 434px;
-      margin: 0 auto;
+      margin-top: 60px;
+      width: 330px;
+      margin: 60px auto;
       display: flex;
       border: 1px $mainDarkGrey solid;
 
@@ -252,6 +340,7 @@ import TheFooter from '@/components/TheFooter.vue'
 
     .price {
       margin: 0;
+      font-size: 2rem;
     }
 
     .cta-button {
@@ -266,7 +355,7 @@ import TheFooter from '@/components/TheFooter.vue'
       margin: 1rem 0;
 
       &:hover {
-        background-color: green;
+        background-color: #eee;
       }
     }
 
@@ -274,9 +363,15 @@ import TheFooter from '@/components/TheFooter.vue'
       border: 1px solid black;
       margin-right: 1rem;
     }
-
+    .marg-bot {
+      margin-bottom: 60px;
+    }
     .flex {
       display: flex;
+
+      .padding-left {
+        padding-left: 20px;
+      }
 
       .half-width {
         width: 50%;

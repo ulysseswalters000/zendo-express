@@ -62,6 +62,7 @@ export default {
         div.feature-links
           div.mobile-feature-nav
             h3(@click="showFeatureItems") Other Features
+              i.fas.fa-caret-right
           ul(id="mobile-dropdown" :class="{'show-on-large': isLargeScreen}")
             li.feature-item
               router-link(:to="{name: 'webdesign'}") Web Design
@@ -154,6 +155,10 @@ export default {
 
     @include atLarge {
       display: none;
+    }
+
+    .fas {
+      padding-left: 10px;
     }
 
     h3 {
