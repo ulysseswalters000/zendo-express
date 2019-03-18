@@ -34,8 +34,7 @@ export default {
     }
   },
   watch: {
-    windowWidth(newWidth, oldWidth) {
-      console.log(newWidth);
+    windowWidth(newWidth) {
       (newWidth >= 1010)
       ? document.getElementById('mobile-dropdown').style.display = 'block'
       : document.getElementById('mobile-dropdown').style.display = 'none'

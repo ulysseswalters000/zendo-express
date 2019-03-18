@@ -1,133 +1,106 @@
 <template lang="pug">
   div#pricing
     Navigation
-    div(class="pricing")
-      div.page-section
-        div.wrapper
-          div.grid
-            div(class="pricing_column grid--column-1")
-              div.pricing__header-styles
-                h1.pricing__price
-                  | $250
-                  span.pricing__price--sub-script /month
-                h2.pricing__title Beginner
-              div.pricing__content
-                h3 Features
-                p.pricing__p
-                | Social Media Management
-                br
-                span 1 Channel
-                p.pricing__p
-                | Custom Graphic Creation
-                br
-                span 1/Month
-                p.pricing__p
-                | Strategy Development Meetings
-                br
-                span 1/Month
-                p Account Monitoring & Management
-                p Social Account Setup
-                p Optimized Posting Schedule
-                p Reputation Management
-                p Client/Follower Engagement
-                p Content Generation
-                p Industry Research & Development
-                p Keyword Optimization Strategy
-                p Performance & Metrics Reports
-                p Website Monitoring & Management
-                p Spam Monitoring
-
-            div(class="pricing_column grid--column-2")
-              div.pricing__header-styles
-                h1.pricing__price
-                  | $500
-                  span.pricing__price--sub-script /month
-                h2.pricing__title Intermediate
-              div.pricing__content
-                h3 Beginner Features
-                i(class="fas fa-plus i--color")
-                p.pricing__p
-                | Social Media Management
-                br
-                span 2 Channels
-                p.pricing__p
-                | Custom Graphic Creation
-                br
-                span 2/Month
-                p.pricing__p
-                | Email Campaign Management
-                br
-                span 1/Month
-                p.pricing__p
-                | Strategy Development Meetings
-                br
-                span 2/Month
-                p.pricing__p
-                | Search Engine Optimization
-                br
-                | (SEO)
-
-            div(class="pricing_column grid--column-3")
-              div.pricing__header-styles
-                h1.pricing__price
-                  | $750
-                  span.pricing__price--sub-script /month
-                h2.pricing__title Advanced
-              div.pricing__content
-                h3 Intermediate Features
-                i(class="fas fa-plus i--color")
-                p.pricing__p
-                | Social Media Management
-                br
-                span 3 Channels
-                p.pricing__p
-                  | Custom Graphic Creation
-                  br
-                  span 3/Month
-                p.pricing__p
-                  | Email Campaign Management
-                  br
-                  span 2/Month
-                p.pricing__p
-                  | Strategy Development Meetings
-                  br
-                  span 3/Month
-                p.pricing__p
-                | SEO
-                br
-                i(class="fas fa-asterisk")
-                i(class="fas fa-asterisk")
-
-            div(class="pricing_column grid--column-4")
-              div.pricing__header-styles
-                h1.pricing__price $1000
-                  span.pricing__price--sub-script /month
-                h2.pricing__title Expert
-              div.pricing__content
-                h3 Advanced Features
-                i(class="fas fa-plus i--color")
-                p.pricing__p
-                | Social Media Management
-                br
-                span 5 Channels
-                p.pricing__p
-                  | Custom Graphic Creation
-                  br
-                  span 4/Month
-                p.pricing__p
-                  | Email Campaign Management
-                  br
-                  span 4/Month
-                p.pricing__p
-                  | Strategy Development Meetings
-                  br
-                  span 4/Month
-                p.pricing__p
-                | SEO
-                br
-                i(class="fas fa-asterisk")
-                i(class="fas fa-asterisk")
-                i(class="fas fa-asterisk")
+    div(class="heading")
+      h1 Digital Marketing Made Easy
+      img
+    div#mobile
+      nav.nav-element
+        ul
+          li
+            a(href="#" @click="showBeginner") Beginner
+          li
+            a(href="#" @click="showIntermediate") Intermediate
+          li
+            a(href="#" @click="showAdvanced") Advanced
+          li
+            a(href="#" @click="showExpert") Expert
+        div.content
+          h2 {{ plan.title.desc }}
+          p  {{ plan.title.tagLine }}
+          p.price_desc Start for
+          h2.price {{ plan.price }}
+          p.price_desc /month and up
+          router-link(class="cta-button" :to="{ name: 'contact'}") Contact Us
+          div.line
+          h3 Included
+          div.line
+          div(class="flex" v-for="feature in plan.features")
+            p.half-width {{ feature.name }}
+            p(v-if="feature.desc == true" class="half-width")
+              i.fas.fa-check
+            p(v-else="feature.desc") {{ feature.desc }}
+    div#larger-screen
+      h2 Zendo
+        span &nbsp; Digital
+      div.full-width-line
+      div.l-flex
+        div.col-smaller
+          h4 Plans
+        div.col
+          div.content-marg
+            h2 {{ this.Data.beginnerPlan.title.desc }}
+            p {{ this.Data.beginnerPlan.title.tagLine }}
+        div.col
+          div.content-marg
+            h2 {{ this.Data.intermediatePlan.title.desc }}
+            p {{ this.Data.intermediatePlan.title.tagLine }}
+        div.col
+          div.content-marg
+            h2 {{ this.Data.advancedPlan.title.desc }}
+            p {{ this.Data.advancedPlan.title.tagLine }}
+        div.col
+          div.content-marg
+            h2 {{ this.Data.expertPlan.title.desc }}
+            p {{ this.Data.expertPlan.title.tagLine }}
+      div.l-flex
+        div.col-smaller
+          h4 Pricing
+        div.col.padding-top.padding-bottom
+          div.content-marg
+            p.no-marg Start for
+            h1.no-marg.larger-text {{ this.Data.beginnerPlan.price }}
+            p.no-marg /month and up
+        div.col.padding-top.padding-bottom
+          div.content-marg
+            p.no-marg Start for
+            h1.no-marg.larger-text {{ this.Data.intermediatePlan.price }}
+            p.no-marg /month and up
+        div.col.padding-top.padding-bottom
+          div.content-marg
+            p.no-marg Start for
+            h1.no-marg.larger-text {{ this.Data.advancedPlan.price }}
+            p.no-marg /month and up
+        div.col.padding-top.padding-bottom
+          div.content-marg
+            p.no-marg Start for
+            h1.no-marg.larger-text {{ this.Data.expertPlan.price }}
+            p.no-marg /month and up
+      div.full-width-line
+      div.l-flex
+        div.col-smaller
+          h4 Included
+        div.col
+          div.content-marg
+            h3 {{ this.Data.beginnerPlan.title.desc }}
+        div.col
+          div.content-marg
+            h3 {{ this.Data.intermediatePlan.title.desc }}
+        div.col
+          div.content-marg
+            h3 {{ this.Data.advancedPlan.title.desc }}
+        div.col
+          div.content-marg
+            h3 {{ this.Data.expertPlan.title.desc }}
+      div.full-width-line
+      div.l-flex
+        div.col-smaller
+          p(v-for="feature in Data.expertPlan.features") {{ feature.name }}
+        div.col
+          div.content-marg
+            div(v-for="desc in Data.beginnerPlan.features")
+              p {{ desc.desc }}
+              p(v-if="desc == desc.hasOwnProperty(desc)") hi
     TheFooter
 </template>
 
@@ -139,56 +112,175 @@ import TheFooter from '@/components/TheFooter.vue'
     components: {
       Navigation,
       TheFooter
+    },
+    props: ['Data'],
+    data () {
+      return {
+        plan: this.Data.beginnerPlan,
+        displayCheckMark: false
+      }
+    },
+    methods: {
+      showBeginner() {
+          this.plan = this.Data.beginnerPlan
+      },
+      showIntermediate() {
+          this.plan = this.Data.intermediatePlan
+      },
+      showAdvanced() {
+          this.plan = this.Data.advancedPlan
+      },
+      showExpert() {
+          this.plan = this.Data.expertPlan
+      },
     }
   }
 </script>
 
 <style lang="scss">
-  .pricing {
-      background-color: $mainDarkColor;
+#larger-screen {
+  display: none;
 
-      @include atMedium {
-          text-align: center;
-          background-image: url(../assets/images/ganges_bath_time.jpg);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
+  @include atMedium {
+    display: block;
+    margin-left: 1rem;
+  }
+
+  .full-width-line {
+    border: 1px black solid;
+    margin-right: 1rem;
+  }
+
+  .margin-top {
+    margin-top: 2rem;
+  }
+
+  .col:nth-child(odd) {
+    background-color: grey;
+  }
+
+  .l-flex {
+    display: flex;
+
+
+
+    .col-smaller {
+      width: 14%;
+    }
+
+    .padding-top {
+      padding-top: 1rem;
+    }
+
+    .padding-bottom {
+      padding-bottom: 1rem;
+    }
+
+
+
+    .col {
+      width: 20%;
+      padding-right: 1rem;
+
+      .no-marg {
+        margin: 0;
       }
 
-      &__header-styles {
-        background-color: #a69eb0;
-        padding: 1rem 0;
-        border-right: 1px solid $mainWhite;
-        width: 100%;
-
+      .content-marg {
+        margin: 0 1rem;
       }
 
 
-
-      &__price {
-          font-family: SweetSans-Medium;
-          color: $mainDarkColor;
-          font-size: 3rem;
-
-          &--sub-script {
-              font-size: 25%;
-          }
+      .larger-text {
+        font-size: 3rem;
       }
+    }
+  }
+}
+#mobile {
+  background-color: #eee;
 
-      &__title {
+  @include atMedium {
+    display: none;
+  }
+}
+  .heading {
+    padding-top: 120px;
+    background-color: yellow;
+  }
 
+  .nav-element {
+
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 434px;
+      margin: 0 auto;
+      display: flex;
+      border: 1px $mainDarkGrey solid;
+
+      &:first-child {
+        border-left: none;
       }
+      li {
+        border-left: 1px $mainDarkGrey solid;
 
-      &__p {
-         font-family: Roboto;
-         margin-bottom: 20px;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        a:hover {
+          background-color: yellow;
+        }
       }
+    }
+  }
 
+  .content {
+      margin-left: 1rem;
 
-      & .i--color {
-          color: $mainLighterDarkColor;
-          font-size: 5rem;
-          margin: 3rem 0;
+    .price_desc {
+      text-transform: uppercase;
+      font-family: SweetSans-Thin;
+      margin: 0;
+    }
+
+    .price {
+      margin: 0;
+    }
+
+    .cta-button {
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      text-align: center;
+      width: 9rem;
+      height: 100%;
+      padding: 20px;
+      border: 1px solid $mainDarkGrey;
+      margin: 1rem 0;
+
+      &:hover {
+        background-color: green;
       }
+    }
+
+    .line {
+      border: 1px solid black;
+      margin-right: 1rem;
+    }
+
+    .flex {
+      display: flex;
+
+      .half-width {
+        width: 50%;
+      }
+    }
   }
 </style>
