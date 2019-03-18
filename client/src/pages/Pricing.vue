@@ -323,7 +323,7 @@ import TheFooter from '@/components/TheFooter.vue'
         }
 
         a:hover {
-          background-color: yellow;
+          background-color: #eee;
         }
       }
     }
