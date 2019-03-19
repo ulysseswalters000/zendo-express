@@ -96,7 +96,7 @@
       div.full-width-line
       div.l-flex
         div.col-smaller
-          p(v-for="feature in Data.beginnerPlan.features") {{ feature.name }}
+          p(v-for="feature in Data.beginnerPlan.features" class="blue-color") {{ feature.name }}
         div.col
           div.content-marg
             div(v-for="feature in this.Data.beginnerPlan.features")
@@ -172,6 +172,12 @@ import TheFooter from '@/components/TheFooter.vue'
 </script>
 
 <style lang="scss">
+.fa-check {
+  color: $mainGreen;
+}
+.fa-times {
+  color: $mainRed;
+}
 #larger-screen {
   display: none;
 
@@ -208,10 +214,12 @@ import TheFooter from '@/components/TheFooter.vue'
   .l-flex {
     display: flex;
 
-
-
     .col-smaller {
       width: 14%;
+
+      .blue-color {
+        color: $mainLighterDarkColor;
+      }
 
       p {
         min-height: 55px;

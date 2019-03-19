@@ -71,7 +71,7 @@
           v-bind:class="{'show-mobile-dropdown': innerMobileNav.showInnerDropdown}"
           )
           li.mobile-menu__menu-content--dropdown-li
-            a(href="/#features" id="features-link") Features
+            router-link(:to="{name: 'webdesign'}" id="features-link") Features
           li.mobile-menu__menu-content--dropdown-li
             a(href="/#teams" id="teams-link") Teams
           li(class="mobile-menu__menu-content--dropdown-li")
@@ -103,6 +103,10 @@
 </script>
 
 <style lang="scss">
+  .fas {
+    padding-left: 10px;
+  }
+
   .fixed-header {
       position: fixed;
       width: 100%;
@@ -331,7 +335,8 @@
                           justify-content: center;
                       }
                       a:hover {
-                          background-color: $mainDarkColor;
+                          background-color: #eee;
+                          color: #aaa;
                       }
                   }
 
