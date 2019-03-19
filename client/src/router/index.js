@@ -3,12 +3,17 @@ import Router from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import Data from '@/pages/featureData/data'
 import PricingData from '@/pages/featureData/pricingData'
+import firebase from 'firebase'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '*',
+      redirect: '/'
+    },
     {
       path: '/',
       name: 'homepage',
@@ -111,6 +116,44 @@ export default new Router({
         }
       },
       component: () => import(/* webpackChunkName: "SEO" */ '@/pages/FeatureTemplate.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import(/* webpackChunkName: "Login" */ '@/pages/login.vue')
+    },
+    {
+      path: '/blogs',
+      name: 'showBlogs',
+      component: () => import(/* webpackChunkName: "Blogs" */ '@/pages/ShowBlogs.vue')
+    },
+    {
+      path: '/addBlog',
+      name: 'addBlog',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import(/* webpackChunkName: "Blogs" */ '@/pages/addBlog.vue')
+    },
+    {
+      path: '/blog/:id',
+      name: 'singleBlog',
+      component: () => import(/* webpackChunkName: "singleBlog" */ '@/pages/singleBlog.vue')
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+  const currentUser = firebase.auth().currentUser
+
+  if(requiresAuth && !currentUser){
+    next('/login')
+  } else if(requiresAuth && currentUser){
+    next()
+  } else {
+    next()
+  }
+})
+
+export default router;
