@@ -59,6 +59,7 @@ export default {
         title: this.title,
         body: this.body,
         image: this.image
+        // hiiii
       }).then( ref => {
         this.title = ''
         this.body = []
