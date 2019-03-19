@@ -1,6 +1,6 @@
 <template lang="pug">
   div.video
-    video(muted autoplay loop src="../assets/videos/snowy_day.mp4")
+    video(muted autoplay loop src="../assets/videos/Spring_1.mp4")
     h1
       | Custom Digital Marketing Solutions for
       br
