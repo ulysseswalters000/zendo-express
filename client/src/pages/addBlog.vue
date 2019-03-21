@@ -4,7 +4,6 @@
     form(@submit.prevent)
       label(for="title") Title
       input.block(type="text" id="title" v-model="title")
-      input(type="file" @change="onFileChange")
       label(for="body") Body
       textarea(v-model="body[0]")
       div.flex(v-for="(notUsed, index) in bodyItems")
@@ -37,21 +36,6 @@ export default {
   methods: {
     addPara() {
       this.bodyItems.push(this.body.length)
-    },
-    onFileChange(e) {
-      let file = e.target.file || e.dataTransfer.file
-      if(!file.length)
-        return;
-      this.createImage(file[0])
-    },
-    createImage(file){
-      let image = new Image();
-      let reader = new FileReader();
-      let vm = this;
-
-      reader.onload = (e) => {
-        vm.image = e.target.result
-      }
     },
     postBlog() {
       fb.blogCollection.add({
