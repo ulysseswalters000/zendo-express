@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     backgroundImg () {
-      return `background-image: url(${this.article.imgUrl})`
+      return `background-image: url(${this.article.imgUrl});`
     },
     svgUrl () {
       return `${this.article.svgUrl}`
@@ -52,13 +52,13 @@ export default {
 </script>
 
 <template lang="pug">
-  div(class="feature-template" data-matching-link="#feature")
+  div(id="feature" class="feature-template" data-matching-link="#feature")
     Navigation
-    div(class="container" :style="backgroundImg")
-      img(:src="imgUrl")
-      h1.title {{article.title}}
+    div(class="container")
+      div.overlay(:style="backgroundImg")
+      div.title {{article.title}}
     div
-      nav.feature-nav
+      nav.feature-nav(data-matching-link="#features-link")
         div.feature-links
           div.mobile-feature-nav
             h3(@click="showFeatureItems") Other Features
@@ -222,35 +222,53 @@ export default {
     }
   }
 }
+
+.overlay {
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  color: #353535;
+  font-family: SweetSans-Light;
+  text-transform: uppercase;
+  font-size: 3rem;
+  width: 100%;
+  margin: 0 auto;
+
+  @include atMedium {
+    font-size: 4rem;
+  }
+
+  @include atLarge {
+    font-size: 8rem;
+  }
+}
+
 .container {
   padding-top: 70px;
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  position: relative;
   font-size: 4rem;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
+  z-index: 5;
+
 
   @include atMedium {
     padding-top: 100px;
-  }
-
-  .title {
-    color: $mainWhite;
-    font-family: SweetSans-Light;
-    text-transform: uppercase;
-    font-size: 3rem;
-    text-shadow: 2px 2px $mainDarkGrey;
-
-    @include atMedium {
-      font-size: 6rem;
-    }
-
-    @include atLarge {
-      font-size: 8rem;
-    }
   }
 }
 

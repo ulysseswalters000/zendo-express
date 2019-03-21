@@ -21,7 +21,7 @@
     video {
       position: relative;
       width: 100%;
-      max-height: 100%;
+      height: 100%;
       margin-top: 50px;
     }
 
@@ -30,13 +30,14 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.75rem;
+      font-size: 1.25rem;
       font-family: SweetSans-Thin;
       color: #000;
       text-shadow: -1px 0 white, 0 1px white, 1px 0  white, 0 -1px white;
 
       @include atSmall {
         color: $mainDarkerGrey;
+        font-size: 2.00rem;
       }
 
       @include atMedium {

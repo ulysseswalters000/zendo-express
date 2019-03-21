@@ -28,7 +28,7 @@
     font-weight: 300;
     font-size: 3rem;
     margin: 0 auto;
-    color: $mainDarkColor;
+    color: $mainBlueGrey;
 
     @include atMedium {
       padding-top: 15rem;
