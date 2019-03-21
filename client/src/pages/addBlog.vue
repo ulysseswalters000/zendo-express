@@ -1,6 +1,7 @@
 <template lang="pug">
   div
     Navigation
+    AdminNav
     form(@submit.prevent)
       label(for="title") Title
       input.block(type="text" id="title" v-model="title")
@@ -17,13 +18,15 @@
 
 <script>
 import Navigation from '@/components/Navigation'
+import AdminNav from '@/components/AdminNav'
 import TheFooter from '@/components/TheFooter'
 const fb = require('../firebaseConfig')
 export default {
   name: 'AddBlog',
   components: {
     Navigation,
-    TheFooter
+    TheFooter,
+    AdminNav
   },
   data () {
     return {
@@ -52,8 +55,6 @@ export default {
       })
     }
   },
-  computed: {
-  }
 }
 </script>
 

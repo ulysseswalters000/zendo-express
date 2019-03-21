@@ -1,6 +1,7 @@
 <template lang="pug">
   div
     Navigation
+    AdminNav(v-if="currentUser")
     div.most-recent-blog
       img(
         :src="blogs[0].image"
@@ -28,20 +29,24 @@
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue'
-import TheFooter from '@/components/TheFooter.vue'
+import Navigation from '@/components/Navigation'
+import TheFooter from '@/components/TheFooter'
+import AdminNav from '@/components/AdminNav'
+import { store } from '../store'
 const fb = require('../firebaseConfig')
 
 export default {
   name: 'ShowBlogs',
   components: {
     Navigation,
-    TheFooter
+    TheFooter,
+    AdminNav
   },
   data () {
     return {
       id: [],
-      blogs: []
+      blogs: [],
+      currentUser: store.state.currentUser
     }
   },
   methods: {
