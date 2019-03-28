@@ -27,7 +27,7 @@
 
     & h1 {
       position: absolute;
-      top: 90%;
+      top: 84%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: SweetSans-Thin;
@@ -36,15 +36,18 @@
       width: 100%;
 
       @include atSmall {
+        top: 85%;
         font-size: 1rem;
       }
 
       @include atMedium {
+        top: 87%;
         font-size: 1.75rem;
         padding-bottom: 10px;
       }
 
       @include atLarge {
+        top: 89%;
         font-size: 2.35rem;
         padding-bottom: 15px;
       }
