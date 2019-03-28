@@ -104,7 +104,7 @@
     }
 
     &__subtitle {
-      color: $mainDarkColor;
+      color: $mainDarkerGrey;
       text-align: center;
       font-weight: 400;
       font-size: .93rem;

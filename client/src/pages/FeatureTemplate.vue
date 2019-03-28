@@ -97,9 +97,15 @@ export default {
 .copy {
   max-width: 376px;
   margin: 0 auto;
+  padding: 0 10px;
+
+
 
   .floated {
-    float: left;
+
+    @include atSmall {
+      float: left;
+    }
   }
 
 
@@ -117,7 +123,11 @@ export default {
   }
 
   p {
-    text-indent: 4rem;
+    text-indent: 1.5rem;
+
+    @include atMedium {
+      text-indent: 2.5rem;
+    }
   }
 }
 .article-heading {

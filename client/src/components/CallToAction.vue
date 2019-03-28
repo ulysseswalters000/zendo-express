@@ -88,7 +88,7 @@
                   width: 100%;
                   height: 100%;
                   text-decoration: none;
-                  padding: 15px 0;
+                  padding: 15px 10px;
                   color: $mainWhite;
                   justify-content: center;
                   align-items: center;
