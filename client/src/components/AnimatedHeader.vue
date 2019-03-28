@@ -22,32 +22,31 @@
       position: relative;
       width: 100%;
       height: 100%;
-      margin-top: -50px;
     }
 
     & h1 {
       position: absolute;
-      top: 84%;
+      top: 87%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: SweetSans-Thin;
-      font-size: .9rem;
+      font-size: .7rem;
       color: $mainWhite;
       width: 100%;
 
       @include atSmall {
-        top: 85%;
+        top: 88%;
         font-size: 1rem;
       }
 
       @include atMedium {
-        top: 87%;
+        top: 89%;
         font-size: 1.75rem;
         padding-bottom: 10px;
       }
 
       @include atLarge {
-        top: 89%;
+        top: 90%;
         font-size: 2.35rem;
         padding-bottom: 15px;
       }
