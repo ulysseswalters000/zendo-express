@@ -1,6 +1,6 @@
 <template lang="pug">
   div.video
-    video(muted autoplay loop src="../assets/videos/Spring_new1.mp4")
+    video(muted autoplay loop src="../assets/videos/Spring_1080.mp4")
     h1
       | Custom Digital Marketing Solutions for
       br
@@ -22,21 +22,30 @@
       position: relative;
       width: 100%;
       height: 100%;
+      margin-top: 70px;
+
+      @include atSmall {
+        margin-top: -5px;
+      }
+
+      @include atLarge {
+        margin-top: -105px;
+      }
     }
 
     & h1 {
       position: absolute;
-      top: 87%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: SweetSans-Thin;
-      font-size: .7rem;
       color: $mainWhite;
       width: 100%;
+      display: none;
 
       @include atSmall {
         top: 88%;
         font-size: 1rem;
+        display: block;
       }
 
       @include atMedium {
