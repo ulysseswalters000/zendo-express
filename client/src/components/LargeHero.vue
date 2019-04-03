@@ -1,15 +1,14 @@
 <template lang="pug">
     div.large-hero
         div.wrapper
-          div.large-hero__text-content
-            h1.large-hero__title Zendo
-              span.large-hero__title--lighter-font Digital
-            p.large-hero__subtitle
-              |  Your business deserves your attention,
-              |  so let our team of experts do the heavy lifting.
-              |  We specialize in custom digital marketing solutions for the busy owner.
-            p.large-hero__cta-btn
-              router-link(class="btn btn--large" :to="{name: 'contact'}") Contact Us
+          h1.large-hero__title Zendo
+            span.large-hero__title--lighter-font Digital
+          p.large-hero__subtitle
+            |  Your business deserves your attention,
+            |  so let our team of experts do the heavy lifting.
+            |  We specialize in custom digital marketing solutions for the busy owner.
+          p.large-hero__cta-btn
+            router-link(class="btn btn--large" :to="{name: 'contact'}") Contact Us
 </template>
 
 <script>
@@ -25,22 +24,18 @@ export default {
 
 
 .large-hero {
-  height: 350px;
   width: 100%;
+  text-align: center;
 
   @include atMedium {
     padding-top: 60px;
 
   }
 
-  &__text-content {
-    color: #000;
-    font-size: 1.2rem;
-  }
 
   &__title {
     font-weight: 300;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     color: $mainDarkerGrey;
@@ -55,7 +50,11 @@ export default {
   }
 
   &__subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
+
+    @include atSmall {
+      font-size: 1.2rem;
+    }
 
   }
 }

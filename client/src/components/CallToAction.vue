@@ -15,7 +15,7 @@
               h3 Services:
               ul.cta__grid--inner-grid
                 li(class="item-a col-1 row-1")
-                  router-link(:to="{name: 'webdesign'}") Web Design
+                  router-link(to="/webdesign/#feature") Web Design
                 li(class="item-b col-2 row-1")
                   router-link(:to="{name: 'socialmedia'}") Social Media
                 li(class="item-c col-1 row-2")
@@ -59,9 +59,13 @@
 
         &--inner-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             grid-template-rows: auto;
             grid-gap: 1rem;
+
+            @include atMedium {
+              grid-template-columns: repeat(2, 1fr);
+            }
 
             .span-col-row-3 {
                 grid-column: 1 / span 2;
@@ -79,18 +83,19 @@
               list-style: none;
 
               a {
-                  background-color: $mainDarkColor;
+                  background-color: $mainDarkerColor;
                   display: flex;
                   width: 100%;
                   height: 100%;
                   text-decoration: none;
-                  padding: 15px 0;
+                  padding: 15px 10px;
                   color: $mainWhite;
                   justify-content: center;
                   align-items: center;
 
 
                   &:hover {
+                      color: $mainWhite;
                       background-color: $mainLighterDarkColor;
                   }
               }
@@ -156,7 +161,6 @@
 
                                 &:hover {
                                     background-color: $mainLighterDarkColor;
-                                    color: $mainWhite;
                                 }
                             }
                         }

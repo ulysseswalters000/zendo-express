@@ -188,7 +188,7 @@
 
               a {
                   text-decoration: none;
-                  color: $mainWhite;
+                  color: $mainDarkerGrey;
                   text-transform: uppercase;
                   width: 100%;
                   height:100%;
