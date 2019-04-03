@@ -32,8 +32,8 @@ app.use(cors());
 // app.use('/users', usersRouter);
 const contact = require('./routes/api/contact');
 // - 'routes in single quotes refer to actual routes'
-app.use('/contact', contact);
-app.use(history());
+// app.use('/contact', contact);
+// app.use(history());
 
 
 // Handle production

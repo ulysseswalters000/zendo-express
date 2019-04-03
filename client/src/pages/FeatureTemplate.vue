@@ -1,12 +1,8 @@
 <script>
-import Navigation from '@/components/Navigation.vue'
-import TheFooter from '@/components/TheFooter.vue'
 
 export default {
   name: 'FeatureTemplate',
   components: {
-    Navigation,
-    TheFooter
   },
   props: ['article'],
   data () {
@@ -53,7 +49,6 @@ export default {
 
 <template lang="pug">
   div(id="feature" class="feature-template" data-matching-link="#feature")
-    Navigation
     div(class="container")
       div.overlay(:style="backgroundImg")
       div.title {{article.title}}
@@ -88,9 +83,6 @@ export default {
             ul.listed-items(v-else-if="key == 'bullets'")
               li.list-item(v-for="bullet in value") {{ bullet }}
             p(v-else) {{ value }}
-
-    TheFooter
-    router-view
 </template>
 
 <style lang="scss">

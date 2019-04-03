@@ -1,10 +1,8 @@
 <template lang="pug">
   div
-    Navigation
-    AdminNav(v-if="currentUser")
     div.most-recent-blog
       img(
-        :src="blogs[0].image"
+        :src="blogs[0].imgUrl"
         )
       h1.mr-blog-title {{ blogs[0].title }}
       p(
@@ -23,47 +21,62 @@
         )
         div.overlay
           h2 read more
+          button(v-if="currentUser" @click='deleteBlog(id[index])')
+            i.fas.fa-times
+        img(:src="blog.imgUrl")
         h1 {{ blog.title }}
         p {{ blog.body[0].slice(0,10) + '...' }}
-    TheFooter
+
 </template>
 
 <script>
-import Navigation from '@/components/Navigation'
-import TheFooter from '@/components/TheFooter'
-import AdminNav from '@/components/AdminNav'
 import { store } from '../store'
+import { mapState } from 'vuex'
 const fb = require('../firebaseConfig')
 
 export default {
   name: 'ShowBlogs',
   components: {
-    Navigation,
-    TheFooter,
-    AdminNav
   },
   data () {
     return {
       id: [],
       blogs: [],
-      currentUser: store.state.currentUser
     }
   },
   methods: {
     singleBlog(id){
       console.log(id);
       this.$router.push(`/blog/${id}`)
+    },
+    deleteBlog(id) {
+      console.log(id);
+      let answer = confirm("You are about to delete this. Continue?")
+      if (answer){
+        fb.blogCollection.doc(id).delete().then( () => {
+          console.log("Blog deleted");
+          this.$router.push("/blogs")
+        }).catch( err => {
+          console.log("error deleting document", "=>", err);
+        })
+      } else {
+
+      }
     }
   },
   created () {
-    fb.blogCollection.orderBy('createdOn').get().then( blogs => {
+    fb.blogCollection.orderBy('createdOn', 'desc').get().then( blogs => {
       blogs.forEach(blog => {
         this.id.push(blog.id)
         this.blogs.push(blog.data())
+      }).catch( err => {
+        console.log(err);
       })
-      this.id.reverse()
-      this.blogs.reverse()
+
     })
+  },
+  computed: {
+    ...mapState(['currentUser'])
   }
 }
 </script>

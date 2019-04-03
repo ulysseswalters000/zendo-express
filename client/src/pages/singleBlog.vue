@@ -1,24 +1,17 @@
 <template lang="pug">
   div
-    Navigation
-    div.nav-separator
     div.blog
       h1 {{ blog.title }}
       div.line
       p.blog-body {{ blog.body }}
-    TheFooter
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue'
-import TheFooter from '@/components/TheFooter.vue'
 const fb = require('../firebaseConfig')
 
 export default {
   name: 'singleBlog',
   components: {
-    Navigation,
-    TheFooter
   },
   data () {
     return {
@@ -37,9 +30,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-separator {
-  padding-top: 95px;
-}
 
 .blog {
   max-width: 1200px;

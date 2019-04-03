@@ -46,6 +46,12 @@
                 router-link(to='/contact') Contact
               li
                 router-link(to="/pricing" id="pricing") Pricing
+              li
+                router-link(to="/blogs") Blog
+              li(v-if="currentUser")
+                a(@click="logOut") Logout
+              li(v-if="currentUser")
+                router-link(to="dashboard") dashboard
 
     div.mobile-menu__menu-content
       ul(
@@ -83,6 +89,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+const fb = require("../firebaseConfig")
   export default {
     name: 'Navigation',
     data: function () {
@@ -98,11 +106,23 @@
           caretDownIsVisible: false
         }
       }
+    },
+    methods: {
+      logOut() {
+        fb.auth.signOut().then( () => {
+          this.$store.dispatch('clearData')
+          this.$router.push('/login')
+        })
+      }
+    },
+    computed: {
+      ...mapState(['currentUser'])
     }
   }
 </script>
 
 <style lang="scss">
+
   .fas {
     padding-left: 10px;
   }
@@ -161,13 +181,12 @@
       ul {
           position: relative;
           padding-left: 0px;
-          height: 100%;
           margin: 0;
 
 
           li {
               list-style: none;
-              display:inline-block;
+              display: inline-block;
               height: 100%;
               width: 125px;
               text-align: center;
@@ -191,9 +210,9 @@
                   color: $mainDarkerGrey;
                   text-transform: uppercase;
                   width: 100%;
-                  height:100%;
+                  height: 100%;
                   display:inline-block;
-                  padding-top:22px;
+                  padding: 21px 0;
               }
 
               ul {

@@ -1,7 +1,5 @@
 <template lang="pug">
   div
-    Navigation
-    AdminNav
     form(@submit.prevent)
       label(for="title") Title
       input.block(type="text" id="title" v-model="title")
@@ -9,31 +7,26 @@
       textarea(v-model="body[0]")
       div.flex(v-for="(notUsed, index) in bodyItems")
         textarea(type='text' v-model="body[index+1]")
+      label(for="picture") Image Url
+      input(type="text" v-model="imgUrl")
       button(@click.prevent="postBlog") Post Blog
     button(@click='addPara') Add para
     p {{ body }}
     p {{ bodyItems }}
-    TheFooter
 </template>
 
 <script>
-import Navigation from '@/components/Navigation'
-import AdminNav from '@/components/AdminNav'
-import TheFooter from '@/components/TheFooter'
 const fb = require('../firebaseConfig')
 export default {
   name: 'AddBlog',
   components: {
-    Navigation,
-    TheFooter,
-    AdminNav
   },
   data () {
     return {
       title: '',
       body: [],
       bodyItems: [],
-      image: ''
+      imgUrl: ''
     }
   },
   methods: {
@@ -45,7 +38,7 @@ export default {
         createdOn: new Date(),
         title: this.title,
         body: this.body,
-        image: this.image
+        imgUrl: this.imgUrl
       }).then( ref => {
         this.title = ''
         this.body = []

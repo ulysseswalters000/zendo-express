@@ -1,6 +1,5 @@
 <template lang="pug">
   div
-    Navigation
     div.full-size
       div(class="contact-form--background-color contact-form page-section")
         div.contact-text
@@ -11,7 +10,7 @@
             h2(class="section-title section-title--contact")
               span.section_title
                 strong Contact Us
-            form(action="/contact" method="POST")
+            form(@submit.prevent)
               div(class="contact_inputs")
                   input(
                         type="text"
@@ -41,36 +40,46 @@
                           placeholder="Message"
                           required="required"
                           )
-                  input(
-                        v-on:click="createContact()"
-                        type="submit"
-                        name="button"
-                        value="Submit"
-                        )
-    TheFooter
-    router-view
+                  button(@click.prevent="createContact") Submit
 </template>
 
 <script>
 import ContactService from '../../ContactService.js'
-import Navigation from '@/components/Navigation.vue'
-import TheFooter from '@/components/TheFooter.vue'
+const fb = require('../firebaseConfig')
 
   export default {
     name: 'ContactForm',
     components: {
-      Navigation,
-      TheFooter
     },
     data() {
-      return ContactService.contactInitialState();
+      return {
+        contacts: {
+          name: '',
+          email: '',
+          number: '',
+          message: ''
+        }
+      }
     },
     methods: {
-      async createContact() {
-        await ContactService.insertContact(this.name, this.email, this.number, this.message);
+        createContact() {
+          fb.contactCollection.add({
+            createdOn: new Date(),
+            name: this.contacts.name,
+            email: this.contacts.email,
+            number: this.contacts.number,
+            message: this.contacts.message
+          }).then( ref => {
+            this.contacts.name = ''
+            this.contacts.email = ''
+            this.contacts.number = ''
+            this.contacts.message = ''
+          }).catch ( err => {
+            console.log(err);
+          })
+        }
       }
     }
-  }
 </script>
 
 <style lang="scss">

@@ -1,6 +1,5 @@
 <template lang="pug">
   div#pricing
-    Navigation
     div(class="heading" :style="backgroundImg")
       h1 Digital Marketing Made Easy
       button(@click="contactNav") Contact Us
@@ -134,13 +133,9 @@
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue'
-import TheFooter from '@/components/TheFooter.vue'
   export default {
     name: 'Pricing',
     components: {
-      Navigation,
-      TheFooter
     },
     props: ['Data', 'imgUrl'],
     data () {

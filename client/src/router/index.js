@@ -139,6 +139,22 @@ const router = new Router({
       path: '/blog/:id',
       name: 'singleBlog',
       component: () => import(/* webpackChunkName: "singleBlog" */ '@/pages/singleBlog.vue')
+    },
+    {
+      path: '/contacts',
+      name: 'contacts',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import(/* webpackChunkName: "Blogs" */ '@/pages/showContacts.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import(/* webpackChunkName: "Blogs" */ '@/pages/Dashboard.vue')
     }
   ]
 })

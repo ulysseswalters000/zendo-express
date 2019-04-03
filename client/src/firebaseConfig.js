@@ -20,11 +20,13 @@ const currentUser = auth.currentUser
 // Collections
 const blogCollection = db.collection('blogs')
 const usersCollection = db.collection('users')
+const contactCollection = db.collection('contacts')
 
 export {
   db,
   auth,
   currentUser,
   blogCollection,
-  usersCollection
+  usersCollection,
+  contactCollection
 }
