@@ -16,6 +16,7 @@ const config = {
 const db = firebase.firestore()
 const auth = firebase.auth()
 const currentUser = auth.currentUser
+const storage = firebase.storage()
 
 // Collections
 const blogCollection = db.collection('blogs')
@@ -26,6 +27,7 @@ export {
   db,
   auth,
   currentUser,
+  storage,
   blogCollection,
   usersCollection,
   contactCollection

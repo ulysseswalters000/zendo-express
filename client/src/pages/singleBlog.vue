@@ -1,6 +1,7 @@
 <template lang="pug">
   div
     div.blog
+      img(:src="blog.imgUrl")
       h1 {{ blog.title }}
       div.line
       p.blog-body {{ blog.body }}
@@ -32,6 +33,7 @@ export default {
 <style lang="scss" scoped>
 
 .blog {
+  padding-top: 120px;
   max-width: 1200px;
   margin: 0 auto;
 }

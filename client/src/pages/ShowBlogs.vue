@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    div.most-recent-blog
+    div.most-recent-blog(@click="singleBlog(id[0])")
       img(
         :src="blogs[0].imgUrl"
         )

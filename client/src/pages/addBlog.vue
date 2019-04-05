@@ -9,6 +9,8 @@
         textarea(type='text' v-model="body[index+1]")
       label(for="picture") Image Url
       input(type="text" v-model="imgUrl")
+      label(for="upload") Upload image
+      input(type='file' @change="handleFiles")
       button(@click.prevent="postBlog") Post Blog
     button(@click='addPara') Add para
     p {{ body }}
@@ -45,6 +47,20 @@ export default {
         this.$router.push('/blogs')
       }).catch( err => {
         console.log(err);
+      })
+    },
+    handleFiles(e) {
+      let file = e.target.files[0]
+      console.log(file);
+      let storageRef = fb.storage.ref(`blogImages/${file.name}`)
+      // const imageRef =  fb.storage.ref(file.name).child(file.name)
+
+      storageRef.put(file).then( (snapshot) => {
+        storageRef.getDownloadURL().then( url => {
+          this.imgUrl = url
+        })
+      }).catch( err => {
+        console.log(err.message);
       })
     }
   },
