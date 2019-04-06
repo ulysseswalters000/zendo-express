@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#pricing
+  div#pricing.padding-top
     div(class="heading" :style="backgroundImg")
       h1 Digital Marketing Made Easy
       button(@click="contactNav") Contact Us
@@ -219,10 +219,6 @@
       p {
         min-height: 55px;
       }
-    }
-
-    .padding-top {
-      padding-top: 1rem;
     }
 
     .padding-bottom {

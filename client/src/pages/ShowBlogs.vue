@@ -1,6 +1,6 @@
 <template lang="pug">
   div.padding-top
-    h1.heading  Our Most
+    h1.heading-title  Our Most
       span.font-weight  recent Posts
     div.line
     div.most-recent-blog
@@ -61,12 +61,14 @@ export default {
       console.log(id);
       let answer = confirm("You are about to delete this. Continue?")
       if (answer){
-        fb.blogCollection.doc(id).delete().then( () => {
-          console.log("Blog deleted");
-          this.$router.push("/blogs")
-        }).catch( err => {
-          console.log("error deleting document", "=>", err);
-        })
+        fb.blogCollection.doc(id).delete()
+          .then( () => {
+            console.log("Blog deleted");
+            this.$router.push("/blogs")
+          })
+          .catch( err => {
+            console.log("error deleting document", "=>", err);
+          })
       } else {
 
       }
@@ -102,8 +104,9 @@ export default {
     padding-top: 120px;
   }
 
-  .heading {
-    margin: 60px 0;
+  .heading-title {
+    padding-top: 60px;
+    margin-bottom: 60px;
     font-family: SweetSans-Thin;
     text-transform: uppercase;
   }
@@ -205,28 +208,28 @@ export default {
     margin-left: 20px;
     padding: 0;
     border: none;
-    background-color: black;
+    background-color: red;
 
 
     &:hover {
-      background-color: #eee;
+      background-color: #555;
     }
 
     .fas.fa-times {
-      color: red;
+      color: black;
       padding: 10px;
 
       &:hover {
-        color: black;
+        color: red;
       }
     }
   }
+
   .edit {
     margin-left: 20px;
     padding: 0;
     border: none;
     background-color: yellow;
-    z-index: 99;
 
 
     &:hover {

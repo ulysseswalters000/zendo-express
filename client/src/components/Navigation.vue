@@ -51,7 +51,7 @@
               li(v-if="currentUser")
                 a(@click="logOut") Logout
               li(v-if="currentUser")
-                router-link(to="dashboard") dash
+                router-link(to="/dashboard") dash
 
     div.mobile-menu__menu-content
       ul(
@@ -86,6 +86,12 @@
           router-link(to='/contact') Contact
         li
           a(href="pricing" id="pricing") Pricing
+        li
+          a(href="/blogs") Blog
+        li(v-if="currentUser")
+          a(href="/dashboard") Dash
+        li(v-if="currentUser")
+          a(@click="logOut") Logout
 </template>
 
 <script>

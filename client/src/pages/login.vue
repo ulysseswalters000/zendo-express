@@ -7,6 +7,9 @@
         label(for="password") Password:
         input(type="password" placeholder="password" id="password" v-model.trim="loginForm.password")
         button(type="submit" @click="login") Login
+        div.login-error(v-if="isErr")
+          p {{ errMessage }}
+
 </template>
 
 <script>
@@ -17,6 +20,8 @@ export default {
   },
   data () {
     return {
+      isErr: false,
+      errMessage: '',
       loginForm: {
         email: '',
         password: ''
@@ -25,11 +30,14 @@ export default {
   },
   methods: {
     login(){
-      fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then( user => {
+      fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password)
+      .then( user => {
         this.$store.commit('setCurrentUser', user.user)
         this.$router.push('/dashboard')
-      }).catch(err => {
-        console.log(err);
+      })
+      .catch( err => {
+        this.isErr = true;
+        this.errMessage = err.message;
       })
     }
   }
@@ -75,10 +83,12 @@ export default {
       }
 
     }
+  }
 
-
-
-
+  .login-error {
+    flex-basis: 100%;
+    color: red;
+    font-family: SweetSans-Light;
   }
 
 

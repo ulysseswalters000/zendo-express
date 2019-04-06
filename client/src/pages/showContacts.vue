@@ -1,18 +1,22 @@
 <template lang="pug">
-  div
-    h1 hi
-    h1 hi
-    h1 hi
-    div.card(v-for="(contact, index) in contacts")
-      div.flex
-        p {{ id[index] }}
-        button.delete(@click="deleteContact(index)")
-          i.fas.fa-times
-      p {{ contact.name }}
-      p {{ contact.email }}
-      p {{ contact.number }}
-      p {{ contact.message }}
-    h1 hi
+  div.padding-top
+    div.contact-container
+      div.contact-card(v-for="(contact, index) in contacts")
+        h2.contact-info DB ID:
+          span {{ id[index] }}
+        div.contact-btns-container
+          button.contact-button(@click="deleteContact(index)")
+            i.fas.fa-times.contact-delete-icon
+          a.contact-button(:href="callContact(contact)")
+            i.fas.fa-phone.contact-call-icon
+        h2.contact-info Name:
+          span {{ contact.name }}
+        h2.contact-info E-Mail:
+          span {{ contact.email }}
+        h2.contact-info Tel:
+          span {{ contact.number }}
+        h2.contact-info Message:
+          span {{ contact.message }}
 
 </template>
 
@@ -42,6 +46,9 @@ export default {
       } else {
 
       }
+    },
+    callContact(contact) {
+      return `tel:${contact.number}`
     }
   },
   created () {
@@ -58,29 +65,82 @@ export default {
 </script>
 
 <style lang="scss">
-.card {
-  background-color: #eee;
-  text-align: center;
+.padding-top {
+  padding-top: 120px;
+}
+
+.contact-container {
   max-width: 1200px;
+  margin: 30px auto;
 }
-.flex {
-  display: flex;
-  justify-content: center;
-}
-.delete {
+
+.contact-card {
+  background-color: #ccc;
+  text-align: center;
   position: relative;
+}
+
+.contact-btns-container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.contact-button {
+  border: none;
+  padding: 0;
+}
+
+
+.contact-delete-icon {
+  display: block;
   background-color: red;
-  justify-content: center;
+  color: black;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 
   &:hover {
     background-color: #444;
-    border: none;
-    outline: none;
+    color: red;
+  }
+}
 
-    .fas {
-      color: red;
-    }
+.contact-call-icon {
+  display: block;
+  background-color: yellow;
+  color: blue;
+  border: none;
+  padding: 10px;
+
+  &:hover {
+    background-color: blue;
+    color: yellow;
+  }
+}
+
+.contact-info {
+  padding-top: 20px;
+  font-family: SweetSans-Light;
+
+  span {
+    padding-left: 10px;
+    font-family: SweetSans-Thin;
   }
 
+  &:last-child {
+    padding-bottom: 20px;
+  }
 }
+
 </style>
