@@ -18,7 +18,7 @@
           )
       p.hidden-on-small ...read more
     div.line
-    div.flex
+    div.flex-showBlogs
       div.container(
         v-for="(blog, index) in blogs"
         v-if="index >= 1"
@@ -140,7 +140,7 @@ export default {
     background-color: #eee;
 
   }
-  .flex {
+  .flex-showBlogs {
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;

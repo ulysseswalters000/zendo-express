@@ -49,8 +49,8 @@ export default {
 
 <template lang="pug">
   div(id="feature" class="feature-template" data-matching-link="#feature")
-    div(class="container")
-      div.overlay(:style="backgroundImg")
+    div(class="container-feature padding-top")
+      div.overlay-feature(:style="backgroundImg")
       div.title {{article.title}}
     div
       nav.feature-nav(data-matching-link="#features-link")
@@ -72,9 +72,9 @@ export default {
             li.feature-item
               router-link(:to="{name: 'contentAndGraphic'}") Content &amp; Graphic Creation
       div.article-heading
-        div.line &nbsp;
+        div.line-feature &nbsp;
         h2.articleTitle {{article.title}}
-        div.line &nbsp;
+        div.line-feature &nbsp;
       div.copy
         div
           img(:src="svgUrl" class="floated")
@@ -86,6 +86,10 @@ export default {
 </template>
 
 <style lang="scss">
+
+.padding-top {
+  padding-top: 120px;
+}
 .copy {
   max-width: 376px;
   margin: 0 auto;
@@ -139,7 +143,7 @@ export default {
     margin-top: 60px;
   }
 
-  .line {
+  .line-feature {
     background-color: rgba($mainDarkerGrey, 0.5px);
     height: 8px;
   }
@@ -225,7 +229,7 @@ export default {
   }
 }
 
-.overlay {
+.overlay-feature {
   opacity: .5;
   position: absolute;
   top: 0;
@@ -257,8 +261,7 @@ export default {
   }
 }
 
-.container {
-  padding-top: 70px;
+.container-feature {
   text-align: center;
   display: flex;
   align-items: center;
