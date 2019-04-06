@@ -51,7 +51,7 @@
               li(v-if="currentUser")
                 a(@click="logOut") Logout
               li(v-if="currentUser")
-                router-link(to="dashboard") dashboard
+                router-link(to="dashboard") dash
 
     div.mobile-menu__menu-content
       ul(
@@ -180,7 +180,6 @@ const fb = require("../firebaseConfig")
 
       ul {
           position: relative;
-          padding-left: 0px;
           margin: 0;
 
 
@@ -188,8 +187,12 @@ const fb = require("../firebaseConfig")
               list-style: none;
               display: inline-block;
               height: 100%;
-              width: 125px;
+              width: 80px;
               text-align: center;
+
+              @include atLarge {
+                width: 120px;
+              }
 
 
               ul {

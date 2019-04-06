@@ -2,12 +2,13 @@
   div
     div.blog
       img(:src="blog.imgUrl")
-      h1 {{ blog.title }}
-      div.line
-      p.blog-body {{ blog.body }}
+      div(v-html="blog.content")
 </template>
 
 <script>
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+
 const fb = require('../firebaseConfig')
 
 export default {
@@ -30,16 +31,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .blog {
   padding-top: 120px;
   max-width: 1200px;
   margin: 0 auto;
+
+  .ql-align-center {
+    text-align: center;
+  }
 }
 
-.line {
-  border: 1px solid black;
-}
+
 
 </style>

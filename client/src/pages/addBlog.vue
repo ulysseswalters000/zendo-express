@@ -1,49 +1,55 @@
 <template lang="pug">
-  div
+  div.padding-top
+
     form(@submit.prevent)
-      label(for="title") Title
-      input.block(type="text" id="title" v-model="title")
-      label(for="body") Body
-      textarea(v-model="body[0]")
-      div.flex(v-for="(notUsed, index) in bodyItems")
-        textarea(type='text' v-model="body[index+1]")
-      label(for="picture") Image Url
-      input(type="text" v-model="imgUrl")
-      label(for="upload") Upload image
+      quillEditor.width(v-model="content"
+        ref="myQuillEditor"
+        :options="editorOption"
+        )
+      label(for="upload") Upload Main Image
       input(type='file' @change="handleFiles")
       button(@click.prevent="postBlog") Post Blog
-    button(@click='addPara') Add para
+    div.preview
+      h1 Preview
+      img(:src="imgUrl")
+      div(v-html="content") {{ content }}
     p {{ body }}
     p {{ bodyItems }}
 </template>
 
 <script>
+// Quill
+  // require styles
+  import 'quill/dist/quill.core.css'
+  import 'quill/dist/quill.snow.css'
+  import { quillEditor } from 'vue-quill-editor'
+
 const fb = require('../firebaseConfig')
 export default {
   name: 'AddBlog',
   components: {
+    quillEditor
   },
   data () {
     return {
-      title: '',
-      body: [],
-      bodyItems: [],
-      imgUrl: ''
+      imgUrl: '',
+      content: '<p>example content</p>',
+      editorOption: { /* quill options */}
+    }
+  },
+  computed: {
+    editor() {
+      return this.$refs.myQuillEditor.quill
     }
   },
   methods: {
-    addPara() {
-      this.bodyItems.push(this.body.length)
-    },
     postBlog() {
       fb.blogCollection.add({
         createdOn: new Date(),
-        title: this.title,
-        body: this.body,
+        content: this.content,
         imgUrl: this.imgUrl
       }).then( ref => {
-        this.title = ''
-        this.body = []
+        this.content = '<p>example content</p>'
         this.$router.push('/blogs')
       }).catch( err => {
         console.log(err);
@@ -53,8 +59,6 @@ export default {
       let file = e.target.files[0]
       console.log(file);
       let storageRef = fb.storage.ref(`blogImages/${file.name}`)
-      // const imageRef =  fb.storage.ref(file.name).child(file.name)
-
       storageRef.put(file).then( (snapshot) => {
         storageRef.getDownloadURL().then( url => {
           this.imgUrl = url
@@ -68,6 +72,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.width {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+}
+.padding-top {
+  padding-top: 120px;
+}
 form {
   padding-top: 120px;
   max-width: 1200px;

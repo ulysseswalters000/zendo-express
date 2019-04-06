@@ -141,6 +141,14 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "singleBlog" */ '@/pages/singleBlog.vue')
     },
     {
+      path: '/blog/edit/:id',
+      name: 'editBlog',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import(/* webpackChunkName: "editBlog" */ '@/pages/EditBlog.vue')
+    },
+    {
       path: '/contacts',
       name: 'contacts',
       meta: {
