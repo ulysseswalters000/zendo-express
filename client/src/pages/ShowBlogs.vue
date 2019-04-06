@@ -212,7 +212,7 @@ export default {
       background-color: #eee;
     }
 
-    .fas {
+    .fas.fa-times {
       color: red;
       padding: 10px;
 
@@ -233,7 +233,7 @@ export default {
       background-color: blue;
     }
 
-    .fas {
+    .fas.fa-pencil-alt {
       color: black;
       padding: 10px;
 
