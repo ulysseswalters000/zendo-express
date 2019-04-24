@@ -77,6 +77,8 @@
           v-bind:class="{'show-mobile-dropdown': innerMobileNav.showInnerDropdown}"
           )
           li.mobile-menu__menu-content--dropdown-li
+            router-link(to="/") Home
+          li.mobile-menu__menu-content--dropdown-li
             router-link(:to="{name: 'webdesign'}" id="features-link") Features
           li.mobile-menu__menu-content--dropdown-li
             a(href="/#teams" id="teams-link") Teams
@@ -193,7 +195,7 @@ const fb = require("../firebaseConfig")
               list-style: none;
               display: inline-block;
               height: 100%;
-              width: 80px;
+              width: 90px;
               text-align: center;
 
               @include atLarge {
@@ -221,7 +223,7 @@ const fb = require("../firebaseConfig")
                   width: 100%;
                   height: 100%;
                   display:inline-block;
-                  padding: 21px 0;
+                  padding: 21px 0px;
               }
 
               ul {

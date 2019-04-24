@@ -1,10 +1,10 @@
 <template lang="pug">
   div
     div.blog
-      h1.title.margin-bottom {{ title }}
       div.line
       img.margin-bottom(:src="blog.imgUrl" :alt="getTitle")
-      div.margin-bottom(v-html="blog.content")
+      div.line
+      div.content.margin-bottom(v-html="blog.content")
       button.btns.margin-bottom(v-if="currentUser" @click.prevent="editBlog(id)") Edit
 </template>
 
@@ -35,7 +35,6 @@ export default {
   computed: {
     getTitle() {
       let title = this.blog.content.match(/>([^>]+)</)[1]
-      this.title = title
       return title
     },
     ...mapState(['currentUser'])
@@ -50,18 +49,52 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .blog {
-  padding-top: 120px;
-  max-width: 1200px;
+  padding-top: 50px;
+  max-width: 1100px;
   margin: 0 auto;
+
+  @include atSmall {
+    padding-top: 120px;
+
+  }
+
+  .line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border: 1px black solid;
+    margin: 20px 0;
+  }
 
   .ql-align-center {
     text-align: center;
   }
 }
 
+.content {
+  max-width: 80%;
+  margin: 0 auto 40px auto;
 
+  /deep/ h1 {
+    text-align: center;
+  }
+
+  /deep/ p {
+    font-size: 1.1rem;
+
+    img {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  /deep/ a {
+    text-decoration: none;
+    color: $mainDarkerColor;
+  }
+}
 
 </style>

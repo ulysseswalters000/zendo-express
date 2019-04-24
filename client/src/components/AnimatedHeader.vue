@@ -22,10 +22,9 @@
       position: relative;
       width: 100%;
       height: 100%;
-      margin-top: 70px;
 
       @include atSmall {
-        margin-top: -5px;
+        margin-top: -15px;
       }
 
       @include atLarge {
