@@ -7,6 +7,7 @@
     Teams
     AboutUs
     GreaterHeights
+    Clients
 </template>
 
 <script>
@@ -17,6 +18,7 @@ import Teams from '@/components/Teams.vue'
 import AboutUs from '@/components/AboutUs.vue'
 import GreaterHeights from '@/components/GreaterHeights.vue'
 import AnimatedHeader from '@/components/AnimatedHeader.vue'
+import Clients from '@/components/ClientsSection.vue'
 
 export default {
   name: 'app',
@@ -28,6 +30,7 @@ export default {
     AboutUs,
     GreaterHeights,
     AnimatedHeader,
+    Clients
   }
 }
 </script>

@@ -20,7 +20,6 @@
     text-align: center;
     position: absolute;
     width: 100%;
-    border-top: 1px solid black;
 
     &__text {
       display: block;
