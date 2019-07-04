@@ -53,10 +53,13 @@ export default {
 }
 
 .link-container {
-    width: 144px;
+    width: 100%;
     position: relative;
+    margin: 1rem 1rem;
 
-
+    @include atSmall {
+      width: 23%;
+    }
 
 }
 

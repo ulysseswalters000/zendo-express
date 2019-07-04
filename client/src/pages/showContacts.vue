@@ -39,7 +39,16 @@ export default {
       if (answer){
         fb.contactCollection.doc(this.id[index]).delete().then( () => {
           console.log("Document deleted");
-          this.$router.push("/contacts")
+          this.id = [];
+          this.contacts = [];
+          fb.contactCollection.orderBy('createdOn').get().then( contacts => {
+            contacts.forEach( contact => {
+              this.id.push(contact.id)
+              this.contacts.push(contact.data())
+            })
+            this.id.reverse()
+            this.contacts.reverse()
+          })
         }).catch( err => {
           console.log("error deleting document", "=>", err);
         })
