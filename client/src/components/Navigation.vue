@@ -14,21 +14,10 @@
             li
               a(href='https://twitter.com/zendodigital')
                 i(class="fab fa-twitter-square fa-lg")
-    <!-- Mobile Nav Button -->
-    div(
-        class="mobile-menu"
-        v-bind:class="{'mobile-menu--is-expanded': revealMobileNav.toggleSiteHeader}"
-        )
-      div(
-        class="mobile-menu__menu-icon"
-        v-on:click="revealMobileNav.toggleMenuContent = !revealMobileNav.toggleMenuContent; revealMobileNav.toggleSiteHeader = !revealMobileNav.toggleSiteHeader; toggleMenuIcon = !toggleMenuIcon"
-        v-bind:class="{'mobile-menu__menu-icon--close-x': toggleMenuIcon}"
-        )
-        div.mobile-menu__menu-icon__middle
     <!-- Main Nav Container -->
     div.main-nav
       <!-- Brand -->
-      div.zendo_logo_small
+      a.zendo_logo_small(href="/")
         img(class='zendo_logo_small--img' src="../assets/images/zendo_logo_small.png")
         p.zendo_logo_small--brand-first
           | endo
@@ -37,14 +26,20 @@
       nav(role='navigation')
             ul.main-nav__first-ul
               li.home-li
-                a(href="/" id="home") Home
+                a(href="/" id="home") Services
                 ul.drop-menu
-                  li.dropdown-li
-                    router-link(:to="{name: 'webdesign'}" id="features-link") Features
-                  li.dropdown-li
-                    a(href="/#teams" id="teams-link") Teams
-                  li.dropdown-li
-                    a(href="/#about-us" id="about-us-link") About
+                  li 
+                    router-link(:to="{name: 'webdesign'}") Web Design
+                  li 
+                    router-link(:to="{name: 'socialmedia'}") Social Media
+                  li 
+                    router-link(:to="{name: 'seo'}") SEO
+                  li 
+                    router-link(:to="{name: 'photoAndVideo'}") Photo and Video
+                  li 
+                    router-link(:to="{name: 'reputationManagement'}") Reputation Management
+                  li 
+                    router-link(:to="{name: 'contentAndGraphic'}") Content and Graphics
               li
                 router-link(to='/contact') Contact
               li
@@ -55,38 +50,54 @@
                 a(@click="logOut") Logout
               li(v-if="currentUser")
                 router-link(to="/dashboard") dash
-    <!-- Mobile Nav Container -->
+    <!-- Mobile Nav Button -->
+    div(
+        class="mobile-menu"
+        )
+      <!-- Menu Icon three lines, changes to x when clicked  -->
+      div(
+        class="mobile-menu__menu-icon"
+        @click="toggleMobileMenu = !toggleMobileMenu; showInnerDropdown = false"
+        v-bind:class="{'mobile-menu__menu-icon--close-x': toggleMobileMenu}"
+        )
+        div.mobile-menu__menu-icon__middle
+    <!-- Mobile Nav Menu Content Container -->
     div.mobile-menu__menu-content
       ul(
         class="mobile-menu__menu-content__list-container"
-        v-bind:class="{'mobile-menu__menu-content__list-container--is-visible': revealMobileNav.toggleMenuContent}"
+        v-bind:class="{'mobile-menu__menu-content__list-container--is-visible': toggleMobileMenu}"
         )
-        li(
-          class="mobile-menu__menu-content--show-dropdown"
-          v-on:click="innerMobileNav.showInnerDropdown = !innerMobileNav.showInnerDropdown; innerMobileNav.caretDownIsVisible = !innerMobileNav.caretDownIsVisible; innerMobileNav.caretRightIsHidden = !innerMobileNav.caretRightIsHidden;"
-          ) Home
-          span
-             i(
-               class="fas fa-caret-right"
-               v-bind:class="{'caret-right--is-hidden': innerMobileNav.caretRightIsHidden}"
-               )
-          span
-            i(
-              class="caret-down fas fa-caret-down"
-              v-bind:class="{'caret-down--is-visible': innerMobileNav.caretDownIsVisible}"
-              )
+        li
+          router-link(to='/') Home
+        li
+          a.prevent(
+            class="mobile-menu__menu-content--show-dropdown"
+            @click="showInnerDropdown = !showInnerDropdown"
+            ) Services
+            span(v-if="!showInnerDropdown")
+               i(
+                 class="fas fa-caret-right"
+                 )
+            span(v-if="showInnerDropdown")
+              i(
+                class="fas fa-caret-down"
+                )
         ul(
           class="mobile-menu__menu-content--drop-menu"
-          v-bind:class="{'show-mobile-dropdown': innerMobileNav.showInnerDropdown}"
+          v-bind:class="{'show-mobile-dropdown': showInnerDropdown}"
           )
-          li.mobile-menu__menu-content--dropdown-li
-            router-link(to="/") Home
-          li.mobile-menu__menu-content--dropdown-li
-            router-link(:to="{name: 'webdesign'}" id="features-link") Features
-          li.mobile-menu__menu-content--dropdown-li
-            a(href="/#teams" id="teams-link") Teams
-          li(class="mobile-menu__menu-content--dropdown-li")
-            a(href="/#about-us" id="about-us-link") About
+          li 
+            router-link(:to="{name: 'webdesign'}") Web Design
+          li 
+            router-link(:to="{name: 'socialmedia'}") Social Media
+          li 
+            router-link(:to="{name: 'seo'}") SEO
+          li 
+            router-link(:to="{name: 'photoAndVideo'}") Photo and Video
+          li 
+            router-link(:to="{name: 'reputationManagement'}") Reputation Management
+          li 
+            router-link(:to="{name: 'contentAndGraphic'}") Content and Graphics
         li
           router-link(to='/contact') Contact
         li
@@ -100,25 +111,23 @@
 </template>
 
 <script>
+// imports user state from vuex plugin
 import { mapState } from 'vuex'
+// imports firebase methods from firebaseConfig
 const fb = require("../firebaseConfig")
   export default {
     name: 'Navigation',
     data: function () {
       return {
-        revealMobileNav: {
-          toggleMenuIcon: false,
-          toggleSiteHeader: false,
-          toggleMenuContent: false
-        },
-        innerMobileNav: {
-          showInnerDropdown: false,
-          caretRightIsHidden: false,
-          caretDownIsVisible: false
-        }
+        // toggleable booleans for mobile menu and showInnerDropdown respectively
+        // used to bind css classes 
+        toggleMobileMenu: false,
+        showInnerDropdown: false
       }
     },
     methods: {
+      // logs out of firebase, changes user state, programmatically navigates
+      // to login screen.
       logOut() {
         fb.auth.signOut().then( () => {
           this.$store.dispatch('clearData')
@@ -126,6 +135,7 @@ const fb = require("../firebaseConfig")
         })
       }
     },
+    // actually maps the user state if logged in
     computed: {
       ...mapState(['currentUser'])
     }
@@ -133,10 +143,11 @@ const fb = require("../firebaseConfig")
 </script>
 
 <style lang="scss">
-
+  // z-index necessary for precedence over other elements
   .fixed-header {
       position: fixed;
       width: 100%;
+      z-index: 99;
   }
 
   .social-nav {
@@ -242,6 +253,13 @@ const fb = require("../firebaseConfig")
                   left: 0;
                   display: none;
                   z-index: 1;
+                  
+                  li {
+                    
+                    a {
+                      font-size: .75rem;
+                    }
+                  }
 
               }
           }
@@ -250,7 +268,11 @@ const fb = require("../firebaseConfig")
 
       .zendo_logo_small {
           margin-right: auto;
-          padding-top:5px;
+          padding: 5px 10px 0 0;
+          
+          &:hover {
+            background-color: #7cc5d3;
+          }
 
           &--img {
               width:32px;
@@ -288,6 +310,8 @@ const fb = require("../firebaseConfig")
     position: absolute;
     z-index: 2;
     width: 100%;
+    top: 0;
+    left: 0;
     transition: background-color .3s ease-out;
 
     &__menu-content {
@@ -319,79 +343,77 @@ const fb = require("../firebaseConfig")
                     color: $mainWhite;
                     display: block;
                     position: relative;
-                    padding: 10px 0;
                     background-color: #000;
                     width: 100%;
                     border-top: 1px $mainWhite solid;
-                    padding-left: 10px;
                     font-size: 1.5em;
 
                       a {
+                          padding: 10px 0 10px 10px;;
                           width: 100%;
                           height: 100%;
                           text-decoration: none;
                           display: block;
                           color: $mainWhite;
                       }
+                      a:hover {
+                        background-color: #eee;
+                        color: #aaa;
+                      }
                 }
 
                 > li:last-child {
-                    padding-bottom: 10px;
                     border-bottom: 1px $mainWhite solid;
                 }
             }
         }
 
         &--drop-menu {
-                visibility: hidden;
-                  opacity: 0;
-                  transition: all 0.5s ease;
-                  top:0;
-                  left: 0;
-                  display: none;
-                  list-style: none;
+          visibility: hidden;
+          opacity: 0;
+          transition: all 0.5s ease;
+          top:0;
+          left: 0;
+          display: none;
+          list-style: none;
 
-                  > li {
-                    display: flex;
-                    width: 100%;
-                    height: 51px;
-                    justify-content: center;
-                    flex-direction: column;
+          > li {
+            display: flex;
+            width: 100%;
+            height: 51px;
+            justify-content: center;
+            flex-direction: column;
 
-                      a {
-                          display: flex;
-                          color: $mainWhite;
-                          width: 100%;
-                          height: 100%;
-                          font-size: 1rem;
-                          text-decoration: none;
-                          font-size: 1.5rem;
-                          border-top: 1px solid $mainWhite;
-                          align-items: center;
-                          justify-content: center;
-                      }
-                      a:hover {
-                          background-color: #eee;
-                          color: #aaa;
-                      }
-                  }
-
-
-        }
+              a {
+                  display: flex;
+                  color: $mainWhite;
+                  width: 100%;
+                  height: 100%;
+                  text-decoration: none;
+                  font-size: 1rem;
+                  border-top: 1px solid $mainWhite;
+                  align-items: center;
+                  padding-left: 20px;
+              }
+              a:hover {
+                  background-color: #eee;
+                  color: #aaa;
+              }
+              a:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
 
        .show-mobile-dropdown {
-                    visibility: visible;
-                    opacity: 1;
-                    display: block;
-                    margin: 0;
-                    padding: 0;
-                 }
+          visibility: visible;
+          opacity: 1;
+          display: block;
+          margin: 0;
+          padding: 0;
+       }
 
 
-    }
-
-    &--is-expanded {
-      background-color: rgba($mainDarkGrey, .55);
     }
 
     &__menu-icon:hover {
@@ -402,8 +424,8 @@ const fb = require("../firebaseConfig")
       width: 20px;
       height: 20px;
       position: absolute;
-      top: -37px;
-      left: 10px;
+      top: 15px;
+      left: 15px;
       z-index: 10;
 
       &::before {
@@ -466,15 +488,7 @@ const fb = require("../firebaseConfig")
 
 
 
-  .caret-right--is-hidden {
-      display: none;
-  }
 
-  .caret-down {
-      display: none;
-  }
 
-  .caret-down--is-visible {
-      display: inline;
-  }
+
 </style>
