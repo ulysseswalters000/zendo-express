@@ -1,5 +1,6 @@
 <template lang="pug">
   div.fixed-header
+    <!-- Social Nav Container -->
     div.social-nav
       nav
         ul
@@ -13,7 +14,7 @@
             li
               a(href='https://twitter.com/zendodigital')
                 i(class="fab fa-twitter-square fa-lg")
-
+    <!-- Mobile Nav Button -->
     div(
         class="mobile-menu"
         v-bind:class="{'mobile-menu--is-expanded': revealMobileNav.toggleSiteHeader}"
@@ -24,13 +25,15 @@
         v-bind:class="{'mobile-menu__menu-icon--close-x': toggleMenuIcon}"
         )
         div.mobile-menu__menu-icon__middle
-
+    <!-- Main Nav Container -->
     div.main-nav
+      <!-- Brand -->
       div.zendo_logo_small
         img(class='zendo_logo_small--img' src="../assets/images/zendo_logo_small.png")
         p.zendo_logo_small--brand-first
           | endo
           span.zendo_logo_small--lighter-font Digital
+      <!-- Nav Elements -->
       nav(role='navigation')
             ul.main-nav__first-ul
               li.home-li
@@ -52,7 +55,7 @@
                 a(@click="logOut") Logout
               li(v-if="currentUser")
                 router-link(to="/dashboard") dash
-
+    <!-- Mobile Nav Container -->
     div.mobile-menu__menu-content
       ul(
         class="mobile-menu__menu-content__list-container"
@@ -131,14 +134,9 @@ const fb = require("../firebaseConfig")
 
 <style lang="scss">
 
-  .fas {
-    padding-left: 10px;
-  }
-
   .fixed-header {
       position: fixed;
       width: 100%;
-      z-index: 99;
   }
 
   .social-nav {
@@ -171,6 +169,14 @@ const fb = require("../firebaseConfig")
         }
       }
   }
+
+  .fas {
+    padding-left: 10px;
+  }
+
+
+
+
 
 
   .main-nav {
