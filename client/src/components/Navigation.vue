@@ -68,7 +68,12 @@
         v-bind:class="{'mobile-menu__menu-content__list-container--is-visible': toggleMobileMenu}"
         )
         li
-          router-link(to='/') Home
+        <!-- Mobile Branding -->
+          a.mobile-brand(href="/")
+            img(src="../assets/images/zendo_logo_small.png")
+            p
+              | endo
+              span Digital
         li
           a.prevent(
             class="mobile-menu__menu-content--show-dropdown"
@@ -297,8 +302,6 @@ const fb = require("../firebaseConfig")
         }
       }
 
-
-
   .home-li:hover > ul{
         visibility: visible;
         opacity: 1;
@@ -318,7 +321,29 @@ const fb = require("../firebaseConfig")
         display: flex;
         background-color: black;
 
-
+      .mobile-brand {
+        display: flex;
+        text-decoration: none;
+        color: #000000;
+        text-transform: uppercase;
+        align-items: center;
+        padding-left: 10px;
+        background-color: #eeeeef;
+        
+        &:hover {
+          background-color: #AAAAAF;
+        }
+        
+        img {
+          width: 32px;
+          height: 32px;
+        }
+        p {
+          span {
+            font-family: SweetSans-Light;
+          }
+        }
+      }
 
         @include atMedium {
                 display: none;
