@@ -3,33 +3,29 @@
     div(class="heading" :style="backgroundImg")
       h1 Digital Marketing Made Easy
       button(@click="contactNav") Contact Us
+    <!-- Show on mobile -->
     div#mobile
       nav.nav-element
         ul
           li
-            a(href="#" @click="showIntermediate") Intermediate
-          li
             a(href="#" @click="showAdvanced") Advanced
           li
             a(href="#" @click="showExpert") Expert
-        div.content
-          h2 {{ plan.title.desc }}
-          p  {{ plan.title.tagLine }}
-          p.price_desc Start for
-          h2.price {{ plan.price }}
-          p.price_desc /month and up
-          router-link(class="cta-button" :to="{ name: 'contact'}") Contact Us
-          div.line
-          h3 Included
-          div.line
-          div(class="flex" v-for="feature in plan.features")
-            p.half-width {{ feature.name }}
-            p(v-if="feature.desc == true" class="half-width padding-left")
-              i.fas.fa-check
-            p(v-else-if="feature.desc == false" class="half-width padding-left")
-              i.fas.fa-times
-            p(v-else="feature.desc" class="half-width padding-left") {{ feature.desc }}
-          div.line.marg-bot
+      div.content
+        h2 {{ plan.title.desc }}
+        p  {{ plan.title.tagLine }}
+        router-link(class="cta-button" :to="{ name: 'contact'}") Contact Us 
+        div.line
+        h3 Included
+        div.line
+        div(class="flex" v-for="feature in plan.features")
+          p.half-width {{ feature.name }}
+          p(v-if="feature.desc == true" class="half-width padding-left")
+            i.fas.fa-check
+          p(v-else-if="feature.desc == false" class="half-width padding-left")
+            i.fas.fa-times
+          p(v-else="feature.desc" class="half-width padding-left") {{ feature.desc }}
+        div.line.marg-bot
     div#larger-screen
       h2.brand-first-word Zendo
         span.brand-second-word Digital
@@ -43,39 +39,12 @@
             p {{ this.Data.beginnerPlan.title.tagLine }}
         div.col
           div.content-marg
-            h2 {{ this.Data.intermediatePlan.title.desc }}
-            p {{ this.Data.intermediatePlan.title.tagLine }}
-        div.col
-          div.content-marg
             h2 {{ this.Data.advancedPlan.title.desc }}
             p {{ this.Data.advancedPlan.title.tagLine }}
         div.col
           div.content-marg
             h2 {{ this.Data.expertPlan.title.desc }}
             p {{ this.Data.expertPlan.title.tagLine }}
-      div.l-flex
-        div.col-smaller
-          h4 Pricing
-        div.col.padding-top.padding-bottom
-          div.content-marg
-            p.no-marg Start for
-            h1.no-marg.larger-text {{ this.Data.beginnerPlan.price }}
-            p.no-marg /month and up
-        div.col.padding-top.padding-bottom
-          div.content-marg
-            p.no-marg Start for
-            h1.no-marg.larger-text {{ this.Data.intermediatePlan.price }}
-            p.no-marg /month and up
-        div.col.padding-top.padding-bottom
-          div.content-marg
-            p.no-marg Start for
-            h1.no-marg.larger-text {{ this.Data.advancedPlan.price }}
-            p.no-marg /month and up
-        div.col.padding-top.padding-bottom
-          div.content-marg
-            p.no-marg Start for
-            h1.no-marg.larger-text {{ this.Data.expertPlan.price }}
-            p.no-marg /month and up
       div.full-width-line
       div.l-flex
         div.col-smaller
@@ -85,13 +54,10 @@
             h3 {{ this.Data.beginnerPlan.title.desc }}
         div.col
           div.content-marg
-            h3 {{ this.Data.intermediatePlan.title.desc }}
+            h3 {{ this.Data.beginnerPlan.title.desc }} Features +
         div.col
           div.content-marg
-            h3 {{ this.Data.advancedPlan.title.desc }}
-        div.col
-          div.content-marg
-            h3 {{ this.Data.expertPlan.title.desc }}
+            h3 {{ this.Data.advancedPlan.title.desc }} Features +
       div.full-width-line
       div.l-flex
         div.col-smaller
@@ -99,14 +65,6 @@
         div.col
           div.content-marg
             div(v-for="feature in this.Data.beginnerPlan.features")
-              p(v-if="feature.desc === false")
-                i.fas.fa-times
-              p(v-else-if="feature.desc === true")
-                i.fas.fa-check
-              p(v-else) {{feature.desc}}
-        div.col
-          div.content-marg
-            div(v-for="feature in this.Data.intermediatePlan.features")
               p(v-if="feature.desc === false")
                 i.fas.fa-times
               p(v-else-if="feature.desc === true")
@@ -129,6 +87,8 @@
                 i.fas.fa-check
               p(v-else) {{feature.desc}}
       div.full-width-line.marg-bot
+    div.pricing-cta-button
+      button(@click="contactNav") Contact Us for a quote
     TheFooter
 </template>
 
@@ -228,7 +188,7 @@
 
 
     .col {
-      width: 20%;
+      width: 30%;
       padding-right: 1rem;
 
       .no-marg {
@@ -296,12 +256,14 @@
   }
 
   .nav-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     ul {
       list-style: none;
       padding: 0;
       margin-top: 60px;
-      width: 330px;
       margin: 60px auto;
       display: flex;
       border: 1px $mainDarkGrey solid;
@@ -311,6 +273,7 @@
       }
       li {
         border-left: 1px $mainDarkGrey solid;
+        width: 125px;
 
         a {
           display: block;
@@ -319,6 +282,7 @@
           padding: 20px;
           text-decoration: none;
           color: inherit;
+          text-align: center;
         }
 
         a:hover {
@@ -344,6 +308,7 @@
 
     .cta-button {
       text-decoration: none;
+      text-transform: uppercase;
       display: block;
       color: inherit;
       text-align: center;
@@ -374,6 +339,24 @@
 
       .half-width {
         width: 50%;
+      }
+    }
+  }
+  
+  .pricing-cta-button {
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    button {
+      padding: 15px;
+      text-transform: uppercase;
+      border: 0px solid black;
+      border-radius: 15px;
+      background-color: #dedede;
+      
+      &:hover {
+        background-color: #cdcdcd;
       }
     }
   }

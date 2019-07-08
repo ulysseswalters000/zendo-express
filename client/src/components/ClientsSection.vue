@@ -18,6 +18,16 @@
           img.img-size(src="../assets/images/clientLogos/rvaglasslogo-768x379.png")
           div.client-overlay
             h2 Visit Site
+      div.link-container
+        a.link(href="https://truebleuhealing.com")
+          img.img-size(src="../assets/images/clientLogos/trueBleu_logo.jpg")
+          div.client-overlay
+            h2 Visit Site
+      div.link-container
+        a.link(href="https://peachtreefamilydentistry.com")
+          img.img-size(src="../assets/images/clientLogos/peachTree_logo.webp")
+          div.client-overlay
+            h2 Visit Site
 </template>
 
 <script>
@@ -53,7 +63,7 @@ export default {
 }
 
 .link-container {
-    width: 100%;
+    width: 50%;
     position: relative;
     margin: 1rem 1rem;
 
@@ -89,15 +99,12 @@ export default {
 
   &:hover > .client-overlay {
     visibility: visible;
-    border-radius: 50%;
   }
 }
 
 .img-size {
   width: 100%;
   height: 100%;
-  border: 1px black solid;
-  border-radius: 100%;
 }
 
 

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.video
-    video(muted autoplay loop src="../assets/videos/Spring_1080.mp4")
+    video(muted autoplay loop src="../assets/videos/zendo_summer_final.mp4")
     h1
       | Custom Digital Marketing Solutions for
       br
@@ -22,13 +22,10 @@
       position: relative;
       width: 100%;
       height: 100%;
-
-      @include atSmall {
-        margin-top: -15px;
-      }
-
+      margin-top: 50px;
+      
       @include atLarge {
-        margin-top: -105px;
+        margin-top: 100px;
       }
     }
 
