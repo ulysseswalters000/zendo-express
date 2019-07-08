@@ -20,6 +20,7 @@ export default {
   name: 'singleBlog',
   components: {
   },
+  params: [],
   data () {
     return {
       id: this.$route.params.id,

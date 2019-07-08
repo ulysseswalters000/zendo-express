@@ -4,7 +4,7 @@
       div.page-container
         h1.title.margin-bottom {{ title }}
         div.line
-        img.featured-image(:src="blog.imgUrl" :alt="getTitle")
+        img.featured-image(:src="blog.imgUrl" :alt="this.title")
         label.own-line(for="upload") Change Main Image: This will delete the other from database
         input.margin-bottom(type='file' @change="handleFiles")
         quillEditor.editor(v-model="content"
@@ -12,8 +12,8 @@
           )
         button.btns.margin-bottom(@click='updateBlog(id)') Update
         button.btns.margin-bottom(@click='singleBlog(id)') View Blog
-      
-      
+
+
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
       id: this.$route.params.id,
       blog: {},
       content: '',
-      title: ''
+      title: this.$route.params.title
     }
   },
   methods: {
@@ -67,11 +67,6 @@ export default {
   computed: {
     editor() {
       return this.$refs.myQuillEditor.quill
-    },
-    getTitle() {
-      let title = this.content.match(/>([^>]+)</)[1]
-      this.title = title
-      return title
     }
   },
   created() {
@@ -109,13 +104,13 @@ export default {
   border: none;
   color: yellow;
   background-color: blue;
-  padding: 10px; 
+  padding: 10px;
   text-transform: uppercase;
-  
+
   &:last-child {
     margin-left: 20px;
   }
-  
+
   &:hover {
     color: blue;
     background-color: yellow;

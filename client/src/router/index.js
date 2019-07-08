@@ -136,8 +136,9 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "Blogs" */ '@/pages/addBlog.vue')
     },
     {
-      path: '/blog/:id',
+      path: '/blog/:title',
       name: 'singleBlog',
+      props: true,
       component: () => import(/* webpackChunkName: "singleBlog" */ '@/pages/singleBlog.vue')
     },
     {

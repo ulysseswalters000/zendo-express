@@ -1,5 +1,6 @@
 <template lang="pug">
   div.padding-top
+    h1 {{ blogTitle }}
     h1.heading-title  Our Most
       span.font-weight  recent Posts
     div.line
@@ -8,14 +9,13 @@
         i.fas.fa-times
       button.edit(v-if="currentUser" @click='editBlog(id[0])')
         i.fas.fa-pencil-alt
-      div.overlay(v-if="!currentUser" @click="singleBlog(id[0])")
+      div.overlay(v-if="!currentUser" @click="singleBlog(id[0], blogTitle[0])")
         h2 read more
 
       img(
         :src="blogs[0].imgUrl"
         )
-      h1(v-html="blogs[0].content.match(/>([^>]+)</)[1].slice(0,100) + '...'"
-          )
+      h1 {{ blogTitle[0]}}
       p.hidden-on-small ...read more
     div.line
     div.flex-showBlogs
@@ -27,11 +27,11 @@
           i.fas.fa-times
         button.edit(v-if="currentUser" @click='editBlog(id[index])')
           i.fas.fa-pencil-alt
-        div.overlay(v-if="!currentUser" @click="singleBlog(id[index])")
+        div.overlay(v-if="!currentUser" @click="singleBlog(id[index], blogTitle[index])")
           h2 read more
 
         img(:src="blog.imgUrl")
-        h1.align-left(v-html="blog.content.match(/>([^>]+)</)[1].slice(0,100) + '...'")
+        h1.align-left(v-html="blogTitle[index] + '...'")
         p.hidden-on-small ...read more
 
 
@@ -50,12 +50,13 @@ export default {
     return {
       id: [],
       blogs: [],
+      blogTitle: []
     }
   },
   methods: {
-    singleBlog(id){
-      console.log(id);
-      this.$router.push(`/blog/${id}`)
+    singleBlog(id, title){
+      let replacedTitle = title.replace(/\s+/g, "-");
+      this.$router.push({name: `singleBlog`, params: {id: `${id}`, title: `${replacedTitle}`}})
     },
     deleteBlog(id) {
       console.log(id);
@@ -78,19 +79,13 @@ export default {
     }
   },
   created () {
-    fb.blogCollection.orderBy('createdOn', 'desc').get()
-      .then( blogs => {
-        blogs.forEach(blog => {
-          this.id.push(blog.id)
-          this.blogs.push(blog.data())
-        })
-      .catch( err => {
-        console.log(err);
+    fb.blogCollection.orderBy('createdOn', 'desc').get().then( blogs => {
+      blogs.forEach((blog, i) => {
+        this.id.push(blog.id)
+        this.blogs.push(blog.data())
+        let title = blog.data().content.match(/(?<=(<h1>)).*?(?=(<\/h1>))/)[0]
+        this.blogTitle.push(title)
       })
-
-    })
-    this.blogs.forEach(blog => {
-      console.log(blog);
     })
   },
   computed: {
@@ -124,7 +119,7 @@ export default {
   }
 
   .line {
-    border: 6px solid #444;
+    border: 2px solid #444;
     max-width: 1200px;
     margin: 0 auto 30px auto;
   }
