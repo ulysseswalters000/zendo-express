@@ -1,5 +1,6 @@
 <template lang="pug">
   div.padding-top
+    h1 {{ blogTitle }}
     h1.heading-title  Our Most
       span.font-weight  recent Posts
     div.line
